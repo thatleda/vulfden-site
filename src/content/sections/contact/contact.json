@@ -1,0 +1,13 @@
+{
+  "name": "Leda Wolf",
+  "email": "hello@leda.fyi",
+  "description": "If you have developed a strong desire to communicate or collaborate, please don't hesitate and write to:",
+  "image": {
+    "src": "../../images/wolf.png",
+    "alt": "Wolf Logo"
+  },
+  "socialProfiles": {
+    "from": ["LinkedIn", "Github", "Mail"],
+    "showIcons": true
+  }
+}

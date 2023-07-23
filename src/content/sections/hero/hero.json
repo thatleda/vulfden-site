@@ -1,0 +1,22 @@
+{
+  "intro": "Awoo ",
+  "heroPhoto": {
+    "src": "../../images/leda.jpeg",
+    "alt": "Leda's photo"
+  },
+  "image": {
+    "src": "../../images/wolf.png",
+    "alt": "Howling Wolf icon"
+  },
+  "title": "I'm a software engineer.",
+  "subtitle": {
+    "prefix": "Let's see if I'm a ",
+    "highlight": "good fit",
+    "suffix": " for your company."
+  },
+  "description": "Look around and let me know what you think.",
+  "socialProfiles": {
+    "from": ["LinkedIn", "Github", "Mail"],
+    "showIcons": false
+  }
+}
