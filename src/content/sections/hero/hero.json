@@ -16,7 +16,7 @@
   },
   "description": "Look around and let me know what you think.",
   "socialProfiles": {
-    "from": ["LinkedIn", "Github", "Mail"],
+    "from": ["LinkedIn", "Github", "Discord", "Mail"],
     "showIcons": false
   }
 }
