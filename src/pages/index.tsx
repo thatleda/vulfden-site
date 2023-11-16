@@ -26,7 +26,15 @@ const IndexPage: React.FC<PageProps> = () => {
       <Animation>
         <Section sectionId="testimonials" heading="Testimonials">
           <div>
-            <span>TBD</span>
+            <p>Will be carefully curated by our most beautiful women, until then, enjoy my work playlist:</p>
+            <iframe
+              src="https://open.spotify.com/embed/playlist/1JNp21xKrHEI7Kt5sWZye7?utm_source=generator&theme=0"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
           </div>
         </Section>
       </Animation>
