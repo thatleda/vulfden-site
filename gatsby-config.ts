@@ -71,7 +71,7 @@ const config: GatsbyConfig = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "static",
-        path: "./src/static/",
+        path: "./static/",
       },
       __key: "static",
     },
