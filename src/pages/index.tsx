@@ -71,7 +71,10 @@ const IndexPage: React.FC<PageProps> = () => {
             used as everything. Combining XML visual changes with JavaScript
             data fetching didn't seem like a good idea at the time, and still
             isn't, but very much solidified my judgement-free Whatever Works
-            approach to life, giving me some hefty opinions.
+            approach to life, giving me some hefty opinions. I learned Java,
+            using the eloquent syntax of Spring and fast bootstrapping of Boot,
+            I also overcomplicated at least 2 internal applications with a fully
+            React single page frontend, very fashionable at the time.
           </p>
           <p>
             But precipitating the new microservice system being labeled a hugely
