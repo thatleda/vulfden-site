@@ -89,7 +89,12 @@ const IndexPage: React.FC<PageProps> = () => {
             After two years of frontend bliss with Vue.js in its many but very
             similar shapes, I launched a website with my new employer Tallence,
             but due to fundamental disagreements on the use of outdated
-            technology, I became part of Grover.
+            technology, I became part of Grover, where I rekindled my
+            long-standing affair with React, dropping Vue.js like a
+            template-tagged ugly potato. There, I also benefitted from a wide
+            open free architecture, as diverse and bright as the people of
+            Grover themselves and as littered with problems as a landscape would
+            allow. I ... loved it.
           </p>
           <p>
             To say it was a bad time would be a lie and also in breach of the
