@@ -15,7 +15,14 @@ const IndexPage: React.FC<PageProps> = () => {
     <Page useSplashScreenAnimation>
       <Seo title="Leda Wolf" />
       <HeroSection sectionId="hero" />
-      <AboutSection sectionId="about" heading="Who?" />
+      <AboutSection sectionId="leda" heading="Who?" />
+      <Animation>
+        <Section sectionId="previously" heading="The road so far...">
+          <div>
+            <span>TBD</span>
+          </div>
+        </Section>
+      </Animation>
       <Animation>
         <Section sectionId="testimonials" heading="Testimonials">
           <div>
@@ -30,4 +37,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => <title>Vulfden</title>;
