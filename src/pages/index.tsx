@@ -15,12 +15,9 @@ const IndexPage: React.FC<PageProps> = () => {
     <Page useSplashScreenAnimation>
       <Seo title="Leda Wolf" />
       <HeroSection sectionId="hero" />
-      <AboutSection sectionId="leda" heading="Who?" />
+      <AboutSection sectionId="who" heading="Who?" />
       <Animation>
-        <Section
-          sectionId="previously"
-          heading="Previously on Leda's Adventures"
-        >
+        <Section anchor="previously" heading="Previously on Leda's Adventures">
           <p>
             "All men dream: but not equally. Those who dream by night in the
             dusty recesses of their minds wake in the day to find that it was
@@ -122,7 +119,7 @@ const IndexPage: React.FC<PageProps> = () => {
         </Section>
       </Animation>
       <Animation>
-        <Section sectionId="testimonials" heading="Testimonials">
+        <Section anchor="testimonials" heading="Testimonials">
           <div>
             <p>
               Will be carefully curated by our most beautiful women, until then,
