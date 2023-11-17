@@ -3,6 +3,7 @@ import type { HeadFC, PageProps } from "gatsby";
 import {
   Page,
   HeroSection,
+  ProjectsSection,
   AboutSection,
   ContactSection,
   Seo,
@@ -15,6 +16,18 @@ const IndexPage: React.FC<PageProps> = () => {
     <Page useSplashScreenAnimation>
       <Seo title="Leda Wolf" />
       <HeroSection sectionId="hero" />
+      <Animation>
+        <Section>
+          <iframe
+            src="https://open.spotify.com/embed/playlist/1JNp21xKrHEI7Kt5sWZye7?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </Section>
+      </Animation>
       <AboutSection sectionId="who" heading="Who?" />
       <Animation>
         <Section anchor="previously" heading="Previously on Leda's Adventures">
@@ -126,24 +139,10 @@ const IndexPage: React.FC<PageProps> = () => {
           </p>
         </Section>
       </Animation>
-      <Animation>
-        <Section anchor="testimonials" heading="Testimonials">
-          <div>
-            <p>
-              Will be carefully curated by our most beautiful women, until then,
-              enjoy my work playlist:
-            </p>
-            <iframe
-              src="https://open.spotify.com/embed/playlist/1JNp21xKrHEI7Kt5sWZye7?utm_source=generator&theme=0"
-              width="100%"
-              height="352"
-              frameBorder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            ></iframe>
-          </div>
-        </Section>
-      </Animation>
+      <ProjectsSection
+        sectionId="testimonials"
+        heading="Testimonials"
+      ></ProjectsSection>
       <ContactSection sectionId="github" heading="What is she up to?" />
     </Page>
   );
