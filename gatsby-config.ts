@@ -33,6 +33,7 @@ const config: GatsbyConfig = {
         contentDirectory: "./src/content",
         blogSettings: {
           path: "/blog", // Defines the slug for the blog listing page
+          entityName: 'Articles',
           usePathPrefixForArticles: false, // Default true (i.e. path will be /blog/first-article)
         },
       },
