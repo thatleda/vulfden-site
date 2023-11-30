@@ -49,6 +49,7 @@ const Testimonial: React.FC<TestimonialProps> = (props: TestimonialProps) => {
       <GatsbyImage
         image={props.picture.asset.gatsbyImageData}
         alt={props.reviewer}
+        imgStyle={{borderRadius: 20}}
       ></GatsbyImage>
       <Text lang="en">
         <Comment>{props.comment}</Comment>
