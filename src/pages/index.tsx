@@ -15,7 +15,7 @@ import { PortableText } from "@portabletext/react";
 const IndexPage: React.FC<PageProps> = () => {
   const bioFromSanity = useStaticQuery(graphql`
     query {
-      sanityArticle(_id: { eq: "2c489898-c4b3-4511-ad89-a1c0610adfae" }) {
+      sanityArticle(slug: { current: { eq: "the-road-so-far" } }) {
         _id
         title
         _rawContent
