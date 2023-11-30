@@ -1,25 +1,5 @@
 {
-  "projects": [
-    {
-      "visible": true,
-      "category": "",
-      "title": "Marta Gilabert Guzman",
-      "description": "'I got the opportunity to work with Leda at Grover. She was my mentor during that time, and I just have good words to describe her. She is the most brilliant, honest, and funny person I've met, she helped me not only improve my technical skills, but to overcome personal challenges and blockers that didn't allow me to truly trust myself. Blockers that I didn't even know I had and she cleverly pointed out, always from a place of respect and empathy. She taught me so much, and even though we are not working together anymore, I know I am taking these learnings with me wherever I go.'",
-      "tags": [""],
-      "image": {
-        "src": "../../images/marta.jpeg",
-        "alt": "Marta Gilabert Guzman",
-        "linkTo": "https://www.linkedin.com/in/martagilabertgu/",
-        "objectFit": ""
-      },
-      "links": [
-        {
-          "type": "linkedin",
-          "url": "https://www.linkedin.com/in/martagilabertgu/"
-        }
-      ]
-    }
-  ],
+  "projects": [],
   "button": {
     "visible": false,
     "label": "",
