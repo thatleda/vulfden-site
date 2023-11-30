@@ -11,17 +11,43 @@ import {
   Animation,
 } from "gatsby-theme-portfolio-minimal";
 import { PortableText } from "@portabletext/react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import {
+  Testimonial,
+  Comment,
+  Reviewer,
+  Card,
+} from "../components/Testimonial";
 
 const IndexPage: React.FC<PageProps> = () => {
-  const bioFromSanity = useStaticQuery(graphql`
+  const dataFromSanity = useStaticQuery(graphql`
     query {
       sanityArticle(slug: { current: { eq: "the-road-so-far" } }) {
         _id
         title
         _rawContent
       }
+      allSanityReview {
+        nodes {
+          picture {
+            asset {
+              gatsbyImageData(
+                width: 500
+                height: 500
+                fit: FILLMAX
+                placeholder: BLURRED
+              )
+            }
+          }
+          comment
+          reviewer
+        }
+      }
     }
-  `).sanityArticle;
+  `);
+
+  const bioFromSanity = dataFromSanity.sanityArticle;
+  const testimonialsFromSanity = dataFromSanity.allSanityReview.nodes;
 
   return (
     <Page useSplashScreenAnimation>
@@ -45,10 +71,23 @@ const IndexPage: React.FC<PageProps> = () => {
           <PortableText value={bioFromSanity._rawContent}></PortableText>
         </Section>
       </Animation>
-      <ProjectsSection
-        sectionId="testimonials"
-        heading="Testimonials"
-      ></ProjectsSection>
+      <Animation>
+        <Section anchor="testimonials" heading="Testimonials">
+          {testimonialsFromSanity.map(({ reviewer, comment, picture }) => (
+            <Card>
+              <GatsbyImage
+                image={picture.asset.gatsbyImageData}
+                alt={reviewer}
+              ></GatsbyImage>
+              <Testimonial lang="en">
+                <Comment>{comment}</Comment>
+                <Reviewer>- {reviewer}</Reviewer>
+              </Testimonial>
+            </Card>
+          ))}
+        </Section>
+      </Animation>
+
       <ContactSection sectionId="github" heading="What is she up to?" />
     </Page>
   );
