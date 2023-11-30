@@ -62,7 +62,6 @@ const IndexPage: React.FC<PageProps> = () => {
           ))}
         </Section>
       </Animation>
-
       <ContactSection sectionId="github" heading="What is she up to?" />
     </Page>
   );

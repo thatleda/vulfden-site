@@ -18,7 +18,7 @@ const Card = styled.div`
 const Text = styled.div`
   display: grid;
   width: 100%;
-  padding: 5rem;
+  padding-left: 2rem;
 
   @media (max-width: 700px) {
     display: grid;
