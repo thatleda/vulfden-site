@@ -20,9 +20,10 @@
     "navigation": {
       "header": [
         { "label": "Who?", "url": "/#who" },
-        { "label": "The road so far", "url": "/#previously" },
+        { "label": "Previously", "url": "/#previously" },
+        { "label": "ADHD", "url": "/adhd-makes-a-good-coworker" },
         { "label": "Working with Leda", "url": "/#testimonials" },
-        { "label": "What is she up to?", "url": "/#github" }
+        { "label": "Contact", "url": "/#contact" }
       ],
       "ctaButton": {
         "openNewTab": true,

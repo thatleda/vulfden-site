@@ -62,7 +62,7 @@ const IndexPage: React.FC<PageProps> = () => {
           ))}
         </Section>
       </Animation>
-      <ContactSection sectionId="github" heading="What is she up to?" />
+      <ContactSection sectionId="contact" heading="What is she up to?" />
     </Page>
   );
 };
