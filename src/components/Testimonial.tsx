@@ -1,7 +1,8 @@
+import * as React from "react";
 import styled from "styled-components";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
-export const Card = styled.div`
+const Card = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,7 +15,7 @@ export const Card = styled.div`
   }
 `;
 
-export const Testimonial = styled.div`
+const Text = styled.div`
   display: grid;
   width: 100%;
   padding: 5rem;
@@ -25,13 +26,36 @@ export const Testimonial = styled.div`
   }
 `;
 
-export const Comment = styled.q`
+const Comment = styled.q`
   quotes: auto;
+  font-style: italic;
 `;
 
-export const Reviewer = styled.span`
+const Reviewer = styled.b`
   padding-top: 1rem;
   text-align: right;
-  font-weight: 600;
   text-decoration: solid;
 `;
+
+export type TestimonialProps = {
+  reviewer: string;
+  comment: string;
+  picture: { asset: { gatsbyImageData: IGatsbyImageData } };
+};
+
+const Testimonial: React.FC<TestimonialProps> = (props: TestimonialProps) => {
+  return (
+    <Card>
+      <GatsbyImage
+        image={props.picture.asset.gatsbyImageData}
+        alt={props.reviewer}
+      ></GatsbyImage>
+      <Text lang="en">
+        <Comment>{props.comment}</Comment>
+        <Reviewer>- {props.reviewer}</Reviewer>
+      </Text>
+    </Card>
+  );
+};
+
+export default Testimonial;

@@ -1,26 +1,20 @@
 import * as React from "react";
+import { PortableText } from "@portabletext/react";
 import { graphql, useStaticQuery, type HeadFC, type PageProps } from "gatsby";
 import {
-  Page,
-  HeroSection,
-  ProjectsSection,
   AboutSection,
-  ContactSection,
-  Seo,
-  Section,
   Animation,
+  ContactSection,
+  HeroSection,
+  Page,
+  Section,
+  Seo,
 } from "gatsby-theme-portfolio-minimal";
-import { PortableText } from "@portabletext/react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import {
-  Testimonial,
-  Comment,
-  Reviewer,
-  Card,
-} from "../components/Testimonial";
+import PlaylistSection from "../components/PlaylistSection";
+import Testimonial, { type TestimonialProps } from "../components/Testimonial";
 
 const IndexPage: React.FC<PageProps> = () => {
-  const dataFromSanity = useStaticQuery(graphql`
+  const sanityData = useStaticQuery(graphql`
     query {
       sanityArticle(slug: { current: { eq: "the-road-so-far" } }) {
         _id
@@ -46,25 +40,15 @@ const IndexPage: React.FC<PageProps> = () => {
     }
   `);
 
-  const bioFromSanity = dataFromSanity.sanityArticle;
-  const testimonialsFromSanity = dataFromSanity.allSanityReview.nodes;
+  const bioFromSanity = sanityData.sanityArticle;
+  const testimonialsFromSanity: TestimonialProps[] =
+    sanityData.allSanityReview.nodes;
 
   return (
     <Page useSplashScreenAnimation>
       <Seo title="Leda Wolf" />
       <HeroSection sectionId="hero" />
-      <Animation>
-        <Section>
-          <iframe
-            src="https://open.spotify.com/embed/playlist/1JNp21xKrHEI7Kt5sWZye7?utm_source=generator&theme=0"
-            width="100%"
-            height="352"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
-        </Section>
-      </Animation>
+      <PlaylistSection />
       <AboutSection sectionId="who" heading="Who?" />
       <Animation>
         <Section anchor="previously" heading={bioFromSanity.title}>
@@ -73,17 +57,8 @@ const IndexPage: React.FC<PageProps> = () => {
       </Animation>
       <Animation>
         <Section anchor="testimonials" heading="Testimonials">
-          {testimonialsFromSanity.map(({ reviewer, comment, picture }) => (
-            <Card>
-              <GatsbyImage
-                image={picture.asset.gatsbyImageData}
-                alt={reviewer}
-              ></GatsbyImage>
-              <Testimonial lang="en">
-                <Comment>{comment}</Comment>
-                <Reviewer>- {reviewer}</Reviewer>
-              </Testimonial>
-            </Card>
+          {testimonialsFromSanity.map((data) => (
+            <Testimonial {...data} />
           ))}
         </Section>
       </Animation>
