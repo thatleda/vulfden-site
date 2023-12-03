@@ -1,5 +1,5 @@
 ---
-imageSrc: "../../images/colonial-leda.jpeg"
+imageSrc: "../../images/leda-vertical.jpeg"
 imageAlt: "Leda wearing baby blue"
 ---
 
