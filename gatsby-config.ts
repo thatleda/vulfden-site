@@ -30,12 +30,7 @@ const config: GatsbyConfig = {
           themeColor: "#000000", // Used in manifest.json
           display: "minimal-ui", // Used in manifest.json
         },
-        contentDirectory: "./src/content",
-        blogSettings: {
-          path: "/blog", // Defines the slug for the blog listing page
-          entityName: "Articles",
-          usePathPrefixForArticles: false, // Default true (i.e. path will be /blog/first-article)
-        },
+        contentDirectory: "./src/content"
       },
     },
     "gatsby-plugin-image",

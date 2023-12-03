@@ -1,5 +1,4 @@
 import * as React from "react";
-import { PortableText } from "@portabletext/react";
 import { graphql, useStaticQuery, type HeadFC, type PageProps } from "gatsby";
 import {
   AboutSection,
@@ -11,6 +10,7 @@ import {
   Seo,
 } from "gatsby-theme-portfolio-minimal";
 import PlaylistSection from "../components/PlaylistSection";
+import PortableBlock from "../components/PortableBlock";
 import Testimonial, { type TestimonialProps } from "../components/Testimonial";
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -52,13 +52,13 @@ const IndexPage: React.FC<PageProps> = () => {
       <AboutSection sectionId="who" heading="Who?" />
       <Animation>
         <Section anchor="previously" heading={bioFromSanity.title}>
-          <PortableText value={bioFromSanity._rawContent}></PortableText>
+          <PortableBlock value={bioFromSanity._rawContent}></PortableBlock>
         </Section>
       </Animation>
       <Animation>
         <Section anchor="testimonials" heading="Testimonials">
           {testimonialsFromSanity.map((data) => (
-            <Testimonial {...data} />
+            <Testimonial key={data.reviewer} {...data} />
           ))}
         </Section>
       </Animation>
