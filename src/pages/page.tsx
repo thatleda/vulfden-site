@@ -12,10 +12,7 @@ export const query = graphql`
       _rawBanner
       banner {
         asset {
-          gatsbyImageData(
-            fit: FILLMAX
-            placeholder: BLURRED
-          )
+          gatsbyImageData(fit: FILLMAX, placeholder: BLURRED)
         }
       }
       _rawContent
@@ -24,6 +21,7 @@ export const query = graphql`
 `;
 
 const CMSPage: React.FC<PageProps> = ({ data }) => {
+  // TODO: add typings
   // @ts-ignore
   const article = data.sanityArticle;
 

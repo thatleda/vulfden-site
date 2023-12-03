@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   pageData.data.allSanityArticle.nodes.forEach((node) => {
     const { id, slug } = node;
-    const path = `/${slug.current}`;
+    const path = `/ramblings/${slug.current}`;
     createPage({
       path,
       component: require("path").resolve(`./src/pages/page.tsx`),

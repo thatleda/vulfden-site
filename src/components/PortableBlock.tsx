@@ -7,7 +7,6 @@ import {
 } from "@portabletext/react";
 import styled from "styled-components";
 import urlBuilder from "@sanity/image-url";
-import { StaticImage } from "gatsby-plugin-image";
 
 const Blockquote = styled.q`
   quotes: auto;

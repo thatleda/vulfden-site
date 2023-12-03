@@ -21,7 +21,7 @@
       "header": [
         { "label": "Who?", "url": "/#who" },
         { "label": "Previously", "url": "/#previously" },
-        { "label": "ADHD", "url": "/adhd-makes-a-good-coworker" },
+        { "label": "Blog", "url": "/ramblings" },
         { "label": "Working with Leda", "url": "/#testimonials" },
         { "label": "Contact", "url": "/#contact" }
       ],
