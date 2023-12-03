@@ -3,10 +3,9 @@ import { PageProps, graphql } from "gatsby";
 import { Page, Section, Animation } from "gatsby-theme-portfolio-minimal";
 import { GatsbyImage } from "gatsby-plugin-image";
 import PortableBlock from "../components/PortableBlock";
-import urlBuilder from "@sanity/image-url";
 
 export const query = graphql`
-  query GetMeThisArticleQuery($id: String!) {
+  query GetMeThisArticleQuery($id: String) {
     sanityArticle(id: { eq: $id }) {
       title
       _rawBanner
