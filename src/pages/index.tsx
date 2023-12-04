@@ -7,11 +7,11 @@ import {
   HeroSection,
   Page,
   Section,
-  Seo,
 } from "gatsby-theme-portfolio-minimal";
 import PlaylistSection from "../components/PlaylistSection";
 import PortableBlock from "../components/PortableBlock";
 import Testimonial, { type TestimonialProps } from "../components/Testimonial";
+import SEO from "../components/SEO";
 
 const IndexPage: React.FC<PageProps> = () => {
   const sanityData = useStaticQuery(graphql`
@@ -46,7 +46,6 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <Page useSplashScreenAnimation>
-      <Seo title="Leda Wolf" />
       <HeroSection sectionId="hero" />
       <PlaylistSection />
       <AboutSection sectionId="who" heading="Who?" />
@@ -69,4 +68,9 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Vulfden</title>;
+export const Head: HeadFC = () => (
+  <SEO
+    title="Leda Wolf"
+    description="Leda is a passionate software engineer, whose empathetic and playful approach to problems is sure to find a solution for you."
+  />
+);
