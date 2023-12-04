@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Section, Animation } from "gatsby-theme-portfolio-minimal";
 
 const PlaylistSection: React.FC = () => {

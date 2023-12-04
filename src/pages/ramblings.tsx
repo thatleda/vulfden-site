@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Link, PageProps, graphql } from "gatsby";
 import { Page, Section, Animation } from "gatsby-theme-portfolio-minimal";
 import { GatsbyImage } from "gatsby-plugin-image";
