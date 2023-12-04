@@ -32,7 +32,6 @@ const CMSPage: React.FC<PageProps> = ({ data }) => {
             image={article.banner.asset.gatsbyImageData}
             alt={article._rawBanner.alt}
           />
-          {article.excerpt}
           <PortableBlock value={article._rawContent} />
         </Section>
       </Animation>
