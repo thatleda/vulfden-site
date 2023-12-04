@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, useStaticQuery, type HeadFC, type PageProps } from "gatsby";
+import { graphql, type HeadFC, type PageProps } from "gatsby";
 import {
   AboutSection,
   Animation,
@@ -10,54 +10,62 @@ import {
 } from "gatsby-theme-portfolio-minimal";
 import PlaylistSection from "../components/PlaylistSection";
 import PortableBlock from "../components/PortableBlock";
-import Testimonial, { type TestimonialProps } from "../components/Testimonial";
+import Testimonial from "../components/Testimonial";
 import SEO from "../components/SEO";
 
-const IndexPage: React.FC<PageProps> = () => {
-  const sanityData = useStaticQuery(graphql`
-    query {
-      sanityArticle(slug: { current: { eq: "the-road-so-far" } }) {
-        _id
-        title
-        _rawContent
-      }
-      allSanityReview {
-        nodes {
-          picture {
-            asset {
-              gatsbyImageData(
-                width: 500
-                height: 500
-                fit: FILLMAX
-                placeholder: BLURRED
-              )
-            }
+export const query = graphql`
+  query IndexPage {
+    sanityArticle(slug: { current: { eq: "the-road-so-far" } }) {
+      _id
+      title
+      _rawContent
+    }
+    allSanityReview {
+      nodes {
+        picture {
+          asset {
+            gatsbyImageData(
+              width: 500
+              height: 500
+              fit: FILLMAX
+              placeholder: BLURRED
+            )
           }
-          comment
-          reviewer
         }
+        comment
+        reviewer
       }
     }
-  `);
+  }
+`;
 
-  const bioFromSanity = sanityData.sanityArticle;
-  const testimonialsFromSanity: TestimonialProps[] =
-    sanityData.allSanityReview.nodes;
+const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
+  const bioFromSanity = data.sanityArticle;
+  const testimonialsFromSanity = data.allSanityReview.nodes ?? [];
 
   return (
     <Page useSplashScreenAnimation>
       <HeroSection sectionId="hero" />
       <PlaylistSection />
       <AboutSection sectionId="who" heading="Who?" />
-      <Animation>
-        <Section anchor="previously" heading={bioFromSanity.title}>
-          <PortableBlock value={bioFromSanity._rawContent}></PortableBlock>
-        </Section>
-      </Animation>
+      {bioFromSanity && (
+        <Animation>
+          <Section anchor="previously" heading={bioFromSanity.title}>
+            {/* TODO: fix type */}
+            {/* @ts-ignore */}
+            <PortableBlock value={bioFromSanity._rawContent}></PortableBlock>
+          </Section>
+        </Animation>
+      )}
       <Animation>
         <Section anchor="testimonials" heading="Testimonials">
-          {testimonialsFromSanity.map((data) => (
-            <Testimonial key={data.reviewer} {...data} />
+          {testimonialsFromSanity.map((testimonial) => (
+            <Testimonial
+              key={testimonial.reviewer}
+              comment={testimonial.comment ?? ""}
+              reviewer={testimonial.reviewer ?? ""}
+              picture={testimonial.picture}
+            />
           ))}
         </Section>
       </Animation>

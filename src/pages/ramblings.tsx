@@ -2,11 +2,11 @@ import React from "react";
 import { Link, PageProps, graphql } from "gatsby";
 import { Page, Section, Animation } from "gatsby-theme-portfolio-minimal";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { format, formatRelative } from "date-fns";
+import { formatRelative } from "date-fns";
 import styled from "styled-components";
 
 export const query = graphql`
-  query GetMeAllArticles {
+  query RamblingsPage {
     allSanityArticle {
       nodes {
         id
@@ -52,9 +52,9 @@ const ArticleReleaseDate = styled.span`
   font-weight: 700;
 `;
 
-const RamblingsPage: React.FC<PageProps> = ({ data }) => {
-  // TODO: add typing
-  // @ts-ignore
+const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
+  data,
+}) => {
   const articles = data.allSanityArticle.nodes;
 
   return (
@@ -62,17 +62,22 @@ const RamblingsPage: React.FC<PageProps> = ({ data }) => {
       <Animation>
         <Section heading="Unhinged ramblings">
           <Articles>
-            {/* TODO: add types  */}
-            {articles.map((article: any) => {
-              const articleReleaseDate = new Date(article._createdAt);
+            {articles.map((article) => {
+              const articleHasBanner =
+                article.banner && article.banner.asset && article._rawBanner;
+              const articleReleaseDate = article._createdAt
+                ? new Date(article._createdAt)
+                : new Date();
               return (
                 // TODO: extract to a component
-                <Link to={article.slug.current}>
+                <Link to={article.slug?.current ?? "/"}>
                   <ArticleCard>
-                    <GatsbyImage
-                      image={article.banner.asset.gatsbyImageData}
-                      alt={article._rawBanner.alt}
-                    ></GatsbyImage>
+                    {articleHasBanner && (
+                      <GatsbyImage
+                        image={article.banner.asset.gatsbyImageData}
+                        alt={article._rawBanner.alt as string}
+                      ></GatsbyImage>
+                    )}
                     <ArticleTitle>{article.title}</ArticleTitle>
                     <ArticleReleaseDate>
                       {formatRelative(articleReleaseDate, new Date())}

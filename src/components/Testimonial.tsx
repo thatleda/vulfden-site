@@ -40,17 +40,19 @@ const Reviewer = styled.b`
 export type TestimonialProps = {
   reviewer: string;
   comment: string;
-  picture: { asset: { gatsbyImageData: IGatsbyImageData } };
+  picture: { asset: { gatsbyImageData: IGatsbyImageData } | null } | null;
 };
 
 const Testimonial: React.FC<TestimonialProps> = (props: TestimonialProps) => {
   return (
     <Card>
-      <GatsbyImage
-        image={props.picture.asset.gatsbyImageData}
-        alt={props.reviewer}
-        imgStyle={{borderRadius: 20}}
-      ></GatsbyImage>
+      {props.picture && props.picture.asset && (
+        <GatsbyImage
+          image={props.picture.asset.gatsbyImageData}
+          alt={props.reviewer}
+          imgStyle={{ borderRadius: 20 }}
+        ></GatsbyImage>
+      )}
       <Text lang="en">
         <Comment>{props.comment}</Comment>
         <Reviewer>- {props.reviewer}</Reviewer>

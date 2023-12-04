@@ -1,11 +1,11 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
 import { Page, Section, Animation } from "gatsby-theme-portfolio-minimal";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import PortableBlock from "../components/PortableBlock";
 
 export const query = graphql`
-  query GetMeThisArticleQuery($id: String) {
+  query CMSPage($id: String) {
     sanityArticle(id: { eq: $id }) {
       title
       _rawBanner
@@ -19,24 +19,32 @@ export const query = graphql`
   }
 `;
 
-const CMSPage: React.FC<PageProps> = ({ data }) => {
-  // TODO: add typings
-  // @ts-ignore
+const CMSPage: React.FC<PageProps<Queries.CMSPageQuery>> = ({ data }) => {
   const article = data.sanityArticle;
-
-  return (
-    <Page>
-      <Animation>
-        <Section heading={article.title}>
-          <GatsbyImage
-            image={article.banner.asset.gatsbyImageData}
-            alt={article._rawBanner.alt}
-          />
-          <PortableBlock value={article._rawContent} />
-        </Section>
-      </Animation>
-    </Page>
-  );
+  const articleHasBannerImage =
+    article?.banner?.asset?.gatsbyImageData || false;
+  const bannerImageAlt = article?._rawBanner?.alt as string;
+  if (article) {
+    return (
+      <Page>
+        <Animation>
+          <Section heading={article.title}>
+            {articleHasBannerImage && (
+              <GatsbyImage
+                image={
+                  article.banner?.asset?.gatsbyImageData as IGatsbyImageData
+                }
+                alt={bannerImageAlt}
+              />
+            )}
+            {/* TODO: Fix type */}
+            {/* @ts-ignore */}
+            <PortableBlock value={article._rawContent} />
+          </Section>
+        </Animation>
+      </Page>
+    );
+  }
 };
 
 export default CMSPage;
