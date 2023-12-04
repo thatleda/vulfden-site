@@ -3,6 +3,7 @@ import React from "react";
 type SEOProps = {
   title: string;
   description: string;
+  location: string;
 };
 
 const SEO: React.FC<SEOProps> = (props: SEOProps) => {
@@ -14,10 +15,7 @@ const SEO: React.FC<SEOProps> = (props: SEOProps) => {
       <meta name="description" content={description}></meta>
       <meta property="og:title" content="The website of Leda Wolf" />
       <meta property="og:site_name" content="Vulfden" />
-      <meta
-        property="og:url"
-        content={`https://leda.fyi${location.pathname}`}
-      />
+      <meta property="og:url" content={`https://leda.fyi${props.location}`} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="twitter:card" content="summary" />

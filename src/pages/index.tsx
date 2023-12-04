@@ -80,5 +80,6 @@ export const Head: HeadFC = () => (
   <SEO
     title="Leda Wolf"
     description="Leda is a passionate software engineer, whose empathetic and playful approach to problems is sure to find a solution for you."
+    location="/"
   />
 );
