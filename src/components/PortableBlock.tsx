@@ -25,17 +25,8 @@ const RespectfulSpace = styled.div`
 `;
 
 const ObedientImage = styled.img`
-   width: 80vw;
+  width: 80vw;
 `;
-
-type ImageProps = {
-  asset: {
-    _ref: string;
-    _type: string;
-  };
-  _key: string;
-  _type: "image";
-};
 
 const BlockquoteComponent: PortableTextBlockComponent = ({ children }) => {
   return (
@@ -82,7 +73,10 @@ const components: Partial<PortableTextReactComponents> = {
 };
 
 const PortableBlock: React.FC<PortableTextProps> = ({ value }) => {
-  return <PortableText value={value} components={components} />;
+  if (value) {
+    return <PortableText value={value} components={components} />;
+  }
+  return null;
 };
 
 export default PortableBlock;

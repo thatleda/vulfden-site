@@ -3,6 +3,7 @@ import { PageProps, graphql } from "gatsby";
 import { Page, Section, Animation } from "gatsby-theme-portfolio-minimal";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import PortableBlock from "../components/PortableBlock";
+import { PortableTextBlock } from "@portabletext/types";
 
 export const query = graphql`
   query CMSPage($id: String) {
@@ -37,9 +38,9 @@ const CMSPage: React.FC<PageProps<Queries.CMSPageQuery>> = ({ data }) => {
                 alt={bannerImageAlt}
               />
             )}
-            {/* TODO: Fix type */}
-            {/* @ts-ignore */}
-            <PortableBlock value={article._rawContent} />
+            <PortableBlock
+              value={article._rawContent as unknown as PortableTextBlock}
+            />
           </Section>
         </Animation>
       </Page>

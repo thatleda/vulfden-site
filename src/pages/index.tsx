@@ -12,6 +12,7 @@ import PlaylistSection from "../components/PlaylistSection";
 import PortableBlock from "../components/PortableBlock";
 import Testimonial from "../components/Testimonial";
 import SEO from "../components/SEO";
+import { PortableTextBlock } from "@portabletext/types";
 
 export const query = graphql`
   query IndexPage {
@@ -51,9 +52,9 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       {bioFromSanity && (
         <Animation>
           <Section anchor="previously" heading={bioFromSanity.title}>
-            {/* TODO: fix type */}
-            {/* @ts-ignore */}
-            <PortableBlock value={bioFromSanity._rawContent}></PortableBlock>
+            <PortableBlock
+              value={bioFromSanity._rawContent as unknown as PortableTextBlock}
+            ></PortableBlock>
           </Section>
         </Animation>
       )}
