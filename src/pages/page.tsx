@@ -3,7 +3,7 @@ import { PageProps, graphql } from "gatsby";
 import { Page, Section, Animation } from "gatsby-theme-portfolio-minimal";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import PortableBlock from "../components/PortableBlock";
-import { PortableTextBlock } from "@portabletext/types";
+import type { PortableTextBlock } from "@portabletext/types";
 
 export const query = graphql`
   query CMSPage($id: String) {

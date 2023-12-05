@@ -1,8 +1,9 @@
 import React from "react";
-import { PageProps, graphql } from "gatsby";
+import { HeadFC, PageProps, graphql } from "gatsby";
 import { Page, Section, Animation } from "gatsby-theme-portfolio-minimal";
 import styled from "styled-components";
 import Article from "../components/Article";
+import SEO from "../components/SEO";
 
 export const query = graphql`
   query RamblingsPage {
@@ -51,3 +52,11 @@ const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
 };
 
 export default RamblingsPage;
+
+export const Head: HeadFC = () => (
+  <SEO
+    title="Leda's ramblings"
+    description="You've reached the coveted index of Leda's finest wisdom. Good for you!"
+    location="/ramblings"
+  />
+);

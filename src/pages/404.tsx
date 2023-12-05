@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, HeadFC, PageProps } from "gatsby";
+import SEO from "../components/SEO";
 
 const pageStyles = {
   color: "#232129",
@@ -46,4 +47,10 @@ const NotFoundPage: React.FC<PageProps> = () => {
 
 export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>Not found</title>;
+export const Head: HeadFC = () => (
+  <SEO
+    title="Shit outta luck"
+    description="Tried to append something dumb to the URL? Funny. Keep looking, gender-non-specific friend."
+    location="/404"
+  />
+);
