@@ -6,6 +6,7 @@ const PlaylistSection: React.FC = () => {
     <Animation>
       <Section>
         <iframe
+          title="Leda's work playlist"
           src="https://open.spotify.com/embed/playlist/1JNp21xKrHEI7Kt5sWZye7?utm_source=generator&theme=0"
           width="100%"
           height="352"
