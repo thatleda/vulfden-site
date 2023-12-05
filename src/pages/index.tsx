@@ -2,12 +2,12 @@ import React from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 import {
   AboutSection,
-  Animation,
   ContactSection,
   HeroSection,
   Page,
   Section,
 } from "gatsby-theme-portfolio-minimal";
+import Animation from "../components/Animation";
 import PlaylistSection from "../components/PlaylistSection";
 import PortableBlock from "../components/PortableBlock";
 import Testimonial from "../components/Testimonial";
