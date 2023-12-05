@@ -19,20 +19,29 @@ const ArticleCard = styled.div`
   background-color: var(--background-color);
   transition: 0.5s ease-out;
   transition-property: background-color;
-  
+
   &:hover {
     background-color: var(--primary-color);
-    color: var(--background-color)
+    color: var(--background-color);
   }
 `;
 
 const ArticleTitle = styled.strong`
   font-style: italic;
   font-size: larger;
+  line-break: loose;
+
+  @media (max-width: 700px) {
+    text-align: end;
+  }
 `;
 
 const ArticleReleaseDate = styled.span`
   font-weight: 700;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 const Article: React.FC<ArticleProps> = ({ article }) => {
@@ -49,6 +58,10 @@ const Article: React.FC<ArticleProps> = ({ article }) => {
           <GatsbyImage
             image={article.banner.asset.gatsbyImageData}
             alt={article._rawBanner.alt as string}
+            style={{
+              minWidth: 100,
+              opacity: 0.5,
+            }}
           ></GatsbyImage>
         )}
         <ArticleTitle>{article.title}</ArticleTitle>
