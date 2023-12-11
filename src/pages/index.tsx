@@ -1,12 +1,7 @@
 import React from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 import type { PortableTextBlock } from "@portabletext/types";
-import {
-  AboutSection,
-  ContactSection,
-  Page,
-} from "gatsby-theme-portfolio-minimal";
-import Animation from "../components/Animation";
+import { ContactSection, Page } from "gatsby-theme-portfolio-minimal";
 import Playlist from "../components/Playlist";
 import PortableBlock from "../components/PortableBlock";
 import Testimonial from "../components/Testimonial";
@@ -51,26 +46,23 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <Playlist />
       <About />
       {bioFromSanity && (
-        <Animation>
-          <Section anchor="previously" heading={bioFromSanity.title}>
-            <PortableBlock
-              value={bioFromSanity._rawContent as unknown as PortableTextBlock}
-            ></PortableBlock>
-          </Section>
-        </Animation>
-      )}
-      <Animation>
-        <Section anchor="testimonials" heading="Testimonials">
-          {testimonialsFromSanity.map((testimonial) => (
-            <Testimonial
-              key={testimonial.reviewer}
-              comment={testimonial.comment ?? ""}
-              reviewer={testimonial.reviewer ?? ""}
-              picture={testimonial.picture}
-            />
-          ))}
+        <Section anchor="previously" heading={bioFromSanity.title}>
+          <PortableBlock
+            value={bioFromSanity._rawContent as unknown as PortableTextBlock}
+          ></PortableBlock>
         </Section>
-      </Animation>
+      )}
+      <Section anchor="testimonials" heading="Testimonials">
+        {testimonialsFromSanity.map((testimonial) => (
+          <Testimonial
+            key={testimonial.reviewer}
+            comment={testimonial.comment ?? ""}
+            reviewer={testimonial.reviewer ?? ""}
+            picture={testimonial.picture}
+          />
+        ))}
+      </Section>
+      {/* TODO: replace with own component */}
       <ContactSection sectionId="contact" heading="What is she up to?" />
     </Page>
   );
