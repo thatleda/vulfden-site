@@ -22,7 +22,7 @@ type AnimationProps = {
   delay?: number;
   duration?: number;
   iterationCount?: number;
-  style?: React.CSSProperties;
+  className?: string;
   onAnimationEnd?: () => void;
 };
 
@@ -36,6 +36,7 @@ type AnimationConfig = {
   $delay: string;
   $count: string;
   $fillMode: AnimationFillMode;
+  $style?: React.CSSProperties;
   onAnimationEnd?: () => void;
 };
 
@@ -160,23 +161,32 @@ const keyframesByType = (type: string | undefined): Keyframes => {
   }
 };
 
-const MovingContainer = styled.div<AnimationConfig>`
-  ${(props) =>
-    props.$isVisible &&
-    css`
-      animation-name: ${props.$keyframes};
-      animation-timing-function: ${props.$timing};
-      animation-duration: ${props.$duration};
-      animation-delay: ${props.$delay};
-      animation-iteration-count: ${props.$count};
-      animation-fill-mode: ${props.$fillMode};
-    `}
-  ${(props) =>
-    !props.$isVisible &&
-    css`
-      opacity: 0;
-    `}
-`;
+const MovingContainer = styled.div<AnimationConfig>(
+  ({
+    $isVisible,
+    $count,
+    $keyframes,
+    $timing,
+    $duration,
+    $delay,
+    $fillMode,
+  }) => {
+    if ($isVisible) {
+      return css`
+        animation-name: ${$keyframes};
+        animation-timing-function: ${$timing};
+        animation-duration: ${$duration};
+        animation-delay: ${$delay};
+        animation-iteration-count: ${$count};
+        animation-fill-mode: ${$fillMode};
+      `;
+    } else {
+      return css`
+        opacity: 0;
+      `;
+    }
+  }
+);
 
 const Animation: React.FC<AnimationProps> = (props) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -186,6 +196,7 @@ const Animation: React.FC<AnimationProps> = (props) => {
 
   return (
     <MovingContainer
+      className={props.className}
       ref={ref}
       onAnimationEnd={props.onAnimationEnd}
       $isVisible={observedContainer?.isIntersecting ?? false}
