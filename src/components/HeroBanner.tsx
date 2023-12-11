@@ -2,7 +2,7 @@ import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Section from "./Section";
-import Animation from "./Animation";
+import Animation from "./base/Animation";
 import Button from "./base/Button";
 
 const HeroCard = styled.div`

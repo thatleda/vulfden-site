@@ -1,5 +1,5 @@
 import React from "react";
-import Animation from "./Animation";
+import Animation from "./base/Animation";
 import styled from "styled-components";
 
 type SectionProps = {
