@@ -7,12 +7,13 @@ import {
   Page,
 } from "gatsby-theme-portfolio-minimal";
 import Animation from "../components/Animation";
-import PlaylistSection from "../components/PlaylistSection";
+import Playlist from "../components/Playlist";
 import PortableBlock from "../components/PortableBlock";
 import Testimonial from "../components/Testimonial";
 import SEO from "../components/SEO";
 import HeroBanner from "../components/HeroBanner";
 import Section from "../components/Section";
+import About from "../components/About";
 
 export const query = graphql`
   query IndexPage {
@@ -47,8 +48,8 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   return (
     <Page useSplashScreenAnimation>
       <HeroBanner />
-      <PlaylistSection />
-      <AboutSection sectionId="who" heading="Who?" />
+      <Playlist />
+      <About />
       {bioFromSanity && (
         <Animation>
           <Section anchor="previously" heading={bioFromSanity.title}>
