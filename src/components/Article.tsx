@@ -15,7 +15,7 @@ const ArticleCard = styled.div`
   gap: 1rem;
   align-items: center;
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: var(--border-radius);
   background-color: var(--background-color);
   transition: 0.5s ease-out;
   transition-property: background-color;
