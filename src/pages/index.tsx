@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
+import type { PortableTextBlock } from "@portabletext/types";
 import {
   AboutSection,
   ContactSection,
-  HeroSection,
   Page,
   Section,
 } from "gatsby-theme-portfolio-minimal";
@@ -12,7 +12,7 @@ import PlaylistSection from "../components/PlaylistSection";
 import PortableBlock from "../components/PortableBlock";
 import Testimonial from "../components/Testimonial";
 import SEO from "../components/SEO";
-import { PortableTextBlock } from "@portabletext/types";
+import HeroBanner from "../components/HeroBanner";
 
 export const query = graphql`
   query IndexPage {
@@ -46,7 +46,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 
   return (
     <Page useSplashScreenAnimation>
-      <HeroSection sectionId="hero" />
+      <HeroBanner />
       <PlaylistSection />
       <AboutSection sectionId="who" heading="Who?" />
       {bioFromSanity && (
