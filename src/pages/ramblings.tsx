@@ -1,9 +1,10 @@
 import React from "react";
 import { HeadFC, PageProps, graphql } from "gatsby";
-import { Page, Section, Animation } from "gatsby-theme-portfolio-minimal";
+import { Page } from "gatsby-theme-portfolio-minimal";
 import styled from "styled-components";
 import Article from "../components/Article";
 import SEO from "../components/SEO";
+import Section from "../components/Section";
 
 export const query = graphql`
   query RamblingsPage {
@@ -38,15 +39,13 @@ const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
 
   return (
     <Page>
-      <Animation>
-        <Section heading="Unhinged ramblings">
-          <Articles>
-            {articles.map((article) => (
-              <Article article={article} />
-            ))}
-          </Articles>
-        </Section>
-      </Animation>
+      <Section heading="Unhinged ramblings">
+        <Articles>
+          {articles.map((article) => (
+            <Article article={article} />
+          ))}
+        </Articles>
+      </Section>
     </Page>
   );
 };

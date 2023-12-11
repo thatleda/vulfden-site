@@ -1,7 +1,7 @@
 import React from "react";
-import { Section } from "gatsby-theme-portfolio-minimal";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
+import Section from "./Section";
 import Animation from "./Animation";
 import Button from "./base/Button";
 
@@ -10,7 +10,7 @@ const HeroCard = styled.div`
   flex-direction: row;
   gap: 5rem;
   align-items: center;
-  
+
   @media (max-width: 1000px) {
     display: flex;
     flex-direction: column;
@@ -68,51 +68,49 @@ const ActionButtons = styled(Animation)`
 
 const HeroBanner: React.FC = () => {
   return (
-    <Animation type="fadeLeft">
-      <Section>
-        <HeroCard>
-          <StaticImage
-            src="../content/images/leda.jpeg"
-            alt="Leda Wolf"
-            style={{
-              width: 200,
-              height: 200,
-              borderRadius: "100%",
-            }}
-          />
-          <CallToAction>
-            <Greeting>
-              <HowlingWolf type="wiggle" duration={1000}>
-                <StaticImage src="../content/images/wolf.png" alt="Wolf icon" />
-              </HowlingWolf>
-              Awoo!
-            </Greeting>
-            <Introduction>I'm a software engineer.</Introduction>
-            <Purpose>
-              Let's see if I'm a <u>good fit</u> for your company.
-            </Purpose>
-            <p>Look around and let me know what you think.</p>
-            <ActionButtons>
-              <Button
-                text="Discord"
-                href="https://discord.com/users/732667625255075951"
-              />
-              <Button text="GitHub" href="https://github.com/thatleda" />
-              <Button
-                text="LinkedIn"
-                href="https://www.linkedin.com/in/thatleda/"
-              />
-              <Button text="Mail" href="mailto:hello@leda.fyi" />
-              <Button
-                href="https://calendly.com/ledawolf/meeting"
-                variant="primary"
-                text="Calendly"
-              />
-            </ActionButtons>
-          </CallToAction>
-        </HeroCard>
-      </Section>
-    </Animation>
+    <Section>
+      <HeroCard>
+        <StaticImage
+          src="../content/images/leda.jpeg"
+          alt="Leda Wolf"
+          style={{
+            width: 200,
+            height: 200,
+            borderRadius: "100%",
+          }}
+        />
+        <CallToAction>
+          <Greeting>
+            <HowlingWolf type="wiggle" duration={1000}>
+              <StaticImage src="../content/images/wolf.png" alt="Wolf icon" />
+            </HowlingWolf>
+            Awoo!
+          </Greeting>
+          <Introduction>I'm a software engineer.</Introduction>
+          <Purpose>
+            Let's see if I'm a <u>good fit</u> for your company.
+          </Purpose>
+          <p>Look around and let me know what you think.</p>
+          <ActionButtons duration={600} type="fadeLeft">
+            <Button
+              text="Discord"
+              href="https://discord.com/users/732667625255075951"
+            />
+            <Button text="GitHub" href="https://github.com/thatleda" />
+            <Button
+              text="LinkedIn"
+              href="https://www.linkedin.com/in/thatleda/"
+            />
+            <Button text="Mail" href="mailto:hello@leda.fyi" />
+            <Button
+              href="https://calendly.com/ledawolf/meeting"
+              variant="primary"
+              text="Calendly"
+            />
+          </ActionButtons>
+        </CallToAction>
+      </HeroCard>
+    </Section>
   );
 };
 

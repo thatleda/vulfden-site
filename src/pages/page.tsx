@@ -1,9 +1,10 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
-import { Page, Section, Animation } from "gatsby-theme-portfolio-minimal";
+import type { PortableTextBlock } from "@portabletext/types";
+import { Page } from "gatsby-theme-portfolio-minimal";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import PortableBlock from "../components/PortableBlock";
-import type { PortableTextBlock } from "@portabletext/types";
+import Section from "../components/Section";
 
 export const query = graphql`
   query CMSPage($id: String) {
@@ -28,21 +29,17 @@ const CMSPage: React.FC<PageProps<Queries.CMSPageQuery>> = ({ data }) => {
   if (article) {
     return (
       <Page>
-        <Animation>
-          <Section heading={article.title}>
-            {articleHasBannerImage && (
-              <GatsbyImage
-                image={
-                  article.banner?.asset?.gatsbyImageData as IGatsbyImageData
-                }
-                alt={bannerImageAlt}
-              />
-            )}
-            <PortableBlock
-              value={article._rawContent as unknown as PortableTextBlock}
+        <Section heading={article.title}>
+          {articleHasBannerImage && (
+            <GatsbyImage
+              image={article.banner?.asset?.gatsbyImageData as IGatsbyImageData}
+              alt={bannerImageAlt}
             />
-          </Section>
-        </Animation>
+          )}
+          <PortableBlock
+            value={article._rawContent as unknown as PortableTextBlock}
+          />
+        </Section>
       </Page>
     );
   }

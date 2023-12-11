@@ -5,7 +5,6 @@ import {
   AboutSection,
   ContactSection,
   Page,
-  Section,
 } from "gatsby-theme-portfolio-minimal";
 import Animation from "../components/Animation";
 import PlaylistSection from "../components/PlaylistSection";
@@ -13,6 +12,7 @@ import PortableBlock from "../components/PortableBlock";
 import Testimonial from "../components/Testimonial";
 import SEO from "../components/SEO";
 import HeroBanner from "../components/HeroBanner";
+import Section from "../components/Section";
 
 export const query = graphql`
   query IndexPage {
