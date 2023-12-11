@@ -10,11 +10,12 @@ const HeroCard = styled.div`
   flex-direction: row;
   gap: 5rem;
   align-items: center;
+  
   @media (max-width: 1000px) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0;
+    gap: 2rem;
   }
 `;
 
@@ -24,6 +25,10 @@ const CallToAction = styled.div`
   justify-content: center;
   min-height: 30vh;
   box-sizing: border-box;
+
+  @media (max-width: 1000px) {
+    gap: 1rem;
+  }
 `;
 
 const HowlingWolf = styled(Animation)`
@@ -55,6 +60,7 @@ const Purpose = styled.h2`
 const ActionButtons = styled(Animation)`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 1rem;
   max-height: 2.5rem;
