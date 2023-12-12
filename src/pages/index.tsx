@@ -9,6 +9,7 @@ import SEO from "../components/SEO";
 import HeroBanner from "../components/HeroBanner";
 import Section from "../components/Section";
 import About from "../components/About";
+import Contact from "../components/Contact";
 
 export const query = graphql`
   query IndexPage {
@@ -62,8 +63,9 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
           />
         ))}
       </Section>
-      {/* TODO: replace with own component */}
-      <ContactSection sectionId="contact" heading="What is she up to?" />
+      <Section anchor="contact" heading="What is she up to?">
+        <Contact />
+      </Section>
     </Page>
   );
 };

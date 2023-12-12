@@ -1,11 +1,15 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import Discord from "../svg/Discord";
+import LinkedIn from "../svg/LinkedIn";
+import GitHub from "../svg/GitHub";
+import Mail from "../svg/Mail";
 
 type ButtonVariant = "primary" | "secondary" | "nav";
 
 type ButtonProps = {
   text: string;
-  icon?: string;
+  icon?: SVGName;
   variant?: ButtonVariant;
   href?: string;
 };
@@ -56,6 +60,19 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
   }
 `;
 
+const getSVGByName = (name: SVGName) => {
+  switch (name) {
+    case "Discord":
+      return <Discord />;
+    case "LinkedIn":
+      return <LinkedIn />;
+    case "GitHub":
+      return <GitHub />;
+    default:
+      return <Mail />;
+  }
+};
+
 const Button: React.FC<ButtonProps> = ({
   text,
   icon,
@@ -69,6 +86,7 @@ const Button: React.FC<ButtonProps> = ({
       target="_blank"
       rel="noopener noreferrer"
     >
+      {icon && getSVGByName(icon)}
       {text}
     </ExternalLink>
   );

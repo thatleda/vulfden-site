@@ -4,3 +4,5 @@ type SVGProps = {
   lineColor?: string;
   fillColor?: string;
 };
+
+type SVGName = "Discord" | "LinkedIn" | "GitHub" | "Mail";
