@@ -17,12 +17,13 @@ const ArticleCard = styled.div`
   padding: 2rem;
   border-radius: var(--border-radius);
   background-color: var(--background-color);
-  transition: 0.5s ease-out;
+  transition: 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   transition-property: background-color;
 
   &:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    background-color: var(--secondary-color);
+    opacity: 50%;
+    color: var(--text-color);
   }
 `;
 
