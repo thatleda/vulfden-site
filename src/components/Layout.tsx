@@ -176,6 +176,8 @@ const Layout: React.FC<LayoutProps> = ({ children, showFooter = true }) => {
           </a>
           {smallScreen ? (
             <BurgerBox
+              type="button"
+              id="openMenu"
               onClick={() => openMenu(true)}
               style={isMenuOpen ? { display: "none" } : undefined}
             >
