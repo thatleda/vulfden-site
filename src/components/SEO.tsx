@@ -1,5 +1,5 @@
-
 import React from "react";
+import { useMediaQuery } from "usehooks-ts";
 
 type SEOProps = {
   title: string;
@@ -9,12 +9,14 @@ type SEOProps = {
 
 const SEO: React.FC<SEOProps> = (props: SEOProps) => {
   const { title, description } = props;
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   return (
     <>
       <title>{title}</title>
       <html lang="en" />
       <meta name="description" content={description}></meta>
       <meta name="image" content="https://leda.fyi/wolf.png" />
+      <meta name="theme-color" content={prefersDarkMode ? "dark" : "light"} />
       <meta property="og:title" content="The website of Leda Wolf" />
       <meta property="og:site_name" content="Vulfden" />
       <meta property="og:url" content={`https://leda.fyi${props.location}`} />
