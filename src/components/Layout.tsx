@@ -187,7 +187,7 @@ const Layout: React.FC<LayoutProps> = ({ children, showFooter = true }) => {
               <Link to="/#previously">Previously</Link>
               <Link to="/ramblings">Blog</Link>
               <Link to="/#testimonials">Working with Leda</Link>
-              <Link to="/#contacts">Contact</Link>
+              <Link to="/#contact">Contact</Link>
               <Button href="/resume.pdf" text="CV" />
             </TopNavigation>
           )}
@@ -209,7 +209,7 @@ const Layout: React.FC<LayoutProps> = ({ children, showFooter = true }) => {
                   <SideNavLink to="/#testimonials">
                     Working with Leda
                   </SideNavLink>
-                  <SideNavLink to="/#contacts">Contact</SideNavLink>
+                  <SideNavLink to="/#contact">Contact</SideNavLink>
                   <Button href="/resume.pdf" text="CV" />
                 </SideNavigation>
               </Sidebar>
