@@ -31,30 +31,29 @@ const CallToAction = styled.div`
   }
 `;
 
-const HowlingWolf = styled(Animation)`
-  max-width: 2.25rem;
-  max-height: 2.25rem;
-`;
-
-const Greeting = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-  font-weight: 800;
-  font-size: 3rem;
+const Greeting = styled.h1`
+  padding-bottom: 0;
+  margin-bottom: 0;
+  font-size: 2.5rem;
+  line-height: 0;
+  text-align: start;
+  color: var(--subtext-color);
 `;
 
 const Introduction = styled.h1`
   font-size: 2.625rem;
-  line-height: 4rem;
+  line-height: 3rem;
   margin-bottom: 0;
+  line-break: unset;
+  text-shadow: var(--secondary-color) 1px 0 10px;
 `;
 
 const Purpose = styled.h2`
-  font-size: 2rem;
+  font-size: 1.5rem;
+  line-height: 1rem;
   margin: 0;
+  text-align: end;
+  text-shadow: var(--background-color) 0 0 20px;
 `;
 
 const ActionButtons = styled(Animation)`
@@ -71,7 +70,7 @@ const HeroBanner: React.FC = () => {
     <Section>
       <HeroCard>
         <StaticImage
-          src="../content/images/leda.jpeg"
+          src="../images/leda.jpeg"
           alt="Leda Wolf"
           style={{
             width: 200,
@@ -80,12 +79,7 @@ const HeroBanner: React.FC = () => {
           }}
         />
         <CallToAction>
-          <Greeting>
-            <HowlingWolf type="wiggle" duration={1000}>
-              <StaticImage src="../content/images/wolf.png" alt="Wolf icon" />
-            </HowlingWolf>
-            Awoo!
-          </Greeting>
+          <Greeting>Hello,</Greeting>
           <Introduction>I'm a software engineer.</Introduction>
           <Purpose>
             Let's see if I'm a <u>good fit</u> for your company.

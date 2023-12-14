@@ -9,7 +9,6 @@ type SectionProps = {
 };
 
 const AnimatedSection = styled.section`
-  width: 100%;
   height: auto;
   background: var(--background-color);
   scroll-margin-top: 60px;
@@ -18,7 +17,6 @@ const AnimatedSection = styled.section`
 `;
 
 const ContentWrapper = styled.div`
-  width: 100%;
   height: 100%;
   max-width: var(--page-width);
   margin: 0 auto 8rem auto;
@@ -37,7 +35,7 @@ const Section: React.FC<SectionProps> = ({ anchor, heading, children }) => {
       <AnimatedSection id={anchor}>
         <ContentWrapper>
           {heading && <Heading>{heading}</Heading>}
-          {children}
+          <div>{children}</div>
         </ContentWrapper>
       </AnimatedSection>
     </Animation>

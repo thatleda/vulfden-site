@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 import type { PortableTextBlock } from "@portabletext/types";
-import { ContactSection, Page } from "gatsby-theme-portfolio-minimal";
 import Playlist from "../components/Playlist";
 import PortableBlock from "../components/PortableBlock";
 import Testimonial from "../components/Testimonial";
@@ -10,6 +9,7 @@ import HeroBanner from "../components/HeroBanner";
 import Section from "../components/Section";
 import About from "../components/About";
 import Contact from "../components/Contact";
+import Layout from "../components/Layout";
 
 export const query = graphql`
   query IndexPage {
@@ -42,7 +42,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   const testimonialsFromSanity = data.allSanityReview.nodes ?? [];
 
   return (
-    <Page useSplashScreenAnimation>
+    <Layout>
       <HeroBanner />
       <Playlist />
       <About />
@@ -66,7 +66,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <Section anchor="contact" heading="What is she up to?">
         <Contact />
       </Section>
-    </Page>
+    </Layout>
   );
 };
 

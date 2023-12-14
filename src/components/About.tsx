@@ -25,7 +25,7 @@ const About: React.FC = () => {
     <Section anchor="who" heading="Who?">
       <AboutCard>
         <StaticImage
-          src="../content/images/leda-vertical.jpeg"
+          src="../images/leda-vertical.jpeg"
           alt="Leda Wolf"
           style={{
             maxWidth: 200,

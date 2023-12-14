@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
       </p>
       <Profile>
         <StaticImage
-          src="../images/icon.png"
+          src="../../static/wolf.png"
           alt="Howling wolf"
           style={{ maxWidth: 150 }}
         />

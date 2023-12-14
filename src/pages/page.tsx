@@ -1,10 +1,10 @@
 import React from "react";
 import { PageProps, graphql } from "gatsby";
 import type { PortableTextBlock } from "@portabletext/types";
-import { Page } from "gatsby-theme-portfolio-minimal";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import PortableBlock from "../components/PortableBlock";
 import Section from "../components/Section";
+import Layout from "../components/Layout";
 
 export const query = graphql`
   query CMSPage($id: String) {
@@ -28,7 +28,7 @@ const CMSPage: React.FC<PageProps<Queries.CMSPageQuery>> = ({ data }) => {
   const bannerImageAlt = article?._rawBanner?.alt as string;
   if (article) {
     return (
-      <Page>
+      <Layout>
         <Section heading={article.title}>
           {articleHasBannerImage && (
             <GatsbyImage
@@ -40,7 +40,7 @@ const CMSPage: React.FC<PageProps<Queries.CMSPageQuery>> = ({ data }) => {
             value={article._rawContent as unknown as PortableTextBlock}
           />
         </Section>
-      </Page>
+      </Layout>
     );
   }
 };

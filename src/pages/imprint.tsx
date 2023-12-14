@@ -1,13 +1,16 @@
 import React from "react";
 import { HeadFC, PageProps } from "gatsby";
-import { Page, LegalSection } from "gatsby-theme-portfolio-minimal";
 import SEO from "../components/SEO";
+import Section from "../components/Section";
+import Layout from "../components/Layout";
 
 const ImprintPage: React.FC<PageProps> = () => {
   return (
-    <Page>
-      <LegalSection sectionId="imprint" heading="Imprint" />
-    </Page>
+    <Layout>
+      <Section anchor="imprint" heading="Imprint">
+        I have the legal imprint.
+      </Section>
+    </Layout>
   );
 };
 

@@ -1,13 +1,16 @@
 import React from "react";
 import { HeadFC, PageProps } from "gatsby";
-import { Page, LegalSection } from "gatsby-theme-portfolio-minimal";
 import SEO from "../components/SEO";
+import Section from "../components/Section";
+import Layout from "../components/Layout";
 
 const PrivacyPage: React.FC<PageProps> = () => {
   return (
-    <Page>
-      <LegalSection sectionId="privacy" heading="Privacy" />
-    </Page>
+    <Layout>
+      <Section anchor="privacy" heading="Privacy">
+        I'm a very private person
+      </Section>
+    </Layout>
   );
 };
 

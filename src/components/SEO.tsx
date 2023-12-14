@@ -1,3 +1,4 @@
+
 import React from "react";
 
 type SEOProps = {
@@ -13,6 +14,7 @@ const SEO: React.FC<SEOProps> = (props: SEOProps) => {
       <title>{title}</title>
       <html lang="en" />
       <meta name="description" content={description}></meta>
+      <meta name="image" content="https://leda.fyi/wolf.png" />
       <meta property="og:title" content="The website of Leda Wolf" />
       <meta property="og:site_name" content="Vulfden" />
       <meta property="og:url" content={`https://leda.fyi${props.location}`} />

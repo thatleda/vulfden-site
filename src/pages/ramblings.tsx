@@ -1,10 +1,10 @@
 import React from "react";
 import { HeadFC, PageProps, graphql } from "gatsby";
-import { Page } from "gatsby-theme-portfolio-minimal";
 import styled from "styled-components";
 import Article from "../components/Article";
 import SEO from "../components/SEO";
 import Section from "../components/Section";
+import Layout from "../components/Layout";
 
 export const query = graphql`
   query RamblingsPage {
@@ -38,7 +38,7 @@ const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
   const articles = data.allSanityArticle.nodes;
 
   return (
-    <Page>
+    <Layout showFooter={false}>
       <Section heading="Unhinged ramblings">
         <Articles>
           {articles.map((article) => (
@@ -46,7 +46,7 @@ const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
           ))}
         </Articles>
       </Section>
-    </Page>
+    </Layout>
   );
 };
 

@@ -17,28 +17,11 @@ const config: GatsbyConfig = {
         dataset: "production",
       },
     },
-    {
-      resolve: "gatsby-theme-portfolio-minimal",
-      options: {
-        siteUrl: "https://leda.fyi",
-        manifestSettings: {
-          favicon: "./src/images/icon.png",
-          siteName: "Vulfden",
-          shortName: "Vulfden",
-          startUrl: "/", // Used in manifest.json
-          backgroundColor: "#FFFFFF", // Used in manifest.json
-          themeColor: "#000000", // Used in manifest.json
-          display: "minimal-ui", // Used in manifest.json
-        },
-        contentDirectory: "./src/content"
-      },
-    },
-    "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-mdx",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -58,18 +41,34 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "content",
-        path: "./src/content/",
-      },
-      __key: "content",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
         name: "static",
         path: "./static/",
       },
       __key: "static",
+    },
+    {
+      resolve: `gatsby-omni-font-loader`,
+      options: {
+        enableListener: true,
+        preconnect: [
+          `https://fonts.googleapis.com`,
+          `https://fonts.gstatic.com`,
+        ],
+        web: [
+          {
+            name: `Homemade Apple`,
+            file: `https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap`,
+          },
+          {
+            name: `Nunito Sans`,
+            file: `https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@300,500&display=swap`,
+          },
+          {
+            name: "Silkscreen",
+            file: `https://fonts.googleapis.com/css2?family=Silkscreen&display=swap`,
+          },
+        ],
+      },
     },
   ],
 };
