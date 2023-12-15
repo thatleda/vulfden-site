@@ -8,7 +8,7 @@ const AboutCard = styled.div`
   display: flex;
   flex-direction: row;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 749px) {
     flex-direction: column;
   }
 `;
@@ -21,7 +21,7 @@ const Photo = styled(GatsbyImage)`
 const Text = styled.div`
   padding: 2rem;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 749px) {
     padding: 2rem 0;
   }
 `;
