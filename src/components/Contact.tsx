@@ -1,8 +1,8 @@
-import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 import Animation from "./base/Animation";
 import Button from "./base/Button";
+import Wolf from "./svg/Wolf";
 
 const ContactCard = styled.div`
   display: flex;
@@ -47,11 +47,7 @@ const Contact: React.FC = () => {
         please don't hesitate and write to:
       </p>
       <Profile>
-        <StaticImage
-          src="../../static/wolf.png"
-          alt="Howling wolf"
-          style={{ maxWidth: 150 }}
-        />
+        <Wolf width="10rem" height="10rem" />
         <ContactData>
           <Name>
             <u>Leda Wolf</u>

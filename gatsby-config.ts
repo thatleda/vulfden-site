@@ -76,8 +76,8 @@ const config: GatsbyConfig = {
         name: "Leda Wolf",
         short_name: "Leda",
         start_url: "/",
-        background_color: "#121212",
-        theme_color: "#341677",
+        background_color: "#341677",
+        theme_color: "#121212",
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: "standalone",

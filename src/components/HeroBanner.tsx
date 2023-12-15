@@ -11,7 +11,7 @@ const HeroCard = styled.div`
   gap: 5rem;
   align-items: center;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1015px) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -54,6 +54,10 @@ const Purpose = styled.h2`
   margin: 0;
   text-align: end;
   text-shadow: var(--background-color) 0 0 20px;
+
+  @media (max-width: 749px) {
+    display: none;
+  }
 `;
 
 const ActionButtons = styled(Animation)`

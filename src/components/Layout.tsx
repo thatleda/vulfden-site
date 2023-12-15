@@ -9,8 +9,8 @@ import { Link as GatsbyLink } from "gatsby";
 import GlobalStyle from "../globalStyles";
 import Animation from "./base/Animation";
 import Button from "./base/Button";
-import { StaticImage } from "gatsby-plugin-image";
 import Burger from "./svg/Burger";
+import Wolf from "./svg/Wolf";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -168,11 +168,7 @@ const Layout: React.FC<LayoutProps> = ({ children, showFooter = true }) => {
       <Header>
         <AnimatedLinks type="fadeDown" duration={200}>
           <a aria-current="page" aria-label="home" href="/">
-            <StaticImage
-              src="../../static/wolf.png"
-              alt="Howling wolf logo"
-              style={{ maxWidth: "3rem" }}
-            />
+            <Wolf width="5rem" height="5rem" />
           </a>
           {smallScreen ? (
             <BurgerBox
