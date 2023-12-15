@@ -1,7 +1,8 @@
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 import Section from "./Section";
+import { graphql, useStaticQuery } from "gatsby";
 
 const AboutCard = styled.div`
   display: flex;
@@ -10,6 +11,11 @@ const AboutCard = styled.div`
   @media (max-width: 1000px) {
     flex-direction: column;
   }
+`;
+
+const Photo = styled(GatsbyImage)`
+  max-width: 300px;
+  margin: 0 auto;
 `;
 
 const Text = styled.div`
@@ -21,16 +27,23 @@ const Text = styled.div`
 `;
 
 const About: React.FC = () => {
+  const data: Queries.AboutQuery = useStaticQuery(graphql`
+    query About {
+      allFile(filter: { name: { eq: "leda-vertical" } }) {
+        nodes {
+          childImageSharp {
+            gatsbyImageData(width: 750, placeholder: BLURRED)
+          }
+        }
+      }
+    }
+  `);
+  const photo = data.allFile.nodes[0].childImageSharp?.gatsbyImageData;
+
   return (
     <Section anchor="who" heading="Who?">
       <AboutCard>
-        <StaticImage
-          src="../images/leda-vertical.jpeg"
-          alt="Leda Wolf"
-          style={{
-            maxWidth: 200,
-          }}
-        />
+        {photo && <Photo image={photo} alt="Leda ranting" />}
         <Text>
           <p>
             <i>Canis Ledus</i> is indigeous to Northern Germany, where the
