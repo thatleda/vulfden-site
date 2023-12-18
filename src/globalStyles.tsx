@@ -61,7 +61,6 @@ body {
       theme[props.colorMode].boxShadowHoverColor};
     --base-font: ${(props) => theme[props.colorMode].baseFont};
 
-    width: 100%;
     height: 100%;
     background-color: var(--background-color);
     color: var(--text-color);

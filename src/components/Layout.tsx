@@ -23,7 +23,6 @@ const Frame = styled.div`
   grid-template-rows: auto 1fr auto;
   margin: 0 auto;
   min-height: 100%;
-  width: 100%;
 `;
 
 const Header = styled.header`
@@ -76,16 +75,14 @@ const TopNavigation = styled.nav`
 `;
 
 const LinkWrapper = styled.div`
-  align-items: flex-end;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
-  height: 100%;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
   max-width: var(--page-width);
   padding: var(--page-padding);
-  width: 100%;
 `;
 
 const BurgerBox = styled.button`
