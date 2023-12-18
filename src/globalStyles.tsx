@@ -44,7 +44,7 @@ body {
     // CSS variables
     --border-radius: 1rem;
     --page-width: 62rem;
-    --page-padding: 0 2.5rem;
+    --page-padding: 0 1rem;
     --header-height: 6.25rem;
     --footer-height: 7.5rem;
     --primary-color: ${(props) => theme[props.colorMode].primaryColor};
