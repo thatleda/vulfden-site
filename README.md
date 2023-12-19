@@ -1,39 +1,39 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  <a href="https://leda.fyi">
+    <img alt="Howling wolf logo" src="https://leda.fyi/wolf.png" width="60" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby Minimal TypeScript Starter
+  Leda's Vulfden
 </h1>
 
-## 🚀 Quick start
+## Rocket emojis are for slaves of capitalism
 
-1.  **Create a Gatsby site.**
+0.5.  **Do like me and do a Gatsby.**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter. It's the least you can do.
 
     ```shell
     # create a new Gatsby site using the minimal TypeScript starter
     npm init gatsby -- -ts
     ```
 
-2.  **Start developing.**
+1.  **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+    Make sure you're in the vulfden-site directory.
 
     ```shell
-    cd my-gatsby-site/
-    npm run develop
+    cd vulfden-site/
+    yarn dev
     ```
 
-3.  **Open the code and start customizing!**
+2.  **Open the code and start customizing!**
 
-    Your site is now running at http://localhost:8000!
+    Vulfden is now running at http://localhost:8000!
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+    Edit `src/pages/index.tsx` to see my site update in real-time!
 
-4.  **Learn more**
+3.  **Learn more**
 
     - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
     - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
@@ -41,9 +41,4 @@
     - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
     - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
     - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+    - [Sanity](https://www.sanity.io/docs)
