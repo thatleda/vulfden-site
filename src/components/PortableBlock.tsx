@@ -1,12 +1,14 @@
-import React from "react";
 import {
   PortableText,
-  PortableTextBlockComponent,
-  PortableTextProps,
-  PortableTextReactComponents,
+  type PortableTextProps,
+  type PortableTextReactComponents,
+  type PortableTextTypeComponent,
+  type PortableTextTypeComponentProps,
 } from "@portabletext/react";
-import styled from "styled-components";
+import { type SanityImageSource } from "@sanity/asset-utils";
 import urlBuilder from "@sanity/image-url";
+import React from "react";
+import styled from "styled-components";
 
 const Blockquote = styled.q`
   quotes: auto;
@@ -28,25 +30,14 @@ const ObedientImage = styled.img`
   width: 80vw;
 `;
 
-const BlockquoteComponent: PortableTextBlockComponent = ({ children }) => {
-  return (
-    <RespectfulSpace>
-      <Blockquote lang="en">{children}</Blockquote>
-    </RespectfulSpace>
-  );
-};
-
-const SubQuoteComponent: PortableTextBlockComponent = ({ children }) => {
-  return (
-    <RightAligned>
-      <sub>— {children}</sub>
-    </RightAligned>
-  );
-};
-
-const ImageComponent = (props: any) => {
+const ImageComponent: PortableTextTypeComponent = ({
+  value,
+}: PortableTextTypeComponentProps<{
+  asset: SanityImageSource;
+  alt: string;
+}>) => {
   const imageSrc = urlBuilder({ projectId: "brvct6ie", dataset: "production" })
-    .image(props.value.asset)
+    .image(value.asset)
     .fit("fillmax")
     .auto("format")
     .url();
@@ -56,7 +47,7 @@ const ImageComponent = (props: any) => {
       <ObedientImage
         src={imageSrc}
         loading="lazy"
-        alt={props.value.alt}
+        alt={value.alt}
       ></ObedientImage>
     </RespectfulSpace>
   );
@@ -67,16 +58,26 @@ const components: Partial<PortableTextReactComponents> = {
     image: ImageComponent,
   },
   block: {
-    blockquote: BlockquoteComponent,
-    sub: SubQuoteComponent,
+    blockquote: ({ children }) => (
+      <RespectfulSpace>
+        <Blockquote lang="en">{children}</Blockquote>
+      </RespectfulSpace>
+    ),
+    sub: ({ children }) => {
+      return (
+        <RightAligned>
+          <sub>— {children}</sub>
+        </RightAligned>
+      );
+    },
   },
 };
 
 const PortableBlock: React.FC<PortableTextProps> = ({ value }) => {
-  if (value) {
+  if (value !== null) {
     return <PortableText value={value} components={components} />;
   }
-  return null;
+  return value;
 };
 
 export default PortableBlock;

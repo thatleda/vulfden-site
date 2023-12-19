@@ -1,11 +1,11 @@
-import React from "react";
-import { PageProps, graphql } from "gatsby";
 import type { PortableTextBlock } from "@portabletext/types";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { graphql, type PageProps } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import React from "react";
+import styled from "styled-components";
+import Layout from "../components/Layout";
 import PortableBlock from "../components/PortableBlock";
 import Section from "../components/Section";
-import Layout from "../components/Layout";
-import styled from "styled-components";
 
 const Banner = styled(GatsbyImage)`
   display: flex;
@@ -29,16 +29,14 @@ export const query = graphql`
 
 const CMSPage: React.FC<PageProps<Queries.CMSPageQuery>> = ({ data }) => {
   const article = data.sanityArticle;
-  const articleHasBannerImage =
-    article?.banner?.asset?.gatsbyImageData || false;
   const bannerImageAlt = article?._rawBanner?.alt as string;
-  if (article) {
+  if (article !== null) {
     return (
       <Layout>
         <Section heading={article.title}>
-          {articleHasBannerImage && (
+          {article?.banner?.asset?.gatsbyImageData !== undefined && (
             <Banner
-              image={article.banner?.asset?.gatsbyImageData as IGatsbyImageData}
+              image={article.banner?.asset?.gatsbyImageData}
               alt={bannerImageAlt}
             />
           )}

@@ -1,14 +1,14 @@
+import { type HeadFC, type PageProps } from "gatsby";
 import React from "react";
-import { HeadFC, PageProps } from "gatsby";
+import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Section from "../components/Section";
-import Layout from "../components/Layout";
 
 const PrivacyPage: React.FC<PageProps> = () => {
   return (
     <Layout>
       <Section anchor="privacy" heading="Privacy">
-        I'm a very private person
+        I am a very private person
       </Section>
     </Layout>
   );

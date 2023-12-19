@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
     <ContactCard>
       <p>
         If you have developed a strong desire to communicate or collaborate,
-        please don't hesitate and write to:
+        please don&apos;t hesitate and write to:
       </p>
       <Profile>
         <Wolf width="10rem" height="10rem" />

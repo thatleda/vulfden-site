@@ -1,12 +1,12 @@
 import React from "react";
-import Animation from "./base/Animation";
 import styled from "styled-components";
+import Animation from "./base/Animation";
 
-type SectionProps = {
+interface SectionProps {
   anchor?: string;
   heading?: string | null;
   children: React.ReactNode;
-};
+}
 
 const AnimatedSection = styled.section`
   height: auto;
@@ -30,11 +30,12 @@ const Heading = styled.h3`
 `;
 
 const Section: React.FC<SectionProps> = ({ anchor, heading, children }) => {
+  const hasHeading = heading !== undefined && heading !== null;
   return (
     <Animation type="fadeUp" duration={600}>
       <AnimatedSection id={anchor}>
         <ContentWrapper>
-          {heading && <Heading>{heading}</Heading>}
+          {hasHeading && <Heading>{heading}</Heading>}
           <div>{children}</div>
         </ContentWrapper>
       </AnimatedSection>

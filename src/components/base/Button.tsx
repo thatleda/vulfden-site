@@ -7,12 +7,12 @@ import Mail from "../svg/Mail";
 
 type ButtonVariant = "primary" | "secondary" | "nav";
 
-type ButtonProps = {
+interface ButtonProps {
   text: string;
   icon?: SVGName;
   variant?: ButtonVariant;
   href?: string;
-};
+}
 
 const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
   background-color: ${(props) =>
@@ -60,7 +60,7 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
   }
 `;
 
-const getSVGByName = (name: SVGName) => {
+const getSVGByName = (name: SVGName): React.ReactNode => {
   switch (name) {
     case "Discord":
       return <Discord />;
@@ -79,6 +79,7 @@ const Button: React.FC<ButtonProps> = ({
   variant = "secondary",
   href,
 }) => {
+  const hasIcon = icon !== undefined;
   return (
     <ExternalLink
       $variant={variant}
@@ -86,7 +87,7 @@ const Button: React.FC<ButtonProps> = ({
       target="_blank"
       rel="noopener noreferrer"
     >
-      {icon && getSVGByName(icon)}
+      {hasIcon && getSVGByName(icon)}
       {text}
     </ExternalLink>
   );

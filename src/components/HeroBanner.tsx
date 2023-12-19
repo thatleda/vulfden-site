@@ -1,5 +1,5 @@
-import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
 import styled from "styled-components";
 import Section from "./Section";
 import Animation from "./base/Animation";
@@ -84,9 +84,9 @@ const HeroBanner: React.FC = () => {
         />
         <CallToAction>
           <Greeting>Hello,</Greeting>
-          <Introduction>I'm a software engineer.</Introduction>
+          <Introduction>I&apos;m a software engineer.</Introduction>
           <Purpose>
-            Let's see if I'm a <u>good fit</u> for your company.
+            Let&apos;s see if I&apos;m a <u>good fit</u> for your company.
           </Purpose>
           <p>Look around and let me know what you think.</p>
           <ActionButtons duration={600} type="fadeLeft">

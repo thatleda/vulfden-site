@@ -1,8 +1,8 @@
+import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 import Section from "./Section";
-import { graphql, useStaticQuery } from "gatsby";
 
 const AboutCard = styled.div`
   display: flex;
@@ -43,13 +43,13 @@ const About: React.FC = () => {
   return (
     <Section anchor="who" heading="Who?">
       <AboutCard>
-        {photo && <Photo image={photo} alt="Leda ranting" />}
+        {photo != null && <Photo image={photo} alt="Leda ranting" />}
         <Text>
           <p>
             <i>Canis Ledus</i> is indigeous to Northern Germany, where the
             member of the species delights in the flatness of the land. The
             humidity as well as the sea breeze are essential to this wild
-            animal's survival and thrival.
+            animal&apos;s survival and thrival.
           </p>
           <p>
             While many have attempted to domesticate this noble creature, its
@@ -59,10 +59,11 @@ const About: React.FC = () => {
             exposure under the observation of capable veterinarians.
           </p>
           <p>
-            To help people is this incredible specimen's foremost desire and
-            greatest joy in life and through stubborn determination, quick wit,
-            and sheer audacity, she claims all things are possible. Her
-            territorial cry generally sounds like a pleasant, "How may I help?"
+            To help people is this incredible specimen&apos;s foremost desire
+            and greatest joy in life and through stubborn determination, quick
+            wit, and sheer audacity, she claims all things are possible. Her
+            territorial cry generally sounds like a pleasant, &quot;How may I
+            help?&quot;
           </p>
         </Text>
       </AboutCard>

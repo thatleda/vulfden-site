@@ -1,10 +1,10 @@
+import { graphql, type HeadFC, type PageProps } from "gatsby";
 import React from "react";
-import { HeadFC, PageProps, graphql } from "gatsby";
 import styled from "styled-components";
 import Article from "../components/Article";
+import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import Section from "../components/Section";
-import Layout from "../components/Layout";
 
 export const query = graphql`
   query RamblingsPage {
@@ -42,7 +42,7 @@ const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
       <Section heading="Unhinged ramblings">
         <Articles>
           {articles.map((article) => (
-            <Article article={article} />
+            <Article key={article.id} article={article} />
           ))}
         </Articles>
       </Section>

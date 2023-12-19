@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, HeadFC, PageProps } from "gatsby";
+import { Link, type HeadFC, type PageProps } from "gatsby";
 import SEO from "../components/SEO";
 
 const pageStyles = {

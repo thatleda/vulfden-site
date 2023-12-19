@@ -14,7 +14,7 @@ type AnimationType =
   | "reduceHeight"
   | "wiggle";
 
-type AnimationProps = {
+interface AnimationProps {
   children?: React.ReactNode;
   type?: AnimationType;
   timing?: AnimationTiming;
@@ -24,11 +24,11 @@ type AnimationProps = {
   iterationCount?: number;
   className?: string;
   onAnimationEnd?: () => void;
-};
+}
 
 type Keyframes = ReturnType<typeof keyframes>;
 
-type AnimationConfig = {
+interface AnimationConfig {
   $isVisible: boolean;
   $keyframes: Keyframes;
   $timing: AnimationTiming;
@@ -38,7 +38,7 @@ type AnimationConfig = {
   $fillMode: AnimationFillMode;
   $style?: React.CSSProperties;
   onAnimationEnd?: () => void;
-};
+}
 
 const fadeIn = keyframes`
     0% {

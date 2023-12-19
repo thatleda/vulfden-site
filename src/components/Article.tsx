@@ -4,9 +4,9 @@ import React from "react";
 import styled from "styled-components";
 import { formatDistance } from "date-fns";
 
-type ArticleProps = {
+interface ArticleProps {
   article: Queries.RamblingsPageQuery["allSanityArticle"]["nodes"][number];
-};
+}
 
 const ArticleCard = styled.div`
   display: flex;
@@ -47,10 +47,9 @@ const ArticleReleaseDate = styled.span`
 
 const Article: React.FC<ArticleProps> = ({ article }) => {
   const articleHasBanner =
-    article.banner && article.banner.asset && article._rawBanner;
-  const articleReleaseDate = article._createdAt
-    ? new Date(article._createdAt)
-    : new Date();
+    article.banner?.asset != null && article._rawBanner !== null;
+  const articleReleaseDate =
+    article._createdAt !== null ? new Date(article._createdAt) : new Date();
 
   return (
     <Link to={article.slug?.current ?? "/"}>

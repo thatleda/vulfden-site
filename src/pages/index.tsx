@@ -1,15 +1,15 @@
-import React from "react";
-import { graphql, type HeadFC, type PageProps } from "gatsby";
 import type { PortableTextBlock } from "@portabletext/types";
-import Playlist from "../components/Playlist";
-import PortableBlock from "../components/PortableBlock";
-import Testimonial from "../components/Testimonial";
-import SEO from "../components/SEO";
-import HeroBanner from "../components/HeroBanner";
-import Section from "../components/Section";
+import { graphql, type HeadFC, type PageProps } from "gatsby";
+import React from "react";
 import About from "../components/About";
 import Contact from "../components/Contact";
+import HeroBanner from "../components/HeroBanner";
 import Layout from "../components/Layout";
+import Playlist from "../components/Playlist";
+import PortableBlock from "../components/PortableBlock";
+import Section from "../components/Section";
+import SEO from "../components/SEO";
+import Testimonial from "../components/Testimonial";
 
 export const query = graphql`
   query IndexPage {
@@ -46,7 +46,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
       <HeroBanner />
       <Playlist />
       <About />
-      {bioFromSanity && (
+      {bioFromSanity !== null && (
         <Section anchor="previously" heading={bioFromSanity.title}>
           <PortableBlock
             value={bioFromSanity._rawContent as unknown as PortableTextBlock}

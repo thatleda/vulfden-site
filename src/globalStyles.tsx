@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const theme = {
   light: {
@@ -12,7 +12,7 @@ const theme = {
     scrollbarColor: "rgba(0, 0, 0, 0.5)",
     boxShadowColor: "rgba(0, 0, 0, 0.16)",
     boxShadowHoverColor: "rgba(0, 0, 0, 0.32)",
-    baseFont: `'Nunito Sans', sans-serif`,
+    baseFont: "'Nunito Sans', sans-serif",
   },
 
   dark: {
@@ -26,7 +26,7 @@ const theme = {
     scrollbarColor: "rgba(255, 255, 255, 0.5)",
     boxShadowColor: "rgba(0, 0, 0, 0.16)",
     boxShadowHoverColor: "rgba(0, 0, 0, 0.32)",
-    baseFont: `'Nunito Sans', sans-serif`,
+    baseFont: "'Nunito Sans', sans-serif",
   },
 };
 

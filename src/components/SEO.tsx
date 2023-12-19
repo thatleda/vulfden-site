@@ -1,11 +1,11 @@
 import React from "react";
 import { useMediaQuery } from "usehooks-ts";
 
-type SEOProps = {
+interface SEOProps {
   title: string;
   description: string;
   location: string;
-};
+}
 
 const SEO: React.FC<SEOProps> = (props: SEOProps) => {
   const { title, description } = props;

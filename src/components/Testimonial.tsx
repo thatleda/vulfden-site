@@ -1,6 +1,6 @@
+import { GatsbyImage, type IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 const Card = styled.div`
   display: flex;
@@ -37,16 +37,16 @@ const Reviewer = styled.b`
   text-decoration: solid;
 `;
 
-export type TestimonialProps = {
+export interface TestimonialProps {
   reviewer: string;
   comment: string;
   picture: { asset: { gatsbyImageData: IGatsbyImageData } | null } | null;
-};
+}
 
 const Testimonial: React.FC<TestimonialProps> = (props: TestimonialProps) => {
   return (
     <Card>
-      {props.picture && props.picture.asset && (
+      {props.picture?.asset !== undefined && props.picture?.asset !== null && (
         <GatsbyImage
           image={props.picture.asset.gatsbyImageData}
           alt={props.reviewer}

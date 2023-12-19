@@ -1,9 +1,5 @@
 import React, { useRef, useState } from "react";
-import {
-  useClickAnyWhere,
-  useMediaQuery,
-  useOnClickOutside,
-} from "usehooks-ts";
+import { useMediaQuery, useOnClickOutside } from "usehooks-ts";
 import styled from "styled-components";
 import { Link as GatsbyLink } from "gatsby";
 import GlobalStyle from "../globalStyles";
@@ -12,10 +8,10 @@ import Button from "./base/Button";
 import Burger from "./svg/Burger";
 import Wolf from "./svg/Wolf";
 
-type LayoutProps = {
+interface LayoutProps {
   children: React.ReactNode;
   showFooter?: boolean;
-};
+}
 
 const Frame = styled.div`
   display: grid;
@@ -156,7 +152,9 @@ const SideNavLink = styled(GatsbyLink)`
 const Layout: React.FC<LayoutProps> = ({ children, showFooter = true }) => {
   const [isMenuOpen, openMenu] = useState(false);
   const outsideRef = useRef(null);
-  useOnClickOutside(outsideRef, () => openMenu(false));
+  useOnClickOutside(outsideRef, () => {
+    openMenu(false);
+  });
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const smallScreen = useMediaQuery("(max-width: 1030px)");
   return (
@@ -171,7 +169,9 @@ const Layout: React.FC<LayoutProps> = ({ children, showFooter = true }) => {
             <BurgerBox
               type="button"
               id="openMenu"
-              onClick={() => openMenu(true)}
+              onClick={() => {
+                openMenu(true);
+              }}
               style={isMenuOpen ? { display: "none" } : undefined}
             >
               <Burger width="3rem" height="3rem" />
