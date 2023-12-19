@@ -1,47 +1,40 @@
-import React from "react";
 import { Link, type HeadFC, type PageProps } from "gatsby";
+import React from "react";
+import styled from "styled-components";
+import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import Section from "../components/Section";
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
+const Warning = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
-const paragraphStyles = {
-  marginBottom: 48,
-};
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-};
+const Greeting = styled.h1`
+  font-size: xx-large;
+`;
+
+const GoBack = styled(Link)`
+  font-size: xx-large;
+  color: var(--text-color);
+`;
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Nevermind.</Link>.
-      </p>
-    </main>
+    <Layout showFooter={false}>
+      <Section heading="Page not found">
+        <Warning>
+          <Greeting>Helloooo, sailor!</Greeting>
+          <p>It&apos;s funny, where life brings us.</p>
+          <p>Maybe, there is opportunity in our mistakes.</p>
+          <GoBack to="/">
+            <h1><u>Nevermind.</u></h1>
+          </GoBack>
+        </Warning>
+      </Section>
+    </Layout>
   );
 };
 
