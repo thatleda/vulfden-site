@@ -36,7 +36,10 @@ const ImageComponent: PortableTextTypeComponent = ({
   asset: SanityImageSource;
   alt: string;
 }>) => {
-  const imageSrc = urlBuilder({ projectId: "brvct6ie", dataset: "production" })
+  const imageSrc = urlBuilder({
+    projectId: process.env.GATSBY_SANITY_PROJECT_ID ?? "",
+    dataset: process.env.GATSBY_SANITY_DATASET ?? "",
+  })
     .image(value.asset)
     .fit("fillmax")
     .auto("format")

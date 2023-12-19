@@ -1,4 +1,7 @@
+import dotenvFlow from "dotenv-flow";
 import type { GatsbyConfig } from "gatsby";
+
+dotenvFlow.config()
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -13,8 +16,8 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: "brvct6ie",
-        dataset: "production",
+        projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+        dataset: process.env.GATSBY_SANITY_DATASET,
       },
     },
     "gatsby-plugin-sharp",
