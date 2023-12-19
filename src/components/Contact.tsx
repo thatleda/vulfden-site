@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Animation from "./base/Animation";
-import Button from "./base/Button";
-import Wolf from "./svg/Wolf";
+
+import Animation from "components/base/Animation";
+import Button from "components/base/Button";
+import Wolf from "components/svg/Wolf";
 
 const ContactCard = styled.div`
   display: flex;

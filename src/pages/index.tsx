@@ -1,15 +1,17 @@
-import type { PortableTextBlock } from "@portabletext/types";
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 import React from "react";
-import About from "../components/About";
-import Contact from "../components/Contact";
-import HeroBanner from "../components/HeroBanner";
-import Layout from "../components/Layout";
-import Playlist from "../components/Playlist";
-import PortableBlock from "../components/PortableBlock";
-import Section from "../components/Section";
-import SEO from "../components/SEO";
-import Testimonial from "../components/Testimonial";
+
+import About from "components/About";
+import Contact from "components/Contact";
+import HeroBanner from "components/HeroBanner";
+import Layout from "components/Layout";
+import Playlist from "components/Playlist";
+import PortableBlock from "components/PortableBlock";
+import Section from "components/Section";
+import SEO from "components/SEO";
+import Testimonial from "components/Testimonial";
+
+import type { PortableTextBlock } from "@portabletext/types";
 
 export const query = graphql`
   query IndexPage {

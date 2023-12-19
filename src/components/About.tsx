@@ -2,7 +2,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
-import Section from "./Section";
+
+import Section from "components/Section";
 
 const AboutCard = styled.div`
   display: flex;

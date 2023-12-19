@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Animation from "./base/Animation";
+
+import Animation from "components/base/Animation";
 
 interface SectionProps {
   anchor?: string;

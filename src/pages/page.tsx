@@ -1,11 +1,13 @@
-import type { PortableTextBlock } from "@portabletext/types";
 import { graphql, type PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
-import Layout from "../components/Layout";
-import PortableBlock from "../components/PortableBlock";
-import Section from "../components/Section";
+
+import Layout from "components/Layout";
+import PortableBlock from "components/PortableBlock";
+import Section from "components/Section";
+
+import type { PortableTextBlock } from "@portabletext/types";
 
 const Banner = styled(GatsbyImage)`
   display: flex;

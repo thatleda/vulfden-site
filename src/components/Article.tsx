@@ -1,8 +1,8 @@
+import { formatDistance } from "date-fns";
 import { Link } from "gatsby-link";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
-import { formatDistance } from "date-fns";
 
 interface ArticleProps {
   article: Queries.RamblingsPageQuery["allSanityArticle"]["nodes"][number];

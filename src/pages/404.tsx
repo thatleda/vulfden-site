@@ -1,9 +1,10 @@
-import { Link, type HeadFC, type PageProps } from "gatsby";
+import { type HeadFC, Link, type PageProps } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import Section from "../components/Section";
+
+import Layout from "components/Layout";
+import Section from "components/Section";
+import SEO from "components/SEO";
 
 const Warning = styled.div`
   display: flex;
@@ -30,7 +31,9 @@ const NotFoundPage: React.FC<PageProps> = () => {
           <p>It&apos;s funny, where life brings us.</p>
           <p>Maybe, there is opportunity in our mistakes.</p>
           <GoBack to="/">
-            <h1><u>Nevermind.</u></h1>
+            <h1>
+              <u>Nevermind.</u>
+            </h1>
           </GoBack>
         </Warning>
       </Section>

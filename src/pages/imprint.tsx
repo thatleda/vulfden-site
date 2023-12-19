@@ -1,8 +1,9 @@
 import { type HeadFC, type PageProps } from "gatsby";
 import React from "react";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import Section from "../components/Section";
+
+import Layout from "components/Layout";
+import Section from "components/Section";
+import SEO from "components/SEO";
 
 const ImprintPage: React.FC<PageProps> = () => {
   return (

@@ -1,12 +1,14 @@
-import React, { useRef, useState } from "react";
-import { useMediaQuery, useOnClickOutside } from "usehooks-ts";
-import styled from "styled-components";
 import { Link as GatsbyLink } from "gatsby";
+import React, { useRef, useState } from "react";
+import styled from "styled-components";
+import { useMediaQuery, useOnClickOutside } from "usehooks-ts";
+
+import Animation from "components/base/Animation";
+import Button from "components/base/Button";
+import Burger from "components/svg/Burger";
+import Wolf from "components/svg/Wolf";
+
 import GlobalStyle from "../globalStyles";
-import Animation from "./base/Animation";
-import Button from "./base/Button";
-import Burger from "./svg/Burger";
-import Wolf from "./svg/Wolf";
 
 interface LayoutProps {
   children: React.ReactNode;
