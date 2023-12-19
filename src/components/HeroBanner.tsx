@@ -1,9 +1,10 @@
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
-import Section from "./Section";
-import Animation from "./base/Animation";
-import Button from "./base/Button";
+
+import Animation from "components/base/Animation";
+import Button from "components/base/Button";
+import Section from "components/Section";
 
 const HeroCard = styled.div`
   display: flex;

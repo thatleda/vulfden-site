@@ -1,3 +1,6 @@
+import React from "react";
+import styled from "styled-components";
+
 import {
   PortableText,
   type PortableTextProps,
@@ -7,8 +10,6 @@ import {
 } from "@portabletext/react";
 import { type SanityImageSource } from "@sanity/asset-utils";
 import urlBuilder from "@sanity/image-url";
-import React from "react";
-import styled from "styled-components";
 
 const Blockquote = styled.q`
   quotes: auto;

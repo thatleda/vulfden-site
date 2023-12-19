@@ -1,5 +1,6 @@
 import React from "react";
-import Section from "./Section";
+
+import Section from "components/Section";
 
 const PlaylistSection: React.FC = () => {
   return (

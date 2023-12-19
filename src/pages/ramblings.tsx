@@ -1,10 +1,11 @@
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import Article from "../components/Article";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import Section from "../components/Section";
+
+import Article from "components/Article";
+import Layout from "components/Layout";
+import Section from "components/Section";
+import SEO from "components/SEO";
 
 export const query = graphql`
   query RamblingsPage {

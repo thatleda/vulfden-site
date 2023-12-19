@@ -1,9 +1,10 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import Discord from "../svg/Discord";
-import LinkedIn from "../svg/LinkedIn";
-import GitHub from "../svg/GitHub";
-import Mail from "../svg/Mail";
+
+import Discord from "components/svg/Discord";
+import GitHub from "components/svg/GitHub";
+import LinkedIn from "components/svg/LinkedIn";
+import Mail from "components/svg/Mail";
 
 type ButtonVariant = "primary" | "secondary" | "nav";
 
