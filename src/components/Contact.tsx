@@ -41,12 +41,11 @@ const ActionButtons = styled(Animation)`
 `;
 
 const Contact: React.FC = () => {
+  const callToReachOut = `If you have developed a strong desire to communicate or collaborate, please don't hesitate and write to:`;
+
   return (
     <ContactCard>
-      <p>
-        If you have developed a strong desire to communicate or collaborate,
-        please don&apos;t hesitate and write to:
-      </p>
+      <p>{callToReachOut}</p>
       <Profile>
         <Wolf width="10rem" height="10rem" />
         <ContactData>
