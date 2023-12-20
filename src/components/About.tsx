@@ -3,7 +3,10 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 
+import PortableBlock from "components/PortableBlock";
 import Section from "components/Section";
+
+import type { PortableTextBlock } from "@portabletext/types";
 
 const AboutCard = styled.div`
   display: flex;
@@ -30,42 +33,28 @@ const Text = styled.div`
 const About: React.FC = () => {
   const data: Queries.AboutQuery = useStaticQuery(graphql`
     query About {
-      allFile(filter: { name: { eq: "leda-vertical" } }) {
-        nodes {
-          childImageSharp {
+      sanityPage(slug: { current: { eq: "who" } }) {
+        banner {
+          asset {
             gatsbyImageData(width: 750, placeholder: BLURRED)
           }
         }
+        _rawBanner
+        title
+        _rawContent
       }
     }
   `);
-  const photo = data.allFile.nodes[0].childImageSharp?.gatsbyImageData;
+  const photo = data.sanityPage?.banner?.asset?.gatsbyImageData;
+  const alt =
+    (data.sanityPage?._rawBanner?.alt as string) ?? "Leda's science face";
 
   return (
     <Section anchor="who" heading="Who?">
       <AboutCard>
-        {photo != null && <Photo image={photo} alt="Leda ranting" />}
+        {photo != null && <Photo image={photo} alt={alt} />}
         <Text>
-          <p>
-            <i>Canis Ledus</i> is indigeous to Northern Germany, where the
-            member of the species delights in the flatness of the land. The
-            humidity as well as the sea breeze are essential to this wild
-            animal&apos;s survival and thrival.
-          </p>
-          <p>
-            While many have attempted to domesticate this noble creature, its
-            unusual hostility to children based on primitive and visceral fear
-            of small human beings makes it unfit as a family pet. This
-            unfortunate condition is being currently remedied with decent
-            exposure under the observation of capable veterinarians.
-          </p>
-          <p>
-            To help people is this incredible specimen&apos;s foremost desire
-            and greatest joy in life and through stubborn determination, quick
-            wit, and sheer audacity, she claims all things are possible. Her
-            territorial cry generally sounds like a pleasant, &quot;How may I
-            help?&quot;
-          </p>
+          <PortableBlock value={data.sanityPage?._rawContent as unknown as PortableTextBlock} />
         </Text>
       </AboutCard>
     </Section>
