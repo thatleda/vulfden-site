@@ -1,15 +1,31 @@
-import { type HeadFC, type PageProps } from "gatsby";
+import { graphql, type HeadFC, type PageProps } from "gatsby";
 import React from "react";
 
 import Layout from "components/Layout";
+import PortableBlock from "components/PortableBlock";
 import Section from "components/Section";
 import SEO from "components/SEO";
 
-const PrivacyPage: React.FC<PageProps> = () => {
+import type { PortableTextBlock } from "@portabletext/types";
+
+export const query = graphql`
+  query PrivacyPage {
+    sanityPage(slug: { current: { eq: "privacy" } }) {
+      title
+      _rawContent
+    }
+  }
+`;
+
+const PrivacyPage: React.FC<PageProps<Queries.PrivacyPageQuery>> = ({
+  data,
+}) => {
   return (
     <Layout>
-      <Section anchor="privacy" heading="Privacy">
-        I am a very private person
+      <Section anchor="privacy" heading={data.sanityPage?.title}>
+        <PortableBlock
+          value={data.sanityPage?._rawContent as unknown as PortableTextBlock}
+        />
       </Section>
     </Layout>
   );

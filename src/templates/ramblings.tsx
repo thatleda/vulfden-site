@@ -8,8 +8,15 @@ import Section from "components/Section";
 import SEO from "components/SEO";
 
 export const query = graphql`
-  query RamblingsPage {
-    allSanityArticle(sort: { _createdAt: DESC }) {
+  query RamblingsPage($limit: Int, $skip: Int) {
+    allSanityArticle(sort: { _createdAt: DESC }, limit: $limit, skip: $skip) {
+      pageInfo {
+        currentPage
+        pageCount
+        hasNextPage
+        hasPreviousPage
+        totalCount
+      }
       nodes {
         id
         slug {
@@ -35,6 +42,7 @@ const Articles = styled.div`
 
 const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
   data,
+  pageContext,
 }) => {
   const articles = data.allSanityArticle.nodes;
 
@@ -55,7 +63,7 @@ export default RamblingsPage;
 
 export const Head: HeadFC = () => (
   <SEO
-    title="Leda's ramblings"
+    title="Ramblings"
     description="You've reached the coveted index of Leda's finest wisdom. Good for you!"
     location="/ramblings"
   />
