@@ -15,7 +15,7 @@ const Banner = styled(GatsbyImage)`
 `;
 
 export const query = graphql`
-  query CMSPage($id: String) {
+  query Article($id: String) {
     sanityArticle(id: { eq: $id }) {
       title
       _rawBanner
@@ -29,7 +29,7 @@ export const query = graphql`
   }
 `;
 
-const CMSPage: React.FC<PageProps<Queries.CMSPageQuery>> = ({ data }) => {
+const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
   const article = data.sanityArticle;
   const bannerImageAlt = article?._rawBanner?.alt as string;
   if (article !== null) {
@@ -51,4 +51,4 @@ const CMSPage: React.FC<PageProps<Queries.CMSPageQuery>> = ({ data }) => {
   }
 };
 
-export default CMSPage;
+export default ArticlePage;
