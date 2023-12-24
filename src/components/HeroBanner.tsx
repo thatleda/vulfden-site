@@ -72,8 +72,6 @@ const ActionButtons = styled(Animation)`
 
 const HeroBanner: React.FC = () => {
   const introduction = `I'm a software engineer`;
-  const purpose = `Let's see if I&apos;m a <u>good fit</u> for your company.`;
-
   return (
     <Section>
       <HeroCard>
@@ -89,7 +87,7 @@ const HeroBanner: React.FC = () => {
         <CallToAction>
           <Greeting>Hello,</Greeting>
           <Introduction>{introduction}</Introduction>
-          <Purpose>{purpose}</Purpose>
+          <Purpose>Let&apos;s see if I&apos;m a <u>good fit</u> for your company.</Purpose>
           <p>Look around and let me know what you think.</p>
           <ActionButtons duration={600} type="fadeLeft">
             <Button
