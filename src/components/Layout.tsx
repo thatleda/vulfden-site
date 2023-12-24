@@ -1,5 +1,5 @@
 import { Link as GatsbyLink } from "gatsby";
-import React, { useRef, useState } from "react";
+import React, { PropsWithChildren, useRef, useState } from "react";
 import styled from "styled-components";
 import { useMediaQuery, useOnClickOutside } from "usehooks-ts";
 
@@ -11,7 +11,6 @@ import Wolf from "components/svg/Wolf";
 import GlobalStyle from "../globalStyles";
 
 interface LayoutProps {
-  children: React.ReactNode;
   showFooter?: boolean;
 }
 
@@ -151,7 +150,10 @@ const SideNavLink = styled(GatsbyLink)`
   text-align: center;
 `;
 
-const Layout: React.FC<LayoutProps> = ({ children, showFooter = true }) => {
+const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
+  children,
+  showFooter = true,
+}) => {
   const [isMenuOpen, openMenu] = useState(false);
   const outsideRef = useRef(null);
   useOnClickOutside(outsideRef, () => {

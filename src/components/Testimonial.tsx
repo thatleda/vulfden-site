@@ -40,7 +40,9 @@ const Reviewer = styled.b`
 export interface TestimonialProps {
   reviewer: string;
   comment: string;
-  picture: { asset: { gatsbyImageData: IGatsbyImageData } | null } | null;
+  picture: {
+    asset: { gatsbyImageData: IGatsbyImageData; altText: string | null } | null;
+  } | null;
 }
 
 const Testimonial: React.FC<TestimonialProps> = (props: TestimonialProps) => {
@@ -49,7 +51,7 @@ const Testimonial: React.FC<TestimonialProps> = (props: TestimonialProps) => {
       {props.picture?.asset !== undefined && props.picture?.asset !== null && (
         <GatsbyImage
           image={props.picture.asset.gatsbyImageData}
-          alt={props.reviewer}
+          alt={props.picture.asset.altText ?? props.reviewer}
           imgStyle={{ borderRadius: 20 }}
         ></GatsbyImage>
       )}

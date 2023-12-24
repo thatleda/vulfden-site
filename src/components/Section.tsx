@@ -1,4 +1,4 @@
-import React from "react";
+import React, { type PropsWithChildren } from "react";
 import styled from "styled-components";
 
 import Animation from "components/base/Animation";
@@ -6,7 +6,6 @@ import Animation from "components/base/Animation";
 interface SectionProps {
   anchor?: string;
   heading?: string | null;
-  children: React.ReactNode;
 }
 
 const AnimatedSection = styled.section`
@@ -30,7 +29,11 @@ const Heading = styled.h3`
   line-height: 2.25rem;
 `;
 
-const Section: React.FC<SectionProps> = ({ anchor, heading, children }) => {
+const Section: React.FC<PropsWithChildren<SectionProps>> = ({
+  anchor,
+  heading,
+  children,
+}) => {
   const hasHeading = heading !== undefined && heading !== null;
   return (
     <Animation type="fadeUp" duration={600}>

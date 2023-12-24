@@ -37,24 +37,25 @@ const About: React.FC = () => {
         banner {
           asset {
             gatsbyImageData(width: 750, placeholder: BLURRED)
+            altText
           }
         }
-        _rawBanner
         title
         _rawContent
       }
     }
   `);
   const photo = data.sanityPage?.banner?.asset?.gatsbyImageData;
-  const alt =
-    (data.sanityPage?._rawBanner?.alt as string) ?? "Leda's science face";
+  const alt = data.sanityPage?.banner?.asset?.altText ?? "Leda's science face";
 
   return (
     <Section anchor="who" heading="Who?">
       <AboutCard>
         {photo != null && <Photo image={photo} alt={alt} />}
         <Text>
-          <PortableBlock value={data.sanityPage?._rawContent as unknown as PortableTextBlock} />
+          <PortableBlock
+            value={data.sanityPage?._rawContent as unknown as PortableTextBlock}
+          />
         </Text>
       </AboutCard>
     </Section>

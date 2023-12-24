@@ -18,10 +18,10 @@ export const query = graphql`
   query Article($id: String) {
     sanityArticle(id: { eq: $id }) {
       title
-      _rawBanner
       banner {
         asset {
           gatsbyImageData(fit: FILLMAX, placeholder: BLURRED, width: 1000)
+          altText
         }
       }
       _rawContent
@@ -31,7 +31,7 @@ export const query = graphql`
 
 const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
   const article = data.sanityArticle;
-  const bannerImageAlt = article?._rawBanner?.alt as string;
+
   if (article !== null) {
     return (
       <Layout>
@@ -39,7 +39,7 @@ const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
           {article?.banner?.asset?.gatsbyImageData !== undefined && (
             <Banner
               image={article.banner?.asset?.gatsbyImageData}
-              alt={bannerImageAlt}
+              alt={article.banner?.asset?.altText ?? "Banner image"}
             />
           )}
           <PortableBlock
