@@ -11,12 +11,12 @@
 
 0.5.  **Do like me and do a Gatsby.**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter. It's the least you can do.
+Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter. It's the least you can do.
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+```shell
+# create a new Gatsby site using the minimal TypeScript starter
+npm init gatsby -- -ts
+```
 
 1.  **Start developing.**
 
