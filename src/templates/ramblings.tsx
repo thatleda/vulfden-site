@@ -26,9 +26,9 @@ export const query = graphql`
         banner {
           asset {
             gatsbyImageData(placeholder: BLURRED, width: 100, height: 100)
+            altText
           }
         }
-        _rawBanner
         _createdAt
       }
     }
@@ -42,7 +42,6 @@ const Articles = styled.div`
 
 const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
   data,
-  pageContext,
 }) => {
   const articles = data.allSanityArticle.nodes;
 

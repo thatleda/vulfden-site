@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { type PropsWithChildren, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { useIntersectionObserver } from "usehooks-ts";
 
@@ -15,7 +15,6 @@ type AnimationType =
   | "wiggle";
 
 interface AnimationProps {
-  children?: React.ReactNode;
   type?: AnimationType;
   timing?: AnimationTiming;
   fillMode?: AnimationFillMode;
@@ -188,7 +187,7 @@ const MovingContainer = styled.div<AnimationConfig>(
   }
 );
 
-const Animation: React.FC<AnimationProps> = (props) => {
+const Animation: React.FC<PropsWithChildren<AnimationProps>> = (props) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const observedContainer = useIntersectionObserver(ref, {
     threshold: 0.05,

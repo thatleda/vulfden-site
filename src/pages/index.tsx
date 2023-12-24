@@ -30,6 +30,7 @@ export const query = graphql`
               fit: FILLMAX
               placeholder: BLURRED
             )
+            altText
           }
         }
         comment

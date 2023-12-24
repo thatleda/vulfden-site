@@ -46,8 +46,7 @@ const ArticleReleaseDate = styled.span`
 `;
 
 const Article: React.FC<ArticleProps> = ({ article }) => {
-  const articleHasBanner =
-    article.banner?.asset != null && article._rawBanner !== null;
+  const articleHasBanner = article.banner?.asset != null;
   const articleReleaseDate =
     article._createdAt !== null ? new Date(article._createdAt) : new Date();
 
@@ -57,7 +56,7 @@ const Article: React.FC<ArticleProps> = ({ article }) => {
         {articleHasBanner && (
           <GatsbyImage
             image={article.banner.asset.gatsbyImageData}
-            alt={article._rawBanner.alt as string}
+            alt={article.banner.asset.altText ?? "Banner image"}
             style={{
               minWidth: 100,
               opacity: 0.5,
