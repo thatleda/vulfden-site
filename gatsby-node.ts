@@ -47,7 +47,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPage({
       path: blogPath,
       component: path.resolve(__dirname, `src/templates/article.tsx`),
-      context: { id },
+      context: { id, path: blogPath },
     });
   });
 };

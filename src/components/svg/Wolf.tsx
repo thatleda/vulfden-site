@@ -4,6 +4,7 @@ const Wolf: React.FC<SVGProps> = ({
   width = "50px",
   height = "50px",
   fillColor = "var(--text-color)",
+  mirror
 }) => {
   return (
     <svg
@@ -13,6 +14,7 @@ const Wolf: React.FC<SVGProps> = ({
       height={height}
       viewBox="0 0 598.000000 583.000000"
       preserveAspectRatio="xMidYMid meet"
+      transform={mirror ? 'scale(-1, 1)' : undefined}
     >
       <g
         transform="translate(0.000000,583.000000) scale(0.100000,-0.100000)"

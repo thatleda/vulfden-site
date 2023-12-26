@@ -22,7 +22,8 @@ const PrivacyPage: React.FC<PageProps<Queries.PrivacyPageQuery>> = ({
 }) => {
   return (
     <Layout>
-      <Section anchor="privacy" heading={data.sanityPage?.title}>
+      <Section anchor="privacy">
+        <h1>{data.sanityPage?.title}</h1>
         <PortableBlock
           value={data.sanityPage?._rawContent as unknown as PortableTextBlock}
         />

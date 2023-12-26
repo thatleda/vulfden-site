@@ -34,7 +34,6 @@ const Comment = styled.q`
 const Reviewer = styled.b`
   padding-top: 1rem;
   text-align: right;
-  text-decoration: solid;
 `;
 
 export interface TestimonialProps {

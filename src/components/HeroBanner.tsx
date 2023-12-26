@@ -35,7 +35,6 @@ const CallToAction = styled.div`
 const Greeting = styled.h1`
   padding-bottom: 0;
   margin-bottom: 0;
-  font-size: 2.5rem;
   line-height: 0;
   text-align: start;
   color: var(--subtext-color);

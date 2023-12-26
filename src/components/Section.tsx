@@ -23,7 +23,7 @@ const ContentWrapper = styled.div`
   padding: var(--page-padding);
 `;
 
-const Heading = styled.h3`
+const Heading = styled.h2`
   margin: 0 0 2rem 0;
   font-size: 1.75rem;
   line-height: 2.25rem;

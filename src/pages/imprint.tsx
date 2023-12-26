@@ -22,8 +22,9 @@ const ImprintPage: React.FC<PageProps<Queries.ImprintPageQuery>> = ({
 }) => {
   return (
     <Layout>
-      <Section anchor="imprint" heading={data.sanityPage?.title}>
-      <PortableBlock
+      <Section anchor="imprint">
+        <h1>{data.sanityPage?.title}</h1>
+        <PortableBlock
           value={data.sanityPage?._rawContent as unknown as PortableTextBlock}
         />
       </Section>

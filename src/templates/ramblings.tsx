@@ -6,6 +6,7 @@ import Article from "components/Article";
 import Layout from "components/Layout";
 import Section from "components/Section";
 import SEO from "components/SEO";
+import Pagination from "components/base/Pagination";
 
 export const query = graphql`
   query RamblingsPage($limit: Int, $skip: Int) {
@@ -29,6 +30,8 @@ export const query = graphql`
             altText
           }
         }
+        excerpt
+        readingTimeInMinutes
         _createdAt
       }
     }
@@ -44,7 +47,7 @@ const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
   data,
 }) => {
   const articles = data.allSanityArticle.nodes;
-
+  const pagination = data.allSanityArticle.pageInfo;
   return (
     <Layout showFooter={false}>
       <Section heading="Unhinged ramblings">
@@ -53,6 +56,12 @@ const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
             <Article key={article.id} article={article} />
           ))}
         </Articles>
+        <Pagination
+          currentPage={pagination.currentPage}
+          hasNextPage={pagination.hasNextPage}
+          hasPreviousPage={pagination.hasPreviousPage}
+          totalPages={pagination.pageCount}
+        ></Pagination>
       </Section>
     </Layout>
   );

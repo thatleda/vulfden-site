@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const theme = {
   light: {
     primaryColor: "#000000",
-    secondaryColor: "#fff4d9",
+    secondaryColor: "#a7f8b1",
     tertiaryColor: "#f2f2f2",
     textColor: "#000000",
     subtextColor: "#555555",
@@ -12,12 +12,12 @@ const theme = {
     scrollbarColor: "rgba(0, 0, 0, 0.5)",
     boxShadowColor: "rgba(0, 0, 0, 0.16)",
     boxShadowHoverColor: "rgba(0, 0, 0, 0.32)",
-    baseFont: "'Nunito Sans', sans-serif",
+    baseFont: "'Fira Code', monospace",
   },
 
   dark: {
     primaryColor: "#fafafa",
-    secondaryColor: "#341677",
+    secondaryColor: "#055b01",
     tertiaryColor: "#252525",
     textColor: "rgba(255, 255, 255, 0.87)",
     subtextColor: "#aaaaaa",
@@ -26,7 +26,7 @@ const theme = {
     scrollbarColor: "rgba(255, 255, 255, 0.5)",
     boxShadowColor: "rgba(0, 0, 0, 0.16)",
     boxShadowHoverColor: "rgba(0, 0, 0, 0.32)",
-    baseFont: "'Nunito Sans', sans-serif",
+    baseFont: "'Fira Code', monospace",
   },
 };
 
@@ -65,9 +65,8 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-size: 1rem;
-    font-family: var(--base-font);
-    line-height: 1.5rem;
     font-weight: 400;
+    font-family: var(--base-font);
     text-rendering: optimizeLegibility;
 
     a {
@@ -88,14 +87,24 @@ body {
 
     h1 {
         font-family: 'Silkscreen', sans-serif;
+        font-size: 2.5rem;
     }
 
     h2 {
         font-family: 'Homemade Apple', cursive;
     }
 
-    h3 {
+    em {
         font-family: 'Homemade Apple', cursive;
+        font-style: normal;
+        margin: 0 0.25rem;
+        line-height: 0.8rem;
+        font-size: 1.1rem;
+    }
+
+    q {
+        font-family: 'Fira Code', cursive;
+        font-weight: 200;
     }
 
     u {
