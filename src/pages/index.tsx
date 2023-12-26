@@ -15,8 +15,7 @@ import type { PortableTextBlock } from "@portabletext/types";
 
 export const query = graphql`
   query IndexPage {
-    sanityArticle(slug: { current: { eq: "the-road-so-far" } }) {
-      _id
+    sanityPage(slug: { current: { eq: "previously" } }) {
       title
       _rawContent
     }
@@ -41,7 +40,7 @@ export const query = graphql`
 `;
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
-  const bioFromSanity = data.sanityArticle;
+  const bioFromSanity = data.sanityPage;
   const testimonialsFromSanity = data.allSanityReview.nodes ?? [];
 
   return (
