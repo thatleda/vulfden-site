@@ -55,8 +55,6 @@ const Logo = styled.h2`
 
 const Link = styled(GatsbyLink)`
   color: var(--primary-color);
-  font-size: 1rem;
-  font-weight: 700;
   margin-right: 4rem;
   padding: 0;
   position: relative;
@@ -144,8 +142,6 @@ const Backdrop = styled.div`
 
 const SideNavLink = styled(GatsbyLink)`
   color: var(--primary-color);
-  font-size: 1.5rem;
-  font-weight: 700;
   padding: 1.5rem 0;
   text-align: center;
 `;
