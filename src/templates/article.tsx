@@ -1,4 +1,4 @@
-import { graphql, type PageProps } from "gatsby";
+import { graphql, HeadFC, type PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
@@ -8,10 +8,16 @@ import PortableBlock from "components/PortableBlock";
 import Section from "components/Section";
 
 import type { PortableTextBlock } from "@portabletext/types";
+import SEO from "components/SEO";
 
 const Banner = styled(GatsbyImage)`
   display: flex;
   max-height: 40vh;
+`;
+
+const ReadingTime = styled.div`
+  text-align: right;
+  padding: 2rem 0;
 `;
 
 export const query = graphql`
@@ -24,6 +30,8 @@ export const query = graphql`
           altText
         }
       }
+      excerpt
+      readingTimeInMinutes
       _rawContent
     }
   }
@@ -35,7 +43,11 @@ const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
   if (article !== null) {
     return (
       <Layout>
-        <Section heading={article.title}>
+        <Section>
+          <h1>{article.title}</h1>
+          <ReadingTime>
+            Reading time: {article.readingTimeInMinutes} minutes
+          </ReadingTime>
           {article?.banner?.asset?.gatsbyImageData !== undefined && (
             <Banner
               image={article.banner?.asset?.gatsbyImageData}
@@ -52,3 +64,14 @@ const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
 };
 
 export default ArticlePage;
+
+export const Head: HeadFC<
+  Queries.ArticleQuery,
+  { id: string; path: string }
+> = ({ data, pageContext }) => (
+  <SEO
+    title={data.sanityArticle?.title ?? "Article"}
+    description={data.sanityArticle?.excerpt ?? ""}
+    location={pageContext.path}
+  />
+);

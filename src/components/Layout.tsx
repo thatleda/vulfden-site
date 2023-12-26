@@ -1,5 +1,5 @@
 import { Link as GatsbyLink } from "gatsby";
-import React, { PropsWithChildren, useRef, useState } from "react";
+import React, { type PropsWithChildren, useRef, useState } from "react";
 import styled from "styled-components";
 import { useMediaQuery, useOnClickOutside } from "usehooks-ts";
 
@@ -55,8 +55,6 @@ const Logo = styled.h2`
 
 const Link = styled(GatsbyLink)`
   color: var(--primary-color);
-  font-size: 1rem;
-  font-weight: 700;
   margin-right: 4rem;
   padding: 0;
   position: relative;
@@ -144,8 +142,6 @@ const Backdrop = styled.div`
 
 const SideNavLink = styled(GatsbyLink)`
   color: var(--primary-color);
-  font-size: 1.5rem;
-  font-weight: 700;
   padding: 1.5rem 0;
   text-align: center;
 `;
@@ -167,7 +163,7 @@ const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
       <Header>
         <AnimatedLinks type="fadeDown" duration={200}>
           <a aria-current="page" aria-label="home" href="/">
-            <Wolf width="5rem" height="5rem" />
+            <Wolf width="7rem" height="7rem" mirror/>
           </a>
           {smallScreen ? (
             <BurgerBox
@@ -221,8 +217,8 @@ const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
       {showFooter && (
         <Footer>
           <LinkWrapper>
-            <a aria-current="page" aria-label="home" href="/">
-              <Logo>Leda Wolf</Logo>
+            <a aria-current="page" aria-label="home" href="/#who">
+              {smallScreen ? <Wolf width="5rem" height="5rem" fillColor="var(--primary-color)" mirror /> : <Logo>Leda Wolf</Logo>}
             </a>
             <TopNavigation>
               <Link to="/privacy">Privacy</Link>

@@ -11,12 +11,10 @@ interface ArticleProps {
 const ArticleCard = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
   padding: 2rem;
   border-radius: var(--border-radius);
-  background-color: var(--background-color);
   transition: 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   transition-property: background-color;
 
@@ -27,22 +25,26 @@ const ArticleCard = styled.div`
   }
 `;
 
-const ArticleTitle = styled.strong`
-  font-style: italic;
-  font-size: larger;
-  line-break: loose;
+const Description = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: medium;
+  justify-content: center;
+`;
 
-  @media (max-width: 700px) {
-    text-align: end;
+const ReadingTime = styled.div`
+  font-style: italic;
+  font-weight: 200;
+  text-align: right;
+
+  @media (max-width: 749px) {
+    display: none;
   }
 `;
 
-const ArticleReleaseDate = styled.span`
-  font-weight: 700;
-
-  @media (max-width: 700px) {
-    display: none;
-  }
+const Released = styled.sub`
+  font-weight: 200;
 `;
 
 const Article: React.FC<ArticleProps> = ({ article }) => {
@@ -63,10 +65,17 @@ const Article: React.FC<ArticleProps> = ({ article }) => {
             }}
           ></GatsbyImage>
         )}
-        <ArticleTitle>{article.title}</ArticleTitle>
-        <ArticleReleaseDate>
-          {formatDistance(articleReleaseDate, new Date(), { addSuffix: true })}
-        </ArticleReleaseDate>
+        <Description>
+          <h3>{article.title}</h3>
+          <ReadingTime>
+            Reading time: {article.readingTimeInMinutes} minutes
+          </ReadingTime>
+          <Released>
+            published {formatDistance(articleReleaseDate, new Date(), {
+              addSuffix: true,
+            })}
+          </Released>
+        </Description>
       </ArticleCard>
     </Link>
   );

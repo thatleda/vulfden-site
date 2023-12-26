@@ -1,7 +1,7 @@
 import dotenvFlow from "dotenv-flow";
 import type { GatsbyConfig } from "gatsby";
 
-dotenvFlow.config()
+dotenvFlow.config();
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -59,12 +59,12 @@ const config: GatsbyConfig = {
         ],
         web: [
           {
-            name: `Homemade Apple`,
-            file: `https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap`,
+            name: `Fira Code`,
+            file: `https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap`,
           },
           {
-            name: `Nunito Sans`,
-            file: `https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@300,500&display=swap`,
+            name: `Homemade Apple`,
+            file: `https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap`,
           },
           {
             name: "Silkscreen",
@@ -74,12 +74,18 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: `gatsby-transform-portable-text`,
+      options: {
+        extendTypes: [{ typeName: `SanityArticle`, contentFieldName: "content" }]
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Leda Wolf",
         short_name: "Leda",
         start_url: "/",
-        background_color: "#341677",
+        background_color: "#055b01",
         theme_color: "#121212",
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
