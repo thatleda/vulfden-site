@@ -17,6 +17,7 @@ const AnimatedSection = styled.section`
 
   @media (max-width: 749px) {
     margin: 0 auto 2rem auto;
+    padding-bottom: 2rem;
   }
 `;
 
