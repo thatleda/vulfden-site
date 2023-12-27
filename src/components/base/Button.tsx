@@ -46,15 +46,12 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
     background-color: ${(props) =>
       props.$variant === "primary"
         ? css`var(--background-color)`
-        : css`var(--primary-color)`};
-    color: ${(props) =>
-      props.$variant === "primary"
-        ? css`var(--text-color)`
-        : css`var(--background-color)`};
+        : css`var(--secondary-color)`};
+    color: var(--text-color);
     ${(props) => {
       if (props.$variant === "primary") {
         return css`
-          border-color: var(--text-color);
+          border-color: var(--card-background-color);
         `;
       }
     }}

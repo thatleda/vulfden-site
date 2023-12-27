@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Animation from "components/base/Animation";
 import Button from "components/base/Button";
-import Wolf from "components/svg/Wolf";
+import Mail from "./svg/Mail";
 
 const ContactCard = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const ContactCard = styled.div`
 const Profile = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 4rem;
   margin-top: 3rem;
   margin-bottom: 2rem;
@@ -34,7 +34,7 @@ const ContactData = styled.div`
 const ActionButtons = styled(Animation)`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
   max-height: 2.5rem;
@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
     <ContactCard>
       <p>{callToReachOut}</p>
       <Profile>
-        <Wolf width="10rem" height="10rem" />
+        <Mail width="5rem" height="5rem" fillColor="var(--primary-color)" />
         <ContactData>
           <Name>
             <u>Leda Wolf</u>
