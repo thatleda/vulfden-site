@@ -17,6 +17,7 @@ const HeroCard = styled.div`
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
+    padding-bottom: 2rem;
   }
 `;
 
