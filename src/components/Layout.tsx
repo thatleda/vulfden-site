@@ -209,7 +209,7 @@ const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
                     Working with Leda
                   </SideNavLink>
                   <SideNavLink to="/#contact">Contact</SideNavLink>
-                  <Button href="/resume.pdf" text="CV" />
+                  <Button href="/resume.pdf" text="CV" variant="primary" />
                 </SideNavigation>
               </Sidebar>
               <Backdrop style={isMenuOpen ? { display: "block" } : undefined} />
