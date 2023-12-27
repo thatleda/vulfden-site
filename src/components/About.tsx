@@ -20,13 +20,14 @@ const AboutCard = styled.div`
 const Photo = styled(GatsbyImage)`
   max-width: 300px;
   margin: 0 auto;
+  border-radius: var(--border-radius);
 `;
 
 const Text = styled.div`
   padding: 2rem;
 
   @media (max-width: 749px) {
-    padding: 2rem 0;
+    padding: 0;
   }
 `;
 

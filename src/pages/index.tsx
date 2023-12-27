@@ -24,8 +24,8 @@ export const query = graphql`
         picture {
           asset {
             gatsbyImageData(
-              width: 500
-              height: 500
+              width: 700
+              height: 700
               fit: FILLMAX
               placeholder: BLURRED
             )

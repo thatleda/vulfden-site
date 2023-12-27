@@ -19,8 +19,8 @@ const theme = {
     primaryColor: "#fafafa",
     secondaryColor: "#055b01",
     tertiaryColor: "#252525",
-    textColor: "rgba(255, 255, 255, 0.87)",
-    subtextColor: "#aaaaaa",
+    textColor: "rgba(255, 255, 255, 0.607)",
+    subtextColor: "#aaaaaaa4",
     backgroundColor: "#121212",
     cardBackgroundColor: "#1c1c1c",
     scrollbarColor: "rgba(255, 255, 255, 0.5)",
@@ -64,7 +64,7 @@ body {
     height: 100%;
     background-color: var(--background-color);
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: 400;
     font-family: var(--base-font);
     text-rendering: optimizeLegibility;
@@ -92,11 +92,13 @@ body {
 
     h2 {
         font-family: 'Homemade Apple', cursive;
+        font-weight: 300;
     }
 
     em {
         font-family: 'Homemade Apple', cursive;
         font-style: normal;
+        font-weight: 400;
         margin: 0 0.25rem;
         line-height: 0.8rem;
         font-size: 1.1rem;
@@ -105,6 +107,7 @@ body {
     q {
         font-family: 'Fira Code', cursive;
         font-weight: 200;
+        color: var(--primary-color)
     }
 
     u {

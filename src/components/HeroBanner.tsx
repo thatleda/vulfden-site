@@ -15,8 +15,8 @@ const HeroCard = styled.div`
   @media (max-width: 1015px) {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
+    align-items: flex-end;
+    gap: 0;
   }
 `;
 
