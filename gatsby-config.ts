@@ -74,12 +74,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-transform-portable-text`,
-      options: {
-        extendTypes: [{ typeName: `SanityArticle`, contentFieldName: "content" }]
-      }
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Leda Wolf",

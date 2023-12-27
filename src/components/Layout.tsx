@@ -187,7 +187,7 @@ const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
               <Link to="/ramblings">Blog</Link>
               <Link to="/#testimonials">Working with Leda</Link>
               <Link to="/#contact">Contact</Link>
-              <Button href="/resume.pdf" text="CV" />
+              <Button href="/resume.pdf" text="CV" variant="primary" />
             </TopNavigation>
           )}
           {isMenuOpen && smallScreen && (
@@ -209,7 +209,7 @@ const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
                     Working with Leda
                   </SideNavLink>
                   <SideNavLink to="/#contact">Contact</SideNavLink>
-                  <Button href="/resume.pdf" text="CV" />
+                  <Button href="/resume.pdf" text="CV" variant="primary" />
                 </SideNavigation>
               </Sidebar>
               <Backdrop style={isMenuOpen ? { display: "block" } : undefined} />

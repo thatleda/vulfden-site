@@ -30,8 +30,6 @@ export const query = graphql`
             altText
           }
         }
-        excerpt
-        readingTimeInMinutes
         _createdAt
       }
     }

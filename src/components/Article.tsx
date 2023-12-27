@@ -33,16 +33,6 @@ const Description = styled.div`
   justify-content: center;
 `;
 
-const ReadingTime = styled.div`
-  font-style: italic;
-  font-weight: 200;
-  text-align: right;
-
-  @media (max-width: 749px) {
-    display: none;
-  }
-`;
-
 const Released = styled.sub`
   font-weight: 200;
 `;
@@ -67,9 +57,6 @@ const Article: React.FC<ArticleProps> = ({ article }) => {
         )}
         <Description>
           <h3>{article.title}</h3>
-          <ReadingTime>
-            Reading time: {article.readingTimeInMinutes} minutes
-          </ReadingTime>
           <Released>
             published {formatDistance(articleReleaseDate, new Date(), {
               addSuffix: true,

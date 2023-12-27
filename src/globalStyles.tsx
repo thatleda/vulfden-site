@@ -95,6 +95,10 @@ body {
         font-weight: 300;
     }
 
+    h3 {
+        text-transform: uppercase;
+    }
+
     em {
         font-family: 'Homemade Apple', cursive;
         font-style: normal;
