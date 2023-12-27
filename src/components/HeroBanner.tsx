@@ -26,6 +26,7 @@ const CallToAction = styled.div`
   justify-content: center;
   min-height: 30vh;
   box-sizing: border-box;
+  margin: 0 auto;
 
   @media (max-width: 1000px) {
     gap: 1rem;

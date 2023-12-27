@@ -29,6 +29,7 @@ const Text = styled.div`
 const Comment = styled.q`
   quotes: auto;
   font-style: italic;
+  color: var(--text-color);
 `;
 
 const Reviewer = styled.b`

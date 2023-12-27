@@ -15,11 +15,6 @@ const Banner = styled(GatsbyImage)`
   max-height: 40vh;
 `;
 
-const ReadingTime = styled.div`
-  text-align: right;
-  padding: 2rem 0;
-`;
-
 export const query = graphql`
   query Article($id: String) {
     sanityArticle(id: { eq: $id }) {
@@ -30,8 +25,6 @@ export const query = graphql`
           altText
         }
       }
-      excerpt
-      readingTimeInMinutes
       _rawContent
     }
   }
@@ -45,9 +38,6 @@ const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
       <Layout>
         <Section>
           <h1>{article.title}</h1>
-          <ReadingTime>
-            Reading time: {article.readingTimeInMinutes} minutes
-          </ReadingTime>
           {article?.banner?.asset?.gatsbyImageData !== undefined && (
             <Banner
               image={article.banner?.asset?.gatsbyImageData}
@@ -71,7 +61,7 @@ export const Head: HeadFC<
 > = ({ data, pageContext }) => (
   <SEO
     title={data.sanityArticle?.title ?? "Article"}
-    description={data.sanityArticle?.excerpt ?? ""}
+    description=""
     location={pageContext.path}
   />
 );
