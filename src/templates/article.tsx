@@ -11,8 +11,15 @@ import type { PortableTextBlock } from "@portabletext/types";
 import SEO from "components/SEO";
 
 const Banner = styled(GatsbyImage)`
-  display: flex;
-  max-height: 40vh;
+  float: right;
+  margin-left: 3rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 800px) {
+    margin: 0 auto;
+    float: unset;
+    display: flex;
+  }
 `;
 
 export const query = graphql`
@@ -21,7 +28,7 @@ export const query = graphql`
       title
       banner {
         asset {
-          gatsbyImageData(fit: FILLMAX, placeholder: BLURRED, width: 1000)
+          gatsbyImage(fit: FILL, placeholder: BLURRED, width: 500, height: 500)
           altText
         }
       }
@@ -32,15 +39,16 @@ export const query = graphql`
 
 const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
   const article = data.sanityArticle;
+  const bannerImage = article?.banner?.asset?.gatsbyImage;
 
   if (article !== null) {
     return (
       <Layout>
         <Section>
           <h1>{article.title}</h1>
-          {article?.banner?.asset?.gatsbyImageData !== undefined && (
+          {bannerImage && (
             <Banner
-              image={article.banner?.asset?.gatsbyImageData}
+              image={article.banner?.asset?.gatsbyImage}
               alt={article.banner?.asset?.altText ?? "Banner image"}
             />
           )}
