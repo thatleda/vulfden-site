@@ -60,8 +60,8 @@ const Logo = styled.h2`
 
 const Link = styled(GatsbyLink)`
   color: var(--primary-color);
-  margin-right: 4rem;
-  padding: 0;
+  margin-right: 1rem;
+  padding: 1rem 2rem;
   position: relative;
   text-align: center;
 `;
@@ -147,7 +147,7 @@ const Backdrop = styled.div`
 
 const SideNavLink = styled(GatsbyLink)`
   color: var(--primary-color);
-  padding: 1.5rem 0;
+  padding: 2rem 1rem;
   text-align: center;
 `;
 

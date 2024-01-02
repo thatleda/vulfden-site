@@ -17,7 +17,7 @@ interface ButtonProps {
 
 const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
   padding-bottom: 0.5rem;
-  padding: 0.25rem 1.25rem;
+  padding: 0.5rem 1.5rem;
   width: auto;
   height: auto;
   border-radius: var(--border-radius);
@@ -51,7 +51,8 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
 
   &:hover {
     background-color: var(--secondary-color);
-    color: var(--text-color);
+    color: var(--primary-color);
+    font-weight: 600;
     ${(props) => {
       if (props.$variant === "primary") {
         return css`
