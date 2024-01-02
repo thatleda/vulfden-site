@@ -33,6 +33,7 @@ export const query = graphql`
         }
       }
       _rawContent
+      excerpt
     }
   }
 `;
@@ -69,7 +70,7 @@ export const Head: HeadFC<
 > = ({ data, pageContext }) => (
   <SEO
     title={data.sanityArticle?.title ?? "Article"}
-    description=""
+    description={data.sanityArticle?.excerpt ?? ""}
     location={pageContext.articlePath}
   />
 );
