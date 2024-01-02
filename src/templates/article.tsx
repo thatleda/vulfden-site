@@ -65,11 +65,11 @@ export default ArticlePage;
 
 export const Head: HeadFC<
   Queries.ArticleQuery,
-  { id: string; path: string }
+  { id: string; articlePath: string }
 > = ({ data, pageContext }) => (
   <SEO
     title={data.sanityArticle?.title ?? "Article"}
     description=""
-    location={pageContext.path}
+    location={pageContext.articlePath}
   />
 );

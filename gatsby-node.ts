@@ -43,11 +43,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
   // @ts-expect-error I can't be fucked, that's why
   pageData.data.allSanityArticle.nodes.forEach((node) => {
     const { id, slug } = node;
-    const blogPath = `/ramblings/${slug.current}`;
+    const articlePath = `/ramblings/${slug.current}`;
     createPage({
-      path: blogPath,
+      path: articlePath,
       component: path.resolve(__dirname, `src/templates/article.tsx`),
-      context: { id, path: blogPath },
+      context: { id, articlePath },
     });
   });
 };
