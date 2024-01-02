@@ -2,6 +2,7 @@ import dotenvFlow from "dotenv-flow";
 import type { GatsbyConfig } from "gatsby";
 
 dotenvFlow.config();
+const isProd = process.env.NODE_ENV === "production"
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -16,6 +17,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-sanity",
       options: {
+        watchMode: !isProd,
         projectId: process.env.GATSBY_SANITY_PROJECT_ID,
         dataset: process.env.GATSBY_SANITY_DATASET,
       },

@@ -30,6 +30,7 @@ const Header = styled.header`
   height: auto;
   min-height: var(--header-height);
   width: 100%;
+  padding-bottom: 0.5rem;
 `;
 
 const AnimatedLinks = styled(Animation)`
