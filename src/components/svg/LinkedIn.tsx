@@ -3,7 +3,7 @@ import React from "react";
 const LinkedIn: React.FC<SVGProps> = ({
   width = "1rem",
   height = "1rem",
-  fillColor = "var(--text-color)",
+  fillColor = "var(--primary-color)",
 }) => {
   return (
     <svg
