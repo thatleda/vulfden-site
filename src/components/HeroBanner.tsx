@@ -78,16 +78,18 @@ const HeroBanner: React.FC = () => {
         <StaticImage
           src="../images/leda.jpeg"
           alt="Leda Wolf"
+          width={200}
+          height={200}
           style={{
-            width: 200,
-            height: 200,
             borderRadius: "100%",
           }}
         />
         <CallToAction>
           <Greeting>Hello,</Greeting>
           <Introduction>{introduction}</Introduction>
-          <Purpose>Let&apos;s see if I&apos;m a <u>good fit</u> for your company.</Purpose>
+          <Purpose>
+            Let&apos;s see if I&apos;m a <u>good fit</u> for your company.
+          </Purpose>
           <p>Look around and let me know what you think.</p>
           <ActionButtons duration={600} type="fadeLeft">
             <Button

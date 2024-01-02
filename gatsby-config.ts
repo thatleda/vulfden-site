@@ -2,6 +2,7 @@ import dotenvFlow from "dotenv-flow";
 import type { GatsbyConfig } from "gatsby";
 
 dotenvFlow.config();
+const isProd = process.env.NODE_ENV === "production"
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -16,6 +17,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-source-sanity",
       options: {
+        watchMode: !isProd,
         projectId: process.env.GATSBY_SANITY_PROJECT_ID,
         dataset: process.env.GATSBY_SANITY_DATASET,
       },
@@ -84,7 +86,7 @@ const config: GatsbyConfig = {
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: "standalone",
-        icon: "static/wolf.png", // This path is relative to the root of the site.
+        icon: "static/wolf.jpeg", // This path is relative to the root of the site.
         // An optional attribute which provides support for CORS check.
         // If you do not provide a crossOrigin option, it will skip CORS for manifest.
         // Any invalid keyword or empty string defaults to `anonymous`

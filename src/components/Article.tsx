@@ -15,13 +15,12 @@ const ArticleCard = styled.div`
   align-items: center;
   padding: 2rem;
   border-radius: var(--border-radius);
-  transition: 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: 0.5s ease-in-out;
   transition-property: background-color;
 
   &:hover {
     background-color: var(--secondary-color);
-    opacity: 50%;
-    color: var(--text-color);
+    color: var(--primary-color);
   }
 `;
 
@@ -38,21 +37,16 @@ const Released = styled.sub`
 `;
 
 const Article: React.FC<ArticleProps> = ({ article }) => {
-  const articleHasBanner = article.banner?.asset != null;
   const articleReleaseDate =
     article._createdAt !== null ? new Date(article._createdAt) : new Date();
 
   return (
     <Link to={article.slug?.current ?? "/"}>
       <ArticleCard>
-        {articleHasBanner && (
+        {article.banner?.asset?.gatsbyImage != null && (
           <GatsbyImage
-            image={article.banner.asset.gatsbyImageData}
+            image={article.banner.asset.gatsbyImage}
             alt={article.banner.asset.altText ?? "Banner image"}
-            style={{
-              minWidth: 100,
-              opacity: 0.5,
-            }}
           ></GatsbyImage>
         )}
         <Description>

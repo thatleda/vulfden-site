@@ -26,7 +26,7 @@ export const query = graphql`
         title
         banner {
           asset {
-            gatsbyImageData(placeholder: BLURRED, width: 100, height: 100)
+            gatsbyImage(placeholder: BLURRED, width: 150, height: 150)
             altText
           }
         }

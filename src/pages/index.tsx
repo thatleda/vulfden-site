@@ -23,10 +23,10 @@ export const query = graphql`
       nodes {
         picture {
           asset {
-            gatsbyImageData(
-              width: 700
-              height: 700
-              fit: FILLMAX
+            gatsbyImage(
+              width: 200
+              height: 200
+              fit: FILL
               placeholder: BLURRED
             )
             altText

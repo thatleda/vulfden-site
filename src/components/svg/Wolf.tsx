@@ -3,7 +3,7 @@ import React from "react";
 const Wolf: React.FC<SVGProps> = ({
   width = "50px",
   height = "50px",
-  fillColor = "var(--text-color)",
+  fillColor = "var(--primary-color)",
   mirror,
 }) => {
   return (

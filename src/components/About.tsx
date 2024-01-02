@@ -18,7 +18,6 @@ const AboutCard = styled.div`
 `;
 
 const Photo = styled(GatsbyImage)`
-  max-width: 300px;
   margin: 0 auto;
   border-radius: var(--border-radius);
 `;
@@ -37,7 +36,7 @@ const About: React.FC = () => {
       sanityPage(slug: { current: { eq: "who" } }) {
         banner {
           asset {
-            gatsbyImageData(width: 750, placeholder: BLURRED)
+            gatsbyImage(width: 300, fit: FILL, placeholder: BLURRED)
             altText
           }
         }
@@ -46,13 +45,15 @@ const About: React.FC = () => {
       }
     }
   `);
-  const photo = data.sanityPage?.banner?.asset?.gatsbyImageData;
+  const photo = data.sanityPage?.banner?.asset?.gatsbyImage;
   const alt = data.sanityPage?.banner?.asset?.altText ?? "Leda's science face";
 
   return (
     <Section anchor="who" heading="Who?">
       <AboutCard>
-        {photo != null && <Photo image={photo} alt={alt} />}
+        {photo != null && (
+          <Photo image={photo} alt={alt} style={{minWidth: 200}} />
+        )}
         <Text>
           <PortableBlock
             value={data.sanityPage?._rawContent as unknown as PortableTextBlock}
