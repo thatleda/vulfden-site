@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-type ButtonVariant = "primary" | "secondary" | "nav";
+type ButtonVariant = "primary" | "secondary";
 
 interface ButtonProps {
   text: string;

@@ -65,7 +65,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 200;
     font-family: var(--base-font);
     text-rendering: optimizeLegibility;
 
