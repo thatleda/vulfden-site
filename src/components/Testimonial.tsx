@@ -41,20 +41,24 @@ export interface TestimonialProps {
   reviewer: string;
   comment: string;
   picture: {
-    asset: { gatsbyImage: IGatsbyImageData | null; altText: string | null } | null;
+    asset: {
+      gatsbyImage: IGatsbyImageData | null;
+      altText: string | null;
+    } | null;
   } | null;
 }
 
 const Testimonial: React.FC<TestimonialProps> = (props: TestimonialProps) => {
   return (
     <Card>
-      {props.picture?.asset?.gatsbyImage && (
-        <GatsbyImage
-          image={props.picture.asset.gatsbyImage}
-          alt={props.picture.asset.altText ?? props.reviewer}
-          imgStyle={{ borderRadius: 'var(--border-radius)' }}
-        ></GatsbyImage>
-      )}
+      {props.picture?.asset?.gatsbyImage !== undefined &&
+        props.picture?.asset?.gatsbyImage !== null && (
+          <GatsbyImage
+            image={props.picture.asset.gatsbyImage}
+            alt={props.picture.asset.altText ?? props.reviewer}
+            imgStyle={{ borderRadius: "var(--border-radius)" }}
+          ></GatsbyImage>
+        )}
       <Text lang="en">
         <Comment>{props.comment}</Comment>
         <Reviewer>- {props.reviewer}</Reviewer>

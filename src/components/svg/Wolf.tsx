@@ -14,7 +14,7 @@ const Wolf: React.FC<SVGProps> = ({
       height={height}
       viewBox="0 0 598.000000 583.000000"
       preserveAspectRatio="xMidYMid meet"
-      transform={mirror ? 'scale(-1, 1)' : undefined}
+      transform={mirror !== undefined ? 'scale(-1, 1)' : undefined}
     >
       <g
         transform="translate(0,583) scale(0.1,-0.1)"

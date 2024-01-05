@@ -1,9 +1,10 @@
-import ArrowBack from "components/svg/ArrowBack";
-import ArrowForward from "components/svg/ArrowForward";
 import { Link } from "gatsby";
 import React from "react";
 import styled, { css } from "styled-components";
 import { useMediaQuery } from "usehooks-ts";
+
+import ArrowBack from "components/svg/ArrowBack";
+import ArrowForward from "components/svg/ArrowForward";
 
 interface PaginationProps {
   currentPage: number;
@@ -81,9 +82,11 @@ const Pagination: React.FC<PaginationProps> = ({
     return (
       <Wrapper>
         {Array.from({ length: totalPages }).map((_, pageNumber) => {
-          const isPreviousPage = (page: number) => currentPage === page + 1;
-          const isNextPage = (page: number) => currentPage + 1 === page;
-          const isCurrentPage = (page: number) => currentPage === page;
+          const isPreviousPage = (page: number): boolean =>
+            currentPage === page + 1;
+          const isNextPage = (page: number): boolean =>
+            currentPage + 1 === page;
+          const isCurrentPage = (page: number): boolean => currentPage === page;
           return (
             <PageButton
               key={pageNumber}

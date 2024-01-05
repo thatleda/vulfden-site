@@ -3,10 +3,10 @@ import React from "react";
 import styled from "styled-components";
 
 import Article from "components/Article";
+import Pagination from "components/base/Pagination";
 import Layout from "components/Layout";
 import Section from "components/Section";
 import SEO from "components/SEO";
-import Pagination from "components/base/Pagination";
 
 export const query = graphql`
   query RamblingsPage($limit: Int, $skip: Int) {

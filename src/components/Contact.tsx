@@ -3,6 +3,10 @@ import styled from "styled-components";
 
 import Animation from "components/base/Animation";
 import Button from "components/base/Button";
+
+import Discord from "./svg/Discord";
+import GitHub from "./svg/GitHub";
+import LinkedIn from "./svg/LinkedIn";
 import Mail from "./svg/Mail";
 
 const ContactCard = styled.div`
@@ -58,17 +62,17 @@ const Contact: React.FC = () => {
       <ActionButtons duration={600} type="fadeLeft">
         <Button
           text="Discord"
-          icon="Discord"
+          icon={<Discord />}
           href="https://discord.com/users/732667625255075951"
         />
         <Button
           text="GitHub"
-          icon="GitHub"
+          icon={<GitHub />}
           href="https://github.com/thatleda"
         />
         <Button
           text="LinkedIn"
-          icon="LinkedIn"
+          icon={<LinkedIn />}
           href="https://www.linkedin.com/in/thatleda/"
         />
       </ActionButtons>

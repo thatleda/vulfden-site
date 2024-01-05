@@ -64,6 +64,7 @@ const Link = styled(GatsbyLink)`
   padding: 1rem 2rem;
   position: relative;
   text-align: center;
+  font-size: smaller;
 `;
 
 const TopNavigation = styled.nav`
