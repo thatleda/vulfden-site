@@ -30,7 +30,7 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
       return css`
         background-color: var(--text-color);
         color: var(--background-color);
-        border-color: var(--background-color);
+        border-color: var(--box-shadow-color);
         font-weight: 600;
       `;
     }
@@ -39,7 +39,7 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
       return css`
         background-color: var(--background-color);
         color: var(--text-color);
-        border-color: var(--card-background-color);
+        border-color: var(--box-shadow-color);
       `;
     }
   }}
@@ -50,7 +50,7 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
     ${(props) => {
       if (props.$variant === "primary") {
         return css`
-          border-color: var(--card-background-color);
+          border-color: var(--box-shadow-hover-color);
           background-color: var(--background-color);
         `;
       }
