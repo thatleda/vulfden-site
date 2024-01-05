@@ -12,7 +12,7 @@ const theme = {
     scrollbarColor: "rgba(0, 0, 0, 0.5)",
     boxShadowColor: "rgba(0, 0, 0, 0.16)",
     boxShadowHoverColor: "rgba(0, 0, 0, 0.32)",
-    baseFont: "'Fira Code', monospace",
+    baseFont: "'Fira Sans', sans-serif",
   },
 
   dark: {
@@ -26,7 +26,7 @@ const theme = {
     scrollbarColor: "rgba(255, 255, 255, 0.5)",
     boxShadowColor: "rgba(0, 0, 0, 0.16)",
     boxShadowHoverColor: "rgba(0, 0, 0, 0.32)",
-    baseFont: "'Fira Code', monospace",
+    baseFont: "'Fira Sans', sans-serif",
   },
 };
 
@@ -64,10 +64,18 @@ body {
     height: 100%;
     background-color: var(--background-color);
     color: var(--text-color);
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 200;
     font-family: var(--base-font);
     text-rendering: optimizeLegibility;
+
+    @media (max-width: 749px) {
+        font-size: 12px;
+    }
+
+    @media (max-width: 1030px) {
+        font-size: 16px;
+    }
 
     a {
         display: inline-block;
@@ -109,8 +117,7 @@ body {
     }
 
     q {
-        font-family: 'Fira Code', cursive;
-        font-weight: 200;
+        font-style: italic;
         color: var(--primary-color)
     }
 

@@ -1,16 +1,11 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import Discord from "components/svg/Discord";
-import GitHub from "components/svg/GitHub";
-import LinkedIn from "components/svg/LinkedIn";
-import Mail from "components/svg/Mail";
-
-type ButtonVariant = "primary" | "secondary" | "nav";
+type ButtonVariant = "primary" | "secondary";
 
 interface ButtonProps {
   text: string;
-  icon?: SVGName;
+  icon?: React.ReactNode;
   variant?: ButtonVariant;
   href?: string;
 }
@@ -35,7 +30,7 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
       return css`
         background-color: var(--text-color);
         color: var(--background-color);
-        border-color: var(--background-color);
+        border-color: var(--box-shadow-color);
         font-weight: 600;
       `;
     }
@@ -44,7 +39,7 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
       return css`
         background-color: var(--background-color);
         color: var(--text-color);
-        border-color: var(--card-background-color);
+        border-color: var(--box-shadow-color);
       `;
     }
   }}
@@ -52,30 +47,16 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
   &:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    font-weight: 600;
     ${(props) => {
       if (props.$variant === "primary") {
         return css`
-          border-color: var(--card-background-color);
+          border-color: var(--box-shadow-hover-color);
           background-color: var(--background-color);
         `;
       }
     }}
   }
 `;
-
-const getSVGByName = (name: SVGName): React.ReactNode => {
-  switch (name) {
-    case "Discord":
-      return <Discord />;
-    case "LinkedIn":
-      return <LinkedIn />;
-    case "GitHub":
-      return <GitHub />;
-    default:
-      return <Mail />;
-  }
-};
 
 const Button: React.FC<ButtonProps> = ({
   text,
@@ -92,7 +73,7 @@ const Button: React.FC<ButtonProps> = ({
       rel="noopener noreferrer"
       role="button"
     >
-      {hasIcon && getSVGByName(icon)}
+      {hasIcon && icon}
       {text}
     </ExternalLink>
   );

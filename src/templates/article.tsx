@@ -1,4 +1,4 @@
-import { graphql, HeadFC, type PageProps } from "gatsby";
+import { graphql, type HeadFC, type HeadProps, type PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
@@ -6,9 +6,9 @@ import styled from "styled-components";
 import Layout from "components/Layout";
 import PortableBlock from "components/PortableBlock";
 import Section from "components/Section";
+import SEO from "components/SEO";
 
 import type { PortableTextBlock } from "@portabletext/types";
-import SEO from "components/SEO";
 
 const Banner = styled(GatsbyImage)`
   float: right;
@@ -47,9 +47,9 @@ const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
       <Layout>
         <Section>
           <h1>{article.title}</h1>
-          {bannerImage && (
+          {bannerImage !== null && bannerImage !== undefined && (
             <Banner
-              image={article.banner?.asset?.gatsbyImage}
+              image={bannerImage}
               alt={article.banner?.asset?.altText ?? "Banner image"}
             />
           )}
@@ -64,13 +64,17 @@ const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
 
 export default ArticlePage;
 
-export const Head: HeadFC<
-  Queries.ArticleQuery,
-  { id: string; articlePath: string }
-> = ({ data, pageContext }) => (
+interface ArticlePageContext {
+  id: string;
+  articlePath: string;
+}
+
+export const Head: HeadFC<Queries.ArticleQuery, ArticlePageContext> = (
+  props: HeadProps<Queries.ArticleQuery, ArticlePageContext>
+) => (
   <SEO
-    title={data.sanityArticle?.title ?? "Article"}
-    description={data.sanityArticle?.excerpt ?? ""}
-    location={pageContext.articlePath}
+    title={props.data.sanityArticle?.title ?? "Article"}
+    description={props.data.sanityArticle?.excerpt ?? ""}
+    location={props.pageContext.articlePath}
   />
 );
