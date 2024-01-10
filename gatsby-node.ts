@@ -15,15 +15,25 @@ export const createPages: GatsbyNode["createPages"] = async ({
         pageInfo {
           pageCount
         }
-        nodes {
-          id
-          slug {
-            current
-          }
-        }
       }
     }
   `);
+
+  const articleData = await graphql(`
+  query GetMeAllArticles {
+    allSanityArticle {
+      pageInfo {
+        pageCount
+      }
+      nodes {
+        id
+        slug {
+          current
+        }
+      }
+    }
+  }
+`);
 
   const numberOfArticlePages =
     // @ts-expect-error well come on, I don't want to type this shit around here
@@ -35,13 +45,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
       component: path.resolve(__dirname, `src/templates/ramblings.tsx`),
       context: {
         limit: articlesPerPage,
-        skip: index,
+        skip: index * articlesPerPage,
       },
     });
   });
 
   // @ts-expect-error I can't be fucked, that's why
-  pageData.data.allSanityArticle.nodes.forEach((node) => {
+  articleData.data.allSanityArticle.nodes.forEach((node) => {
     const { id, slug } = node;
     const articlePath = `/ramblings/${slug.current}`;
     createPage({
