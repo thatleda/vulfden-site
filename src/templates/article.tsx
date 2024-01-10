@@ -11,15 +11,9 @@ import SEO from "components/SEO";
 import type { PortableTextBlock } from "@portabletext/types";
 
 const Banner = styled(GatsbyImage)`
-  float: right;
-  margin-left: 3rem;
-  margin-bottom: 3rem;
-
-  @media (max-width: 800px) {
-    margin: 0 auto;
-    float: unset;
-    display: flex;
-  }
+  margin: 0 auto;
+  display: flex;
+  max-height: 50vh;
 `;
 
 export const query = graphql`
@@ -28,7 +22,7 @@ export const query = graphql`
       title
       banner {
         asset {
-          gatsbyImage(fit: FILL, placeholder: BLURRED, width: 500, height: 500)
+          gatsbyImage(fit: CONTAIN, placeholder: BLURRED, width: 750)
           altText
         }
       }

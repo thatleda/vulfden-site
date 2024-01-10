@@ -31,6 +31,12 @@ const ObedientImage = styled.img`
   width: 80vw;
 `;
 
+const CenterAligned = styled.pre`
+  font-family: var(--base-font);
+  text-align: center;
+  font-style: italic;
+`;
+
 const ImageComponent: PortableTextTypeComponent = ({
   value,
 }: PortableTextTypeComponentProps<{
@@ -62,6 +68,7 @@ const components: Partial<PortableTextReactComponents> = {
     image: ImageComponent,
   },
   block: {
+    pre: ({ children }) => <CenterAligned>{children}</CenterAligned>,
     blockquote: ({ children }) => (
       <RespectfulSpace>
         <Blockquote lang="en">{children}</Blockquote>
