@@ -2,8 +2,8 @@ import { type HeadFC, Link, type PageProps } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
+import Section from "components/base/Section";
 import Layout from "components/Layout";
-import Section from "components/Section";
 import SEO from "components/SEO";
 
 const Warning = styled.div`

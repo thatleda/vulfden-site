@@ -23,7 +23,6 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  border: solid 0.002rem;
 
   ${(props) => {
     if (props.$variant === "primary") {
@@ -37,9 +36,8 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
 
     if (props.$variant === "secondary") {
       return css`
-        background-color: var(--background-color);
         color: var(--text-color);
-        border-color: var(--box-shadow-color);
+        background-color: var(--box-shadow-color);
       `;
     }
   }}

@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 import Article from "components/Article";
 import Pagination from "components/base/Pagination";
+import Section from "components/base/Section";
 import Layout from "components/Layout";
-import Section from "components/Section";
 import SEO from "components/SEO";
 
 export const query = graphql`

@@ -50,7 +50,7 @@ const AnimatedLinks = styled(Animation)`
 
 const Footer = styled.footer`
   background: var(--background-color);
-  border-top: 3px solid var(--box-shadow-hover-color);
+  border-top: 3px solid var(--box-shadow-color);
 `;
 
 const Logo = styled.h2`

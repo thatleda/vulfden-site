@@ -3,8 +3,8 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import styled from "styled-components";
 
+import Section from "components/base/Section";
 import PortableBlock from "components/PortableBlock";
-import Section from "components/Section";
 
 import type { PortableTextBlock } from "@portabletext/types";
 
