@@ -11,6 +11,9 @@ const HeroCard = styled.div`
   flex-direction: row;
   gap: 5rem;
   align-items: center;
+  background-color: var(--card-background-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
 
   @media (max-width: 1015px) {
     display: flex;
@@ -67,7 +70,6 @@ const ActionButtons = styled(Animation)`
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 1rem;
-  max-height: 2.5rem;
 `;
 
 const HeroBanner: React.FC = () => {

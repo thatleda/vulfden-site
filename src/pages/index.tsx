@@ -46,8 +46,8 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   return (
     <Layout>
       <HeroBanner />
-      <Playlist />
       <About />
+      <Playlist />
       {bioFromSanity !== null && (
         <Section anchor="previously" heading={bioFromSanity.title}>
           <PortableBlock

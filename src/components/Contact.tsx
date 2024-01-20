@@ -12,6 +12,9 @@ import Mail from "./svg/Mail";
 const ContactCard = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: var(--card-background-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
 `;
 
 const Profile = styled.div`
