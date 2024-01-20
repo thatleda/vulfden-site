@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import Animation from "components/base/Animation";
 import Button from "components/base/Button";
-import Section from "components/Section";
+import Section from "components/base/Section";
 
 const HeroCard = styled.div`
   display: flex;

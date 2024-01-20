@@ -2,12 +2,12 @@ import { graphql, type HeadFC, type PageProps } from "gatsby";
 import React from "react";
 
 import About from "components/About";
+import Section from "components/base/Section";
 import Contact from "components/Contact";
 import HeroBanner from "components/HeroBanner";
 import Layout from "components/Layout";
 import Playlist from "components/Playlist";
 import PortableBlock from "components/PortableBlock";
-import Section from "components/Section";
 import SEO from "components/SEO";
 import Testimonial from "components/Testimonial";
 
