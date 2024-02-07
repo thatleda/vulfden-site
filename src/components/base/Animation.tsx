@@ -1,4 +1,4 @@
-import React, { type PropsWithChildren, useRef } from "react";
+import React, { type PropsWithChildren } from "react";
 import styled, { css, keyframes } from "styled-components";
 import { useIntersectionObserver } from "usehooks-ts";
 
@@ -188,8 +188,7 @@ const MovingContainer = styled.div<AnimationConfig>(
 );
 
 const Animation: React.FC<PropsWithChildren<AnimationProps>> = (props) => {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const observedContainer = useIntersectionObserver(ref, {
+  const [ref, isIntersecting] = useIntersectionObserver({
     threshold: 0.05,
   });
 
@@ -198,7 +197,7 @@ const Animation: React.FC<PropsWithChildren<AnimationProps>> = (props) => {
       className={props.className}
       ref={ref}
       onAnimationEnd={props.onAnimationEnd}
-      $isVisible={observedContainer?.isIntersecting ?? false}
+      $isVisible={isIntersecting ?? false}
       $keyframes={keyframesByType(props.type)}
       $timing={props.timing ?? "ease-in"}
       $duration={`${props.duration ?? 200}ms`}
