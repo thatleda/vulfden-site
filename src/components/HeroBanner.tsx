@@ -103,7 +103,7 @@ const HeroBanner: React.FC = () => {
               text="LinkedIn"
               href="https://www.linkedin.com/in/thatleda/"
             />
-            <Button text="Mail" href="mailto:hello@leda.fyi" />
+            <Button text="Mail" href="mailto:leda@hey.com" />
             <Button
               href="https://calendly.com/ledawolf/meeting"
               variant="primary"
