@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
           <Name>
             <u>Leda Wolf</u>
           </Name>
-          <a href="mailto:hello@leda.fyi">hello@leda.fyi</a>
+          <a href="mailto:leda@hey.com">leda@hey.com</a>
         </ContactData>
       </Profile>
     </Card>
