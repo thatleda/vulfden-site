@@ -6,6 +6,7 @@ import Animation from "components/base/Animation";
 interface SectionProps {
   anchor?: string;
   heading?: string | null;
+  delay?: number;
 }
 
 const AnimatedSection = styled.section`
@@ -41,11 +42,12 @@ const Heading = styled.h2`
 const Section: React.FC<PropsWithChildren<SectionProps>> = ({
   anchor,
   heading,
+  delay,
   children,
 }) => {
   const hasHeading = heading !== undefined && heading !== null;
   return (
-    <Animation type="fadeUp" duration={600}>
+    <Animation type="fadeUp" duration={1000} delay={delay}>
       <AnimatedSection id={anchor}>
         <ContentWrapper>
           {hasHeading && <Heading>{heading}</Heading>}
