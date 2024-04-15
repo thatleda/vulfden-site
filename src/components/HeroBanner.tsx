@@ -75,7 +75,7 @@ const ActionButtons = styled(Animation)`
 const HeroBanner: React.FC = () => {
   const introduction = `I'm a software engineer`;
   return (
-    <Section>
+    <Section animationProps={{ duration: 0 }}>
       <HeroCard>
         <StaticImage
           src="../images/leda.jpeg"
