@@ -32,10 +32,6 @@ const Description = styled.div`
   justify-content: center;
 `;
 
-const Released = styled.sub`
-  font-weight: 200;
-`;
-
 const Article: React.FC<ArticleProps> = ({ article }) => {
   const articleReleaseDate =
     article._createdAt !== null ? new Date(article._createdAt) : new Date();
@@ -51,11 +47,11 @@ const Article: React.FC<ArticleProps> = ({ article }) => {
         )}
         <Description>
           <h3>{article.title}</h3>
-          <Released>
+          <sub>
             published {formatDistance(articleReleaseDate, new Date(), {
               addSuffix: true,
             })}
-          </Released>
+          </sub>
         </Description>
       </ArticleCard>
     </Link>
