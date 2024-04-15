@@ -64,7 +64,6 @@ const Link = styled(GatsbyLink)`
   padding: 1rem 2rem;
   position: relative;
   text-align: center;
-  font-weight: 400;
 `;
 
 const TopNavigation = styled.nav`
@@ -151,7 +150,6 @@ const SideNavLink = styled(GatsbyLink)`
   padding: 2rem 1rem;
   text-align: center;
   font-size: large;
-  font-weight: 400;
 `;
 
 const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({

@@ -65,7 +65,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-size: 18px;
-    font-weight: 200;
+    font-weight: 300;
     font-family: var(--base-font);
     text-rendering: optimizeLegibility;
 
@@ -100,7 +100,6 @@ body {
 
     h2 {
         font-family: 'Homemade Apple', cursive;
-        font-weight: 300;
     }
 
     h3 {
@@ -110,7 +109,6 @@ body {
     em {
         font-family: 'Homemade Apple', cursive;
         font-style: normal;
-        font-weight: 400;
         margin: 0 0.25rem;
         line-height: 0.8rem;
         font-size: 1.1rem;
