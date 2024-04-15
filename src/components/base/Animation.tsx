@@ -14,7 +14,7 @@ type AnimationType =
   | "reduceHeight"
   | "wiggle";
 
-interface AnimationProps {
+export interface AnimationProps {
   type?: AnimationType;
   timing?: AnimationTiming;
   fillMode?: AnimationFillMode;

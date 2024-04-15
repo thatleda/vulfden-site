@@ -1,11 +1,12 @@
 import React, { type PropsWithChildren } from "react";
 import styled from "styled-components";
 
-import Animation from "components/base/Animation";
+import Animation, { type AnimationProps } from "components/base/Animation";
 
 interface SectionProps {
   anchor?: string;
   heading?: string | null;
+  animationProps?: AnimationProps;
 }
 
 const AnimatedSection = styled.section`
@@ -41,11 +42,17 @@ const Heading = styled.h2`
 const Section: React.FC<PropsWithChildren<SectionProps>> = ({
   anchor,
   heading,
+  animationProps,
   children,
 }) => {
   const hasHeading = heading !== undefined && heading !== null;
+  const animation: AnimationProps = {
+    type: "fadeUp",
+    duration: 600,
+    ...animationProps,
+  };
   return (
-    <Animation type="fadeUp" duration={600}>
+    <Animation {...animation}>
       <AnimatedSection id={anchor}>
         <ContentWrapper>
           {hasHeading && <Heading>{heading}</Heading>}
