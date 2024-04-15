@@ -4,7 +4,7 @@ import Section from "components/base/Section";
 
 const PlaylistSection: React.FC = () => {
   return (
-    <Section animationProps={{ delay: 2000 }}>
+    <Section>
       <iframe
         title="Leda's work playlist"
         src="https://open.spotify.com/embed/playlist/1JNp21xKrHEI7Kt5sWZye7?utm_source=generator&theme=0"
