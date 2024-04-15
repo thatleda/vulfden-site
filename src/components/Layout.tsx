@@ -85,7 +85,7 @@ const LinkWrapper = styled.div`
   padding: var(--page-padding);
 `;
 
-const BurgerBox = styled.button`
+const BurgerMenu = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
@@ -172,16 +172,17 @@ const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
             <Wolf width="7rem" height="7rem" mirror />
           </a>
           {smallScreen ? (
-            <BurgerBox
+            <BurgerMenu
               type="button"
               id="openMenu"
+              aria-label="Open menu"
               onClick={() => {
                 openMenu(true);
               }}
               style={isMenuOpen ? { display: "none" } : undefined}
             >
               <Burger width="3rem" height="3rem" />
-            </BurgerBox>
+            </BurgerMenu>
           ) : (
             <TopNavigation>
               <Link to="/#who">Who?</Link>
