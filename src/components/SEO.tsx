@@ -15,11 +15,11 @@ const SEO: React.FC<SEOProps> = (props: SEOProps) => {
       <title>{title}</title>
       <html lang="en" />
       <meta name="description" content={description}></meta>
-      <meta name="image" content="https://leda.fyi/wolf.png" />
+      <meta name="image" content="https://ledawolf.info/wolf.png" />
       <meta name="theme-color" content={prefersDarkMode ? "dark" : "light"} />
       <meta property="og:title" content="The website of Leda Wolf" />
       <meta property="og:site_name" content="Vulfden" />
-      <meta property="og:url" content={`https://leda.fyi${props.location}`} />
+      <meta property="og:url" content={`https://ledawolf.info${props.location}`} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="twitter:card" content="summary" />
