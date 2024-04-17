@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://ledawolf.info">
-    <img alt="Howling wolf logo" src="https://ledawolf.info/wolf.png" width="60" />
+  <a href="https://leda.fyi">
+    <img alt="Howling wolf logo" src="https://leda.fyi/wolf.png" width="60" />
   </a>
 </p>
 <h1 align="center">
