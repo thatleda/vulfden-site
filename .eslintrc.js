@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    "standard-with-typescript",
+    "love",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "prettier",
