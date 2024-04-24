@@ -1,20 +1,24 @@
 import React from "react";
+import styled from "styled-components";
 
 import Section from "components/base/Section";
+
+const IFrame = styled.iframe`
+  width: 100%;
+`;
 
 const PlaylistSection: React.FC = () => {
   return (
     <Section>
-      <iframe
+      <IFrame
         title="Leda's work playlist"
-        src="https://open.spotify.com/embed/playlist/1JNp21xKrHEI7Kt5sWZye7?utm_source=generator&theme=0"
-        width="100%"
-        height="152"
         frameBorder="0"
-        allowFullScreen={true}
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"
-      ></iframe>
+        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+        height="450"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+        src="https://embed.music.apple.com/de/playlist/five-more-minutes/pl.u-LB4tR02oN5?theme=auto"
+      ></IFrame>
     </Section>
   );
 };
