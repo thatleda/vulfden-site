@@ -5428,13 +5428,13 @@ eslint-compat-utils@^0.5.0:
   dependencies:
     semver "^7.5.4"
 
-eslint-config-love@^48.0.0:
-  version "48.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-48.0.0.tgz#390730065957d71cfa46881691290025f5bc32b1"
-  integrity sha512-IRIk8dugdxyj78Vwy/mYpTewuwqfrJssin2x6RjUcHvvqE7ZpeRart1L/jeJhTKHart/Hg+sKWautmGkVvjCsQ==
+eslint-config-love@^49.0.0:
+  version "49.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-love/-/eslint-config-love-49.0.0.tgz#c9b90d04f5c6864240b464a29ce8d46f0c35a5ac"
+  integrity sha512-9SO+A4WDJHqy3qkpLxMDRIbZkwL+Ne9xlNh9XGC9e8ru2beUL82vFgeIwxspdISEgrqrJuRTEi9eMVsnJYfj9g==
   dependencies:
     eslint-plugin-import "^2.25.2"
-    eslint-plugin-n "^15.0.0 || ^16.0.0 "
+    eslint-plugin-n "^16.0.0 "
     eslint-plugin-promise "^6.0.0"
     typescript-eslint "^7.0.1"
 
@@ -5533,7 +5533,7 @@ eslint-plugin-jsx-a11y@^6.7.1, eslint-plugin-jsx-a11y@^6.8.0:
     object.entries "^1.1.7"
     object.fromentries "^2.0.7"
 
-"eslint-plugin-n@^15.0.0 || ^16.0.0 ":
+"eslint-plugin-n@^16.0.0 ":
   version "16.6.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-n/-/eslint-plugin-n-16.6.2.tgz#6a60a1a376870064c906742272074d5d0b412b0b"
   integrity sha512-6TyDmZ1HXoFQXnhCTUjVFULReoBPOAjpuiKELMkeP40yffI/1ZRO+d9ug/VC6fqISo2WkuIBk3cvuRPALaWlOQ==
