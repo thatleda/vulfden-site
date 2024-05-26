@@ -12,29 +12,32 @@ interface PaginationProps {
   hasPreviousPage: boolean;
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.ul`
   display: flex;
   flex-direction: row;
   gap: 1rem;
   align-items: center;
   justify-content: center;
+  list-style-type: none;
 `;
 
-const PageButton = styled(Link)<{ $selected: boolean; $disabled: boolean }>`
+const PageButton = styled(Link)<{ selected: boolean; disabled: boolean }>`
   padding: 1rem;
   color: var(--primary-color);
+  background-color: var(--tertiary-color);
   ${(props) =>
-    props.$selected &&
+    props.selected &&
     css`
       pointer-events: none;
       font-weight: 700;
+      background-color: var(--background-color);
     `}
 
   ${(props) =>
-    props.$disabled &&
+    props.disabled &&
     css`
       pointer-events: none;
-      color: var(--tertiary-color);
+      background-color: var(--background-color);
     `}
 `;
 
@@ -44,35 +47,50 @@ const Pagination: React.FC<PaginationProps> = ({
   hasPreviousPage,
   hasNextPage,
 }) => {
+  const prefix = "/ramblings"
+
+
   if (totalPages === 1) {
     return null;
   }
   return (
-    <Wrapper>
-      <PageButton
-        to={currentPage === 2 ? `/ramblings` : `/ramblings/${currentPage - 1}`}
-        $selected={false}
-        $disabled={!hasPreviousPage}
-      >
-        <ArrowBack></ArrowBack>
-      </PageButton>
-
-      <PageButton
-        to={`/ramblings/${currentPage}`}
-        $selected={true}
-        $disabled={false}
-      >
-        {currentPage}
-      </PageButton>
-
-      <PageButton
-        to={`/ramblings/${currentPage + 1}`}
-        $selected={false}
-        $disabled={!hasNextPage}
-      >
-        <ArrowForward></ArrowForward>
-      </PageButton>
-    </Wrapper>
+    <nav role="navigation" aria-label="Page navigation">
+      <Wrapper>
+        <li>
+          <PageButton
+            to={currentPage === 2 ? prefix : `${prefix}/${currentPage - 1}`}
+            rel="prev"
+            selected={false}
+            disabled={!hasPreviousPage}
+            aria-label="Previous page"
+          >
+            <ArrowBack />
+          </PageButton>
+        </li>
+        <li>
+          <PageButton
+            to={currentPage === 1 ? prefix : `${prefix}/${currentPage}`}
+            selected={true}
+            disabled={false}
+            aria-current="page"
+            aria-label={`Current page, page ${currentPage}`}
+          >
+            {currentPage}
+          </PageButton>
+        </li>
+        <li>
+          <PageButton
+            to={`${prefix}/${currentPage + 1}`}
+            rel="next"
+            selected={false}
+            disabled={!hasNextPage}
+            aria-label="Next page"
+          >
+            <ArrowForward />
+          </PageButton>
+        </li>
+      </Wrapper>
+    </nav>
   );
 };
 
