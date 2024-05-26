@@ -5,7 +5,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: production
+    env: 
+        GATSBY_SANITY_PROJECT_ID: brvct6ie
+        GATSBY_SANITY_DATASET: production
     steps:
       - uses: actions/checkout@v4
       - name: Set Node.js 20.x
