@@ -8,19 +8,16 @@ jobs:
     environment: production
     steps:
       - uses: actions/checkout@v4
+      - name: Set Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "yarn"
       - name: Run install
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
+        run: yarn install
       - name: Build production bundle
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build
+        run: yarn build
       - name: Lint
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: lint
+        run: yarn lint
       - name: Test
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: test
+        run: yarn test
