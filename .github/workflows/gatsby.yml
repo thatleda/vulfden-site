@@ -3,7 +3,7 @@ name: Vulfden CI
 on: [push]
 
 jobs:
-  build:
+  checks:
     runs-on: ubuntu-latest
     env: 
         GATSBY_SANITY_PROJECT_ID: brvct6ie
@@ -17,8 +17,6 @@ jobs:
           cache: "yarn"
       - name: Run install
         run: yarn install --frozen-lockfile
-      - name: Gimme env
-        run: echo $GATSBY_SANITY_PROJECT_ID    
       - name: Build production bundle
         run: yarn build
       - name: Lint
