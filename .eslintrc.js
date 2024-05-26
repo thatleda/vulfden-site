@@ -9,6 +9,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "prettier",
     "plugin:jsx-a11y/recommended",
+    "plugin:testing-library/react",
   ],
   settings: {
     "react": {
@@ -45,6 +46,7 @@ module.exports = {
     "prettier",
     "jsx-a11y",
     "simple-import-sort",
+    "testing-library",
   ],
   rules: {
     "simple-import-sort/exports": "error",
