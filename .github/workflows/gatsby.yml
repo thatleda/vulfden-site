@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: GitHub Actions
+    environment: production
     steps:
       - uses: actions/checkout@v4
       - name: Run install
