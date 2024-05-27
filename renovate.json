@@ -3,6 +3,6 @@
   "extends": [
     "config:recommended"
   ],
-  "ignoreDeps": ["eslint"],
+  "ignoreDeps": ["eslint", "eslint-config-love"],
   "assignees": ["thatleda"]
 }
