@@ -3,14 +3,14 @@ name: Vulfden CI
 on: [push]
 
 jobs:
-  checks:
+  test:
     runs-on: ubuntu-latest
     env: 
         GATSBY_SANITY_PROJECT_ID: brvct6ie
         GATSBY_SANITY_DATASET: production
     steps:
       - uses: actions/checkout@v4
-      - name: Set Node.js 20.x
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
@@ -19,7 +19,5 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build production bundle
         run: yarn build
-      # - name: Lint
-      #   run: yarn lint
-      - name: Test
+      - name: Run tests
         run: yarn test
