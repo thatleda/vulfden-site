@@ -8,9 +8,8 @@ const LinkedIn: React.FC<SVGProperties> = ({
   return (
     <svg
       fill={fillColor}
-      height={height}
+      style={{ height, width }}
       viewBox="0 0 24 24"
-      width={width}
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>LinkedIn icon</title>

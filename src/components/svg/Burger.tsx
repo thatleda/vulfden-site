@@ -8,9 +8,8 @@ const Burger: React.FC<SVGProperties> = ({
   return (
     <svg
       fill={fillColor}
-      height={height}
+      style={{ height, width }}
       viewBox="0 -960 960 960"
-      width={width}
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>Burger icon</title>

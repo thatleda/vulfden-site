@@ -7,11 +7,10 @@ const Discord: React.FC<SVGProperties> = ({
 }) => {
   return (
     <svg
-      height={height}
       preserveAspectRatio="xMidYMid"
+      style={{ height, width }}
       version="1.1"
       viewBox="0 -28.5 256 256"
-      width={width}
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>Discord icon</title>
