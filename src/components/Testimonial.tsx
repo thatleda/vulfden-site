@@ -1,5 +1,7 @@
-import { GatsbyImage, type IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
+
+import { GatsbyImage, type IGatsbyImageData } from "gatsby-plugin-image";
+
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -37,31 +39,33 @@ const Reviewer = styled.b`
   text-align: right;
 `;
 
-export interface TestimonialProps {
-  reviewer: string;
+export interface TestimonialProperties {
   comment: string;
   picture: {
     asset: {
+      altText: null | string;
       gatsbyImage: IGatsbyImageData | null;
-      altText: string | null;
     } | null;
   } | null;
+  reviewer: string;
 }
 
-const Testimonial: React.FC<TestimonialProps> = (props: TestimonialProps) => {
+const Testimonial: React.FC<TestimonialProperties> = (
+  properties: TestimonialProperties,
+) => {
   return (
     <Card>
-      {props.picture?.asset?.gatsbyImage !== undefined &&
-        props.picture?.asset?.gatsbyImage !== null && (
+      {properties.picture?.asset?.gatsbyImage !== undefined &&
+        properties.picture?.asset?.gatsbyImage !== null && (
           <GatsbyImage
-            image={props.picture.asset.gatsbyImage}
-            alt={props.picture.asset.altText ?? props.reviewer}
+            alt={properties.picture.asset.altText ?? properties.reviewer}
+            image={properties.picture.asset.gatsbyImage}
             imgStyle={{ borderRadius: "var(--border-radius)" }}
           ></GatsbyImage>
         )}
       <Text lang="en">
-        <Comment>{props.comment}</Comment>
-        <Reviewer>- {props.reviewer}</Reviewer>
+        <Comment>{properties.comment}</Comment>
+        <Reviewer>- {properties.reviewer}</Reviewer>
       </Text>
     </Card>
   );

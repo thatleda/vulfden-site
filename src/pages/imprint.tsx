@@ -1,10 +1,11 @@
-import { graphql, type HeadFC, type PageProps } from "gatsby";
 import React from "react";
 
-import Section from "components/base/Section";
+import { type HeadFC, type PageProps, graphql } from "gatsby";
+
 import Layout from "components/Layout";
 import PortableBlock from "components/PortableBlock";
 import SEO from "components/SEO";
+import Section from "components/base/Section";
 
 import type { PortableTextBlock } from "@portabletext/types";
 
@@ -36,8 +37,8 @@ export default ImprintPage;
 
 export const Head: HeadFC = () => (
   <SEO
-    title="STALKER!"
     description="That I'm legally obligated to put my address here is ridiculous."
     location="/imprint"
+    title="STALKER!"
   />
 );

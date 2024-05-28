@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "styled-components";
 
 import Button from "components/base/Button";
@@ -38,26 +39,26 @@ const Contact: React.FC = () => {
       actionButtons={
         <>
           <Button
-            text="Discord"
-            icon={<Discord />}
             href="https://discord.com/users/732667625255075951"
+            icon={<Discord />}
+            text="Discord"
           />
           <Button
-            text="GitHub"
-            icon={<GitHub />}
             href="https://github.com/thatleda"
+            icon={<GitHub />}
+            text="GitHub"
           />
           <Button
-            text="LinkedIn"
-            icon={<LinkedIn />}
             href="https://www.linkedin.com/in/thatleda/"
+            icon={<LinkedIn />}
+            text="LinkedIn"
           />
         </>
       }
     >
       <p>{callToReachOut}</p>
       <Profile>
-        <Mail width="5rem" height="5rem" fillColor="var(--primary-color)" />
+        <Mail fillColor="var(--primary-color)" height="5rem" width="5rem" />
         <ContactData>
           <Name>
             <u>Leda Wolf</u>

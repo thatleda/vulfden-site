@@ -1,10 +1,12 @@
-import { type HeadFC, Link, type PageProps } from "gatsby";
 import React from "react";
+
+import { type HeadFC, Link, type PageProps } from "gatsby";
+
 import styled from "styled-components";
 
-import Section from "components/base/Section";
 import Layout from "components/Layout";
 import SEO from "components/SEO";
+import Section from "components/base/Section";
 
 const Warning = styled.div`
   display: flex;
@@ -45,8 +47,8 @@ export default NotFoundPage;
 
 export const Head: HeadFC = () => (
   <SEO
-    title="Shit outta luck"
     description="Tried to append something dumb to the URL? Funny. Keep looking, gender-non-specific friend."
     location="/404"
+    title="Shit outta luck"
   />
 );

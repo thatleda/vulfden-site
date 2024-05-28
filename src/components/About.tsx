@@ -1,10 +1,12 @@
+import React from "react";
+
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import React from "react";
+
 import styled from "styled-components";
 
-import Section from "components/base/Section";
 import PortableBlock from "components/PortableBlock";
+import Section from "components/base/Section";
 
 import type { PortableTextBlock } from "@portabletext/types";
 
@@ -51,8 +53,8 @@ const About: React.FC = () => {
   return (
     <Section anchor="who" heading="Who?">
       <AboutCard>
-        {photo != null && (
-          <Photo image={photo} alt={alt} style={{minWidth: 200}} />
+        {photo != undefined && (
+          <Photo alt={alt} image={photo} style={{ minWidth: 200 }} />
         )}
         <Text>
           <PortableBlock

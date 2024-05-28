@@ -1,10 +1,13 @@
-import { formatDistance } from "date-fns";
+import React from "react";
+
 import { Link } from "gatsby-link";
 import { GatsbyImage } from "gatsby-plugin-image";
-import React from "react";
+
 import styled from "styled-components";
 
-interface ArticleProps {
+import { formatDistance } from "date-fns";
+
+interface ArticleProperties {
   article: Queries.RamblingsPageQuery["allSanityArticle"]["nodes"][number];
 }
 
@@ -32,23 +35,24 @@ const Description = styled.div`
   justify-content: center;
 `;
 
-const Article: React.FC<ArticleProps> = ({ article }) => {
+const Article: React.FC<ArticleProperties> = ({ article }) => {
   const articleReleaseDate =
-    article._createdAt !== null ? new Date(article._createdAt) : new Date();
+    article._createdAt === null ? new Date() : new Date(article._createdAt);
 
   return (
-    <Link to={'/ramblings/' + article.slug?.current ?? "/"}>
+    <Link to={"/ramblings/" + article.slug?.current || "/"}>
       <ArticleCard>
-        {article.banner?.asset?.gatsbyImage != null && (
+        {article.banner?.asset?.gatsbyImage != undefined && (
           <GatsbyImage
-            image={article.banner.asset.gatsbyImage}
             alt={article.banner.asset.altText ?? "Banner image"}
+            image={article.banner.asset.gatsbyImage}
           ></GatsbyImage>
         )}
         <Description>
           <h3>{article.title}</h3>
           <sub>
-            published {formatDistance(articleReleaseDate, new Date(), {
+            published{" "}
+            {formatDistance(articleReleaseDate, new Date(), {
               addSuffix: true,
             })}
           </sub>

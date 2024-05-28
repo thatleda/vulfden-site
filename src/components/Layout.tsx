@@ -1,6 +1,9 @@
-import { Link as GatsbyLink } from "gatsby";
 import React, { type PropsWithChildren, useRef, useState } from "react";
+
+import { Link as GatsbyLink } from "gatsby";
+
 import styled from "styled-components";
+
 import { useMediaQuery, useOnClickOutside } from "usehooks-ts";
 
 import Animation from "components/base/Animation";
@@ -8,9 +11,9 @@ import Button from "components/base/Button";
 import Burger from "components/svg/Burger";
 import Wolf from "components/svg/Wolf";
 
-import GlobalStyle from "../globalStyles";
+import GlobalStyle from "../global-styles";
 
-interface LayoutProps {
+interface LayoutProperties {
   showFooter?: boolean;
 }
 
@@ -152,13 +155,13 @@ const SideNavLink = styled(GatsbyLink)`
   font-size: large;
 `;
 
-const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
+const Layout: React.FC<PropsWithChildren<LayoutProperties>> = ({
   children,
   showFooter = true,
 }) => {
   const [isMenuOpen, openMenu] = useState(false);
-  const outsideRef = useRef(null);
-  useOnClickOutside(outsideRef, () => {
+  const outsideReference = useRef(null);
+  useOnClickOutside(outsideReference, () => {
     openMenu(false);
   });
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -167,21 +170,21 @@ const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
     <Frame>
       <GlobalStyle colorMode={prefersDarkMode ? "dark" : "light"} />
       <Header>
-        <AnimatedLinks type="fadeDown" duration={200}>
+        <AnimatedLinks duration={200} type="fadeDown">
           <a aria-current="page" aria-label="home" href="/">
-            <Wolf width="7rem" height="7rem" mirror />
+            <Wolf height="7rem" mirror width="7rem" />
           </a>
           {smallScreen ? (
             <BurgerMenu
-              type="button"
-              id="openMenu"
               aria-label="Open menu"
+              id="openMenu"
               onClick={() => {
                 openMenu(true);
               }}
               style={isMenuOpen ? { display: "none" } : undefined}
+              type="button"
             >
-              <Burger width="3rem" height="3rem" />
+              <Burger height="3rem" width="3rem" />
             </BurgerMenu>
           ) : (
             <TopNavigation>
@@ -196,15 +199,15 @@ const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
           {isMenuOpen && smallScreen && (
             <>
               <Sidebar
+                aria-hidden={!isMenuOpen}
                 style={
                   isMenuOpen
                     ? { transform: "translateX(0)", visibility: "visible" }
                     : undefined
                 }
-                aria-hidden={!isMenuOpen}
                 tabIndex={isMenuOpen ? 1 : -1}
               >
-                <SideNavigation ref={outsideRef}>
+                <SideNavigation ref={outsideReference}>
                   <SideNavLink to="/#who">Who?</SideNavLink>
                   <SideNavLink to="/#previously">Previously</SideNavLink>
                   <SideNavLink to="/ramblings">Blog</SideNavLink>
@@ -227,10 +230,10 @@ const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({
             <a aria-current="page" aria-label="home" href="/#who">
               {smallScreen ? (
                 <Wolf
-                  width="5rem"
-                  height="5rem"
                   fillColor="var(--primary-color)"
+                  height="5rem"
                   mirror
+                  width="5rem"
                 />
               ) : (
                 <Logo>Leda Wolf</Logo>

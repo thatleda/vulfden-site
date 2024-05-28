@@ -1,5 +1,7 @@
-import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
+
+import { StaticImage } from "gatsby-plugin-image";
+
 import styled from "styled-components";
 
 import Animation from "components/base/Animation";
@@ -78,13 +80,13 @@ const HeroBanner: React.FC = () => {
     <Section animationProps={{ duration: 0 }}>
       <HeroCard>
         <StaticImage
-          src="../images/leda.jpeg"
           alt="Leda Wolf"
-          width={200}
           height={200}
+          src="../images/leda.jpeg"
           style={{
             borderRadius: "100%",
           }}
+          width={200}
         />
         <CallToAction>
           <Greeting>Hello,</Greeting>
@@ -95,19 +97,19 @@ const HeroBanner: React.FC = () => {
           <p>Look around and let me know what you think.</p>
           <ActionButtons duration={600} type="fadeLeft">
             <Button
-              text="Discord"
               href="https://discord.com/users/732667625255075951"
+              text="Discord"
             />
-            <Button text="GitHub" href="https://github.com/thatleda" />
+            <Button href="https://github.com/thatleda" text="GitHub" />
             <Button
-              text="LinkedIn"
               href="https://www.linkedin.com/in/thatleda/"
+              text="LinkedIn"
             />
-            <Button text="Mail" href="mailto:leda@hey.com" />
+            <Button href="mailto:leda@hey.com" text="Mail" />
             <Button
               href="https://calendly.com/ledawolf/meeting"
-              variant="primary"
               text="Calendly"
+              variant="primary"
             />
           </ActionButtons>
         </CallToAction>

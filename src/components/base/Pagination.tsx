@@ -1,15 +1,17 @@
-import { Link } from "gatsby";
 import React from "react";
+
+import { Link } from "gatsby";
+
 import styled, { css } from "styled-components";
 
 import ArrowBack from "components/svg/ArrowBack";
 import ArrowForward from "components/svg/ArrowForward";
 
-interface PaginationProps {
+interface PaginationProperties {
   currentPage: number;
-  totalPages: number;
   hasNextPage: boolean;
   hasPreviousPage: boolean;
+  totalPages: number;
 }
 
 const Wrapper = styled.ul`
@@ -21,70 +23,69 @@ const Wrapper = styled.ul`
   list-style-type: none;
 `;
 
-const PageButton = styled(Link)<{ selected: boolean; disabled: boolean }>`
+const PageButton = styled(Link)<{ disabled: boolean; selected: boolean }>`
   padding: 1rem;
   color: var(--primary-color);
   background-color: var(--tertiary-color);
-  ${(props) =>
-    props.selected &&
+  ${(properties) =>
+    properties.selected &&
     css`
       pointer-events: none;
       font-weight: 700;
       background-color: var(--background-color);
     `}
 
-  ${(props) =>
-    props.disabled &&
+  ${(properties) =>
+    properties.disabled &&
     css`
       pointer-events: none;
       background-color: var(--background-color);
     `}
 `;
 
-const Pagination: React.FC<PaginationProps> = ({
-  totalPages,
+const Pagination: React.FC<PaginationProperties> = ({
   currentPage,
-  hasPreviousPage,
   hasNextPage,
+  hasPreviousPage,
+  totalPages,
 }) => {
-  const prefix = "/ramblings"
-
+  const prefix = "/ramblings";
 
   if (totalPages === 1) {
-    return null;
+    return;
   }
   return (
-    <nav role="navigation" aria-label="Page navigation">
+    <nav aria-label="Page navigation" role="navigation">
       <Wrapper>
         <li>
           <PageButton
-            to={currentPage === 2 ? prefix : `${prefix}/${currentPage - 1}`}
+            aria-label="Previous page"
+            disabled={!hasPreviousPage}
             rel="prev"
             selected={false}
-            disabled={!hasPreviousPage}
-            aria-label="Previous page"
+            to={currentPage === 2 ? prefix : `${prefix}/${currentPage - 1}`}
           >
             <ArrowBack />
           </PageButton>
         </li>
         <li>
           <PageButton
-            to={currentPage === 1 ? prefix : `${prefix}/${currentPage}`}
-            selected={true}
-            disabled={false}
             aria-current="page"
             aria-label={`Current page, page ${currentPage}`}
+            disabled={false}
+            selected={true}
+            to={currentPage === 1 ? prefix : `${prefix}/${currentPage}`}
           >
             {currentPage}
           </PageButton>
         </li>
         <li>
           <PageButton
-            to={`${prefix}/${currentPage + 1}`}
+            aria-label="Next page"
+            disabled={!hasNextPage}
             rel="next"
             selected={false}
-            disabled={!hasNextPage}
-            aria-label="Next page"
+            to={`${prefix}/${currentPage + 1}`}
           >
             <ArrowForward />
           </PageButton>

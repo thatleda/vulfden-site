@@ -1,12 +1,14 @@
-import { graphql, type HeadFC, type PageProps } from "gatsby";
 import React from "react";
+
+import { type HeadFC, type PageProps, graphql } from "gatsby";
+
 import styled from "styled-components";
 
 import Article from "components/Article";
-import Pagination from "components/base/Pagination";
-import Section from "components/base/Section";
 import Layout from "components/Layout";
 import SEO from "components/SEO";
+import Pagination from "components/base/Pagination";
+import Section from "components/base/Section";
 
 export const query = graphql`
   query RamblingsPage($limit: Int, $skip: Int) {
@@ -51,7 +53,7 @@ const RamblingsPage: React.FC<PageProps<Queries.RamblingsPageQuery>> = ({
       <Section heading="Unhinged ramblings">
         <Articles>
           {articles.map((article) => (
-            <Article key={article.id} article={article} />
+            <Article article={article} key={article.id} />
           ))}
         </Articles>
         <Pagination
@@ -69,8 +71,8 @@ export default RamblingsPage;
 
 export const Head: HeadFC = () => (
   <SEO
-    title="Ramblings"
     description="You've reached the coveted index of Leda's finest wisdom. Good for you!"
     location="/ramblings"
+    title="Ramblings"
   />
 );
