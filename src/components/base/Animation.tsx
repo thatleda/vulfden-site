@@ -16,7 +16,7 @@ type AnimationType =
   | "scaleIn"
   | "wiggle";
 
-export interface AnimationProperties {
+export interface AnimationProps {
   className?: string;
   delay?: number;
   duration?: number;
@@ -196,7 +196,7 @@ const MovingContainer = styled.div<AnimationConfig>(
   },
 );
 
-const Animation: React.FC<PropsWithChildren<AnimationProperties>> = (
+const Animation: React.FC<PropsWithChildren<AnimationProps>> = (
   properties,
 ) => {
   const [reference, isIntersecting] = useIntersectionObserver({
