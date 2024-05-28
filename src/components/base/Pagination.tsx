@@ -14,13 +14,22 @@ interface PaginationProperties {
   totalPages: number;
 }
 
-const Wrapper = styled.ul`
+const Nav = styled.nav`
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  align-items: center;
   justify-content: center;
+`;
+
+const Wrapper = styled.ul`
+  padding-inline-start: 0;
+  display: flex;
   list-style-type: none;
+`;
+
+const ListItem = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
 `;
 
 const PageButton = styled(Link)<{ disabled: boolean; selected: boolean }>`
@@ -59,9 +68,9 @@ const Pagination: React.FC<PaginationProperties> = ({
     return;
   }
   return (
-    <nav aria-label="Page navigation" role="navigation">
+    <Nav aria-label="Page navigation" role="navigation">
       <Wrapper>
-        <li key="previous">
+        <ListItem key="previous">
           <PageButton
             aria-label="Previous page"
             disabled={!hasPreviousPage}
@@ -71,11 +80,11 @@ const Pagination: React.FC<PaginationProperties> = ({
           >
             <ArrowBack />
           </PageButton>
-        </li>
+        </ListItem>
         {[...Array.from({ length: totalPages }).keys()].map((page) => {
           const pageNumber = page + 1;
           return pageNumber === currentPage ? (
-            <li key={`page-${pageNumber}`}>
+            <ListItem key={`page-${pageNumber}`}>
               <PageButton
                 aria-current="page"
                 aria-label={`Current page, page ${currentPage}`}
@@ -85,9 +94,9 @@ const Pagination: React.FC<PaginationProperties> = ({
               >
                 {pageNumber}
               </PageButton>
-            </li>
+            </ListItem>
           ) : (
-            <li key={`page-${pageNumber}`}>
+            <ListItem key={`page-${pageNumber}`}>
               <PageButton
                 aria-label={`Page ${pageNumber}`}
                 disabled={false}
@@ -96,11 +105,11 @@ const Pagination: React.FC<PaginationProperties> = ({
               >
                 {pageNumber}
               </PageButton>
-            </li>
+            </ListItem>
           );
         })}
 
-        <li key="next">
+        <ListItem key="next">
           <PageButton
             aria-label="Next page"
             disabled={!hasNextPage}
@@ -110,9 +119,9 @@ const Pagination: React.FC<PaginationProperties> = ({
           >
             <ArrowForward />
           </PageButton>
-        </li>
+        </ListItem>
       </Wrapper>
-    </nav>
+    </Nav>
   );
 };
 
