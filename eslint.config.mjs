@@ -4,14 +4,14 @@ import pluginJs from "@eslint/js";
 import pluginJsxA11y from "eslint-plugin-jsx-a11y";
 import perfectionist from "eslint-plugin-perfectionist";
 import perfectionistNatural from "eslint-plugin-perfectionist/configs/recommended-natural";
+import prettier from "eslint-plugin-prettier/recommended";
 import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
+import sonarjs from "eslint-plugin-sonarjs";
+import testingLibrary from "eslint-plugin-testing-library";
+import eslintPluginUnicorn from "eslint-plugin-unicorn";
+import vitest from "eslint-plugin-vitest";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import sonarjs from "eslint-plugin-sonarjs";
-import prettier from "eslint-plugin-prettier/recommended";
-import eslintPluginUnicorn from "eslint-plugin-unicorn";
-import testingLibrary from "eslint-plugin-testing-library";
-import vitest from "eslint-plugin-vitest";
 
 export default [
   perfectionistNatural,
@@ -87,10 +87,10 @@ export default [
   {
     files: ["**/*.spec.{js,ts,jsx,tsx}"],
     plugins: {
-      vitest,
       "testing-library": fixupPluginRules({
         rules: testingLibrary.rules,
       }),
+      vitest,
     },
     rules: {
       ...vitest.configs.recommended.rules,
