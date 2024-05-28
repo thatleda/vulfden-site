@@ -99,3 +99,28 @@ it("should disable next page if no next page available", () => {
 
   expect(screen.getByLabelText("Next page")).toHaveAttribute("disabled");
 });
+
+it("should handle three pages", () => {
+  render(
+    <Pagination
+      currentPage={1}
+      hasNextPage={true}
+      hasPreviousPage={false}
+      totalPages={3}
+    />,
+  );
+
+  expect(screen.getByLabelText("Current page, page 1")).toHaveAttribute(
+    "aria-current",
+  );
+  expect(screen.getByLabelText("Page 2")).toHaveAttribute(
+    "href",
+    "/ramblings/2",
+  );
+  expect(screen.getByLabelText("Page 2")).not.toHaveAttribute("disabled");
+  expect(screen.getByLabelText("Page 3")).toHaveAttribute(
+    "href",
+    "/ramblings/3",
+  );
+  expect(screen.getByLabelText("Page 3")).not.toHaveAttribute("disabled");
+});

@@ -81,6 +81,7 @@ export default [
         "warn",
         { cases: { kebabCase: true, pascalCase: true }, ignore: ["^SEO"] },
       ],
+      "unicorn/no-abusive-eslint-disable": "off",
     },
   },
   prettier,
@@ -95,6 +96,7 @@ export default [
     rules: {
       ...vitest.configs.recommended.rules,
       ...testingLibrary.configs.react.rules,
+      "sonarjs/no-duplicate-string": ["warn", { threshold: 10 }],
     },
   },
 ];
