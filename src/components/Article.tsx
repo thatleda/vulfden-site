@@ -40,7 +40,7 @@ const Article: React.FC<ArticleProperties> = ({ article }) => {
     article._createdAt === null ? new Date() : new Date(article._createdAt);
 
   return (
-    <Link to={"/ramblings/" + article.slug?.current || "/"}>
+    <Link to={"/ramblings/" + article.slug?.current || ""}>
       <ArticleCard>
         {article.banner?.asset?.gatsbyImage != undefined && (
           <GatsbyImage

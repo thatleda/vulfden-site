@@ -1,6 +1,6 @@
 import React from "react";
 
-const Wolf: React.FC<SVGProps> = ({
+const Wolf: React.FC<SVGProperties> = ({
   fillColor = "var(--primary-color)",
   height = "50px",
   mirror,
@@ -8,14 +8,14 @@ const Wolf: React.FC<SVGProps> = ({
 }) => {
   return (
     <svg
-      height={height}
       preserveAspectRatio="xMidYMid meet"
+      style={{ height, width }}
       transform={mirror === undefined ? undefined : "scale(-1, 1)"}
       version="1.0"
       viewBox="0 0 598.000000 583.000000"
-      width={width}
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Howling wolf icon</title>
       <g
         fill={fillColor}
         stroke="none"

@@ -24,22 +24,26 @@ const Wrapper = styled.ul`
 `;
 
 const PageButton = styled(Link)<{ disabled: boolean; selected: boolean }>`
-  padding: 1rem;
+  padding: 0.75rem;
   color: var(--primary-color);
-  background-color: var(--tertiary-color);
+
+  &:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+
   ${(properties) =>
     properties.selected &&
     css`
       pointer-events: none;
       font-weight: 700;
-      background-color: var(--background-color);
+      color: var(--secondary-color);
     `}
 
   ${(properties) =>
     properties.disabled &&
     css`
       pointer-events: none;
-      background-color: var(--background-color);
     `}
 `;
 
@@ -57,7 +61,7 @@ const Pagination: React.FC<PaginationProperties> = ({
   return (
     <nav aria-label="Page navigation" role="navigation">
       <Wrapper>
-        <li>
+        <li key="previous">
           <PageButton
             aria-label="Previous page"
             disabled={!hasPreviousPage}
@@ -68,18 +72,35 @@ const Pagination: React.FC<PaginationProperties> = ({
             <ArrowBack />
           </PageButton>
         </li>
-        <li>
-          <PageButton
-            aria-current="page"
-            aria-label={`Current page, page ${currentPage}`}
-            disabled={false}
-            selected={true}
-            to={currentPage === 1 ? prefix : `${prefix}/${currentPage}`}
-          >
-            {currentPage}
-          </PageButton>
-        </li>
-        <li>
+        {[...Array.from({ length: totalPages }).keys()].map((page) => {
+          const pageNumber = page + 1;
+          return pageNumber === currentPage ? (
+            <li key={`page-${pageNumber}`}>
+              <PageButton
+                aria-current="page"
+                aria-label={`Current page, page ${currentPage}`}
+                disabled={false}
+                selected={true}
+                to={pageNumber === 1 ? prefix : `${prefix}/${pageNumber}`}
+              >
+                {pageNumber}
+              </PageButton>
+            </li>
+          ) : (
+            <li key={`page-${pageNumber}`}>
+              <PageButton
+                aria-label={`Page ${pageNumber}`}
+                disabled={false}
+                selected={false}
+                to={pageNumber === 1 ? prefix : `${prefix}/${pageNumber}`}
+              >
+                {pageNumber}
+              </PageButton>
+            </li>
+          );
+        })}
+
+        <li key="next">
           <PageButton
             aria-label="Next page"
             disabled={!hasNextPage}

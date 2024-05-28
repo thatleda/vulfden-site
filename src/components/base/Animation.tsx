@@ -22,7 +22,6 @@ export interface AnimationProperties {
   duration?: number;
   fillMode?: AnimationFillMode;
   iterationCount?: number;
-  onAnimationEnd?: () => void;
   timing?: AnimationTiming;
   type?: AnimationType;
 }
@@ -38,7 +37,6 @@ interface AnimationConfig {
   $keyframes: Keyframes;
   $style?: React.CSSProperties;
   $timing: AnimationTiming;
-  onAnimationEnd?: () => void;
 }
 
 const fadeIn = keyframes`
@@ -213,7 +211,6 @@ const Animation: React.FC<PropsWithChildren<AnimationProperties>> = (
       $keyframes={keyframesByType(properties.type)}
       $timing={properties.timing ?? "ease-in"}
       className={properties.className}
-      onAnimationEnd={properties.onAnimationEnd}
       ref={reference}
     >
       {properties.children}

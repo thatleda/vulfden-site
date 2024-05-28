@@ -1,19 +1,19 @@
 import React from "react";
 
-const Discord: React.FC<SVGProps> = ({
+const Discord: React.FC<SVGProperties> = ({
   fillColor = "var(--primary-color)",
   height = "1rem",
   width = "1rem",
 }) => {
   return (
     <svg
-      height={height}
       preserveAspectRatio="xMidYMid"
+      style={{ height, width }}
       version="1.1"
       viewBox="0 -28.5 256 256"
-      width={width}
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Discord icon</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
