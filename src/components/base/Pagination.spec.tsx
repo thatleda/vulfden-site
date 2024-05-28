@@ -28,12 +28,11 @@ it("should link to the correct pages from the last one", () => {
     />,
   );
 
-  expect(
-    screen.getByLabelText("Previous page").getAttribute("href"),
-  ).toStrictEqual("/ramblings");
-  expect(
-    screen.getByLabelText("Current page, page 2").getAttribute("href"),
-  ).toStrictEqual("/ramblings/2");
+  expect(screen.getByLabelText("Previous page")).toHaveAttribute(
+    "href",
+    "/ramblings",
+  );
+  expect(screen.getByText(/2/)).toHaveAttribute("href", "/ramblings/2");
 });
 
 it("should link to the correct pages from the first one", () => {
@@ -46,12 +45,15 @@ it("should link to the correct pages from the first one", () => {
     />,
   );
 
-  expect(screen.getByLabelText("Next page").getAttribute("href")).toStrictEqual(
+  expect(screen.getByLabelText("Next page")).toHaveAttribute(
+    "href",
     "/ramblings/2",
   );
-  expect(
-    screen.getByLabelText("Current page, page 1").getAttribute("href"),
-  ).toStrictEqual("/ramblings");
+
+  expect(screen.getByLabelText("Current page, page 1")).toHaveAttribute(
+    "href",
+    "/ramblings",
+  );
 });
 
 it("should show the current page as selected but not disabled", () => {
@@ -64,10 +66,10 @@ it("should show the current page as selected but not disabled", () => {
     />,
   );
 
-  const currentPageLink = screen.getByLabelText("Current page, page 2");
-
-  expect(currentPageLink.getAttribute("selected")).toBeDefined();
-  expect(currentPageLink.getAttribute("disabled")).toBeNull();
+  expect(screen.getByLabelText("Current page, page 2")).toHaveAttribute(
+    "aria-current",
+  );
+  expect(screen.getByLabelText("Current page, page 2")).not.toBeDisabled();
 });
 
 it("should disable previous page if no previous page available", () => {
@@ -80,9 +82,7 @@ it("should disable previous page if no previous page available", () => {
     />,
   );
 
-  expect(
-    screen.getByLabelText("Previous page").getAttribute("disabled"),
-  ).toBeDefined();
+  expect(screen.getByLabelText("Previous page")).toHaveAttribute("disabled");
 });
 
 it("should disable next page if no next page available", () => {
@@ -95,7 +95,5 @@ it("should disable next page if no next page available", () => {
     />,
   );
 
-  expect(
-    screen.getByLabelText("Next page").getAttribute("disabled"),
-  ).toBeDefined();
+  expect(screen.getByLabelText("Next page")).toHaveAttribute("disabled");
 });
