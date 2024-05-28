@@ -2,11 +2,11 @@ import React, { type PropsWithChildren } from "react";
 
 import styled from "styled-components";
 
-import Animation, { type AnimationProps } from "components/base/Animation";
+import Animation, { type AnimationProperties } from "components/base/Animation";
 
 interface SectionProperties {
   anchor?: string;
-  animationProps?: AnimationProps;
+  animationProps?: AnimationProperties;
   heading?: null | string;
 }
 
@@ -47,7 +47,7 @@ const Section: React.FC<PropsWithChildren<SectionProperties>> = ({
   heading,
 }) => {
   const hasHeading = heading !== undefined && heading !== null;
-  const animation: AnimationProps = {
+  const animation: AnimationProperties = {
     duration: 600,
     type: "fadeUp",
     ...animationProps,

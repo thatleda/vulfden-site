@@ -67,6 +67,7 @@ const Pagination: React.FC<PaginationProperties> = ({
   if (totalPages === 1) {
     return;
   }
+
   return (
     <Nav aria-label="Page navigation" role="navigation">
       <Wrapper>

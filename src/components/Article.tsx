@@ -46,7 +46,7 @@ const Article: React.FC<ArticleProperties> = ({ article }) => {
           <GatsbyImage
             alt={article.banner.asset.altText ?? "Banner image"}
             image={article.banner.asset.gatsbyImage}
-          ></GatsbyImage>
+          />
         )}
         <Description>
           <h3>{article.title}</h3>
