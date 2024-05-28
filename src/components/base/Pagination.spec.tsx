@@ -69,7 +69,9 @@ it("should show the current page as selected but not disabled", () => {
   expect(screen.getByLabelText("Current page, page 2")).toHaveAttribute(
     "aria-current",
   );
-  expect(screen.getByLabelText("Current page, page 2")).not.toBeDisabled();
+  expect(screen.getByLabelText("Current page, page 2")).not.toHaveAttribute(
+    "disabled",
+  );
 });
 
 it("should disable previous page if no previous page available", () => {
