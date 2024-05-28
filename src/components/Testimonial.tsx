@@ -61,7 +61,7 @@ const Testimonial: React.FC<TestimonialProperties> = (
             alt={properties.picture.asset.altText ?? properties.reviewer}
             image={properties.picture.asset.gatsbyImage}
             imgStyle={{ borderRadius: "var(--border-radius)" }}
-          ></GatsbyImage>
+          />
         )}
       <Text lang="en">
         <Comment>{properties.comment}</Comment>

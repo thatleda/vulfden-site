@@ -74,7 +74,12 @@ export default [
     rules: pluginJsxA11y.configs.recommended.rules,
   },
   sonarjs.configs.recommended,
-  eslintPluginUnicorn.configs["flat/recommended"],
+  {
+    ...eslintPluginUnicorn.configs["flat/recommended"],
+    rules: {
+      "sonarjs/no-duplicate-string": "off",
+    },
+  },
   {
     rules: {
       "unicorn/filename-case": [
@@ -96,7 +101,6 @@ export default [
     rules: {
       ...vitest.configs.recommended.rules,
       ...testingLibrary.configs.react.rules,
-      "sonarjs/no-duplicate-string": ["warn", { threshold: 10 }],
     },
   },
 ];

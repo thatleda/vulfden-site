@@ -87,10 +87,10 @@ const components: Partial<PortableTextReactComponents> = {
 };
 
 const PortableBlock: React.FC<PortableTextProps> = ({ value }) => {
-  if (value !== null) {
-    return <PortableText components={components} value={value} />;
+  if (value === null) {
+    return;
   }
-  return value;
+  return <PortableText components={components} value={value} />;
 };
 
 export default PortableBlock;

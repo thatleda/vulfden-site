@@ -1,10 +1,11 @@
-import path from "path";
-
+/* eslint-disable unicorn/prefer-module */
 import { type GatsbyNode } from "gatsby";
 
+import path from "node:path";
+
 export const createPages: GatsbyNode["createPages"] = async ({
-  graphql,
   actions,
+  graphql,
 }) => {
   const { createPage } = actions;
   const articlesPerPage = 5;
@@ -20,46 +21,48 @@ export const createPages: GatsbyNode["createPages"] = async ({
   `);
 
   const articleData = await graphql(`
-  query GetMeAllArticles {
-    allSanityArticle {
-      pageInfo {
-        pageCount
-      }
-      nodes {
-        id
-        slug {
-          current
+    query GetMeAllArticles {
+      allSanityArticle {
+        pageInfo {
+          pageCount
+        }
+        nodes {
+          id
+          slug {
+            current
+          }
         }
       }
     }
-  }
-`);
+  `);
 
   const numberOfArticlePages =
-    // @ts-expect-error well come on, I don't want to type this shit around here
+    // @ts-expect-error I have no type generation available here
     pageData.data.allSanityArticle.pageInfo.pageCount;
 
-  Array.from({ length: numberOfArticlePages }).forEach((_, index) => {
+  for (const [index] of Array.from({
+    length: numberOfArticlePages,
+  }).entries()) {
     createPage({
-      path: index === 0 ? `/ramblings` : `/ramblings/${index + 1}`,
       component: path.resolve(__dirname, `src/templates/ramblings.tsx`),
       context: {
         limit: articlesPerPage,
         skip: index * articlesPerPage,
       },
+      path: index === 0 ? `/ramblings` : `/ramblings/${index + 1}`,
     });
-  });
+  }
 
   // @ts-expect-error I can't be fucked, that's why
-  articleData.data.allSanityArticle.nodes.forEach((node) => {
+  for (const node of articleData.data.allSanityArticle.nodes) {
     const { id, slug } = node;
     const articlePath = `/ramblings/${slug.current}`;
     createPage({
-      path: articlePath,
       component: path.resolve(__dirname, `src/templates/article.tsx`),
-      context: { id, articlePath },
+      context: { articlePath, id },
+      path: articlePath,
     });
-  });
+  }
 };
 
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
@@ -67,7 +70,9 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 }) => {
   actions.setWebpackConfig({
     resolve: {
-      modules: [path.resolve(__dirname, "src"), "node_modules"],
+      alias: {
+        components: path.resolve(__dirname, "src/components"),
+      },
     },
   });
 };
