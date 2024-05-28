@@ -1,13 +1,14 @@
 import React from "react";
+
 import styled, { css } from "styled-components";
 
 type ButtonVariant = "primary" | "secondary";
 
-interface ButtonProps {
-  text: string;
-  icon?: React.ReactNode;
-  variant?: ButtonVariant;
+interface ButtonProperties {
   href?: string;
+  icon?: React.ReactNode;
+  text: string;
+  variant?: ButtonVariant;
 }
 
 const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
@@ -24,8 +25,8 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
   align-items: center;
   gap: 1rem;
 
-  ${(props) => {
-    if (props.$variant === "primary") {
+  ${(properties) => {
+    if (properties.$variant === "primary") {
       return css`
         background-color: var(--text-color);
         color: var(--background-color);
@@ -34,7 +35,7 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
       `;
     }
 
-    if (props.$variant === "secondary") {
+    if (properties.$variant === "secondary") {
       return css`
         color: var(--text-color);
         background-color: var(--box-shadow-color);
@@ -45,8 +46,8 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
   &:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    ${(props) => {
-      if (props.$variant === "primary") {
+    ${(properties) => {
+      if (properties.$variant === "primary") {
         return css`
           border-color: var(--box-shadow-hover-color);
           background-color: var(--background-color);
@@ -56,20 +57,20 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({
-  text,
-  icon,
-  variant = "secondary",
+const Button: React.FC<ButtonProperties> = ({
   href,
+  icon,
+  text,
+  variant = "secondary",
 }) => {
   const hasIcon = icon !== undefined;
   return (
     <ExternalLink
       $variant={variant}
       href={href}
-      target="_blank"
       rel="noopener noreferrer"
       role="button"
+      target="_blank"
     >
       {hasIcon && icon}
       {text}

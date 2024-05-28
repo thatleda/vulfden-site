@@ -1,41 +1,43 @@
 import React, { type PropsWithChildren } from "react";
+
 import styled, { css, keyframes } from "styled-components";
+
 import { useIntersectionObserver } from "usehooks-ts";
 
-type AnimationTiming = "linear" | "ease-in" | "ease-out" | "ease-in-out";
-type AnimationFillMode = "forwards" | "backwards" | "both" | "none";
+type AnimationTiming = "ease-in" | "ease-in-out" | "ease-out" | "linear";
+type AnimationFillMode = "backwards" | "both" | "forwards" | "none";
 type AnimationType =
+  | "fadeDown"
   | "fadeIn"
+  | "fadeLeft"
   | "fadeOut"
   | "fadeUp"
-  | "fadeDown"
-  | "fadeLeft"
-  | "scaleIn"
   | "reduceHeight"
+  | "scaleIn"
   | "wiggle";
 
-export interface AnimationProps {
-  type?: AnimationType;
-  timing?: AnimationTiming;
-  fillMode?: AnimationFillMode;
+export interface AnimationProperties {
+  className?: string;
   delay?: number;
   duration?: number;
+  fillMode?: AnimationFillMode;
   iterationCount?: number;
-  className?: string;
   onAnimationEnd?: () => void;
+  timing?: AnimationTiming;
+  type?: AnimationType;
 }
 
 type Keyframes = ReturnType<typeof keyframes>;
 
 interface AnimationConfig {
+  $count: string;
+  $delay: string;
+  $duration: string;
+  $fillMode: AnimationFillMode;
   $isVisible: boolean;
   $keyframes: Keyframes;
-  $timing: AnimationTiming;
-  $duration: string;
-  $delay: string;
-  $count: string;
-  $fillMode: AnimationFillMode;
   $style?: React.CSSProperties;
+  $timing: AnimationTiming;
   onAnimationEnd?: () => void;
 }
 
@@ -139,73 +141,82 @@ const wiggle = keyframes`
 
 const keyframesByType = (type: string | undefined): Keyframes => {
   switch (type) {
-    case "fadeIn":
+    case "fadeIn": {
       return fadeIn;
-    case "fadeOut":
+    }
+    case "fadeOut": {
       return fadeOut;
-    case "fadeUp":
+    }
+    case "fadeUp": {
       return fadeUp;
-    case "fadeDown":
+    }
+    case "fadeDown": {
       return fadeDown;
-    case "fadeLeft":
+    }
+    case "fadeLeft": {
       return fadeLeft;
-    case "scaleIn":
+    }
+    case "scaleIn": {
       return scaleIn;
-    case "reduceHeight":
+    }
+    case "reduceHeight": {
       return reduceHeight;
-    case "wiggle":
+    }
+    case "wiggle": {
       return wiggle;
-    default:
+    }
+    default: {
       return fadeIn;
+    }
   }
 };
 
 const MovingContainer = styled.div<AnimationConfig>(
   ({
-    $isVisible,
     $count,
+    $delay,
+    $duration,
+    $fillMode,
+    $isVisible,
     $keyframes,
     $timing,
-    $duration,
-    $delay,
-    $fillMode,
   }) => {
-    if ($isVisible) {
-      return css`
-        animation-name: ${$keyframes};
-        animation-timing-function: ${$timing};
-        animation-duration: ${$duration};
-        animation-delay: ${$delay};
-        animation-iteration-count: ${$count};
-        animation-fill-mode: ${$fillMode};
-      `;
-    } else {
-      return css`
-        opacity: 0;
-      `;
-    }
-  }
+    return $isVisible
+      ? css`
+          animation-name: ${$keyframes};
+          animation-timing-function: ${$timing};
+          animation-duration: ${$duration};
+          animation-delay: ${$delay};
+          animation-iteration-count: ${$count};
+          animation-fill-mode: ${$fillMode};
+        `
+      : css`
+          opacity: 0;
+        `;
+  },
 );
 
-const Animation: React.FC<PropsWithChildren<AnimationProps>> = (props) => {
-  const [ref, isIntersecting] = useIntersectionObserver({
+const Animation: React.FC<PropsWithChildren<AnimationProperties>> = (
+  properties,
+) => {
+  const [reference, isIntersecting] = useIntersectionObserver({
     threshold: 0.05,
   });
 
   return (
     <MovingContainer
-      className={props.className}
-      ref={ref}
-      onAnimationEnd={props.onAnimationEnd}
+      $count={`${properties.iterationCount ?? 1}`}
+      $delay={`${properties.delay ?? 0}ms`}
+      $duration={`${properties.duration ?? 200}ms`}
+      $fillMode={properties.fillMode ?? "backwards"}
       $isVisible={isIntersecting ?? false}
-      $keyframes={keyframesByType(props.type)}
-      $timing={props.timing ?? "ease-in"}
-      $duration={`${props.duration ?? 200}ms`}
-      $delay={`${props.delay ?? 0}ms`}
-      $count={`${props.iterationCount ?? 1}`}
-      $fillMode={props.fillMode ?? "backwards"}
+      $keyframes={keyframesByType(properties.type)}
+      $timing={properties.timing ?? "ease-in"}
+      className={properties.className}
+      onAnimationEnd={properties.onAnimationEnd}
+      ref={reference}
     >
-      {props.children}
+      {properties.children}
     </MovingContainer>
   );
 };

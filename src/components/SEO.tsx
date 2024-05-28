@@ -1,31 +1,35 @@
 import React from "react";
+
 import { useMediaQuery } from "usehooks-ts";
 
-interface SEOProps {
-  title: string;
+interface SEOProperties {
   description: string;
   location: string;
+  title: string;
 }
 
-const SEO: React.FC<SEOProps> = (props: SEOProps) => {
-  const { title, description } = props;
+const SEO: React.FC<SEOProperties> = (properties: SEOProperties) => {
+  const { description, title } = properties;
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   return (
     <>
       <title>{title}</title>
       <html lang="en" />
-      <meta name="description" content={description}></meta>
-      <meta name="image" content="https://leda.fyi/wolf.png" />
-      <meta name="theme-color" content={prefersDarkMode ? "dark" : "light"} />
-      <meta property="og:title" content="The website of Leda Wolf" />
-      <meta property="og:site_name" content="Vulfden" />
-      <meta property="og:url" content={`https://leda.fyi${props.location}`} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content="website" />
-      <meta property="twitter:card" content="summary" />
-      <meta property="twitter:creator" content="thatleda" />
-      <meta property="twitter:title" content={title} />
-      <meta property="twitter:description" content={description} />
+      <meta content={description} name="description"></meta>
+      <meta content="https://leda.fyi/wolf.png" name="image" />
+      <meta content={prefersDarkMode ? "dark" : "light"} name="theme-color" />
+      <meta content="The website of Leda Wolf" property="og:title" />
+      <meta content="Vulfden" property="og:site_name" />
+      <meta
+        content={`https://leda.fyi${properties.location}`}
+        property="og:url"
+      />
+      <meta content={description} property="og:description" />
+      <meta content="website" property="og:type" />
+      <meta content="summary" property="twitter:card" />
+      <meta content="thatleda" property="twitter:creator" />
+      <meta content={title} property="twitter:title" />
+      <meta content={description} property="twitter:description" />
     </>
   );
 };

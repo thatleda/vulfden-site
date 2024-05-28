@@ -1,12 +1,13 @@
 import React, { type PropsWithChildren } from "react";
+
 import styled from "styled-components";
 
 import Animation, { type AnimationProps } from "components/base/Animation";
 
-interface SectionProps {
+interface SectionProperties {
   anchor?: string;
-  heading?: string | null;
   animationProps?: AnimationProps;
+  heading?: null | string;
 }
 
 const AnimatedSection = styled.section`
@@ -39,16 +40,16 @@ const Heading = styled.h2`
   line-height: 2.25rem;
 `;
 
-const Section: React.FC<PropsWithChildren<SectionProps>> = ({
+const Section: React.FC<PropsWithChildren<SectionProperties>> = ({
   anchor,
-  heading,
   animationProps,
   children,
+  heading,
 }) => {
   const hasHeading = heading !== undefined && heading !== null;
   const animation: AnimationProps = {
-    type: "fadeUp",
     duration: 600,
+    type: "fadeUp",
     ...animationProps,
   };
   return (

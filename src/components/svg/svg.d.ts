@@ -1,9 +1,9 @@
-interface SVGProps {
-  width?: string;
+interface SVGProperties {
+  fillColor?: string;
   height?: string;
   lineColor?: string;
-  fillColor?: string;
   mirror?: boolean;
+  width?: string;
 }
 
-type SVGName = "Discord" | "LinkedIn" | "GitHub" | "Mail";
+type SVGName = "Discord" | "GitHub" | "LinkedIn" | "Mail";

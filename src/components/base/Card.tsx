@@ -1,9 +1,10 @@
 import React, { type PropsWithChildren } from "react";
+
 import styled from "styled-components";
 
 import Animation from "./Animation";
 
-interface CardProps {
+interface CardProperties {
   actionButtons?: React.ReactNode;
 }
 
@@ -23,14 +24,16 @@ const ActionButtons = styled(Animation)`
   gap: 1rem;
 `;
 
-const Card: React.FC<PropsWithChildren<CardProps>> = ({
-  children,
+const Card: React.FC<PropsWithChildren<CardProperties>> = ({
   actionButtons,
+  children,
 }) => {
   return (
     <CardWrapper>
       {children}
-      <ActionButtons duration={600} type="fadeLeft">{actionButtons}</ActionButtons>
+      <ActionButtons duration={600} type="fadeLeft">
+        {actionButtons}
+      </ActionButtons>
     </CardWrapper>
   );
 };

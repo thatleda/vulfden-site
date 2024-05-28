@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "styled-components";
 
 import {
@@ -8,8 +9,9 @@ import {
   type PortableTextTypeComponent,
   type PortableTextTypeComponentProps,
 } from "@portabletext/react";
-import { type SanityImageSource } from "@sanity/asset-utils";
 import urlBuilder from "@sanity/image-url";
+
+import type { SanityImageSource } from "@sanity/asset-utils";
 
 const Blockquote = styled.q`
   quotes: auto;
@@ -40,12 +42,12 @@ const CenterAligned = styled.pre`
 const ImageComponent: PortableTextTypeComponent = ({
   value,
 }: PortableTextTypeComponentProps<{
-  asset: SanityImageSource;
   alt: string;
+  asset: SanityImageSource;
 }>) => {
-  const imageSrc = urlBuilder({
-    projectId: process.env.GATSBY_SANITY_PROJECT_ID ?? "",
+  const imageSource = urlBuilder({
     dataset: process.env.GATSBY_SANITY_DATASET ?? "",
+    projectId: process.env.GATSBY_SANITY_PROJECT_ID ?? "",
   })
     .image(value.asset)
     .fit("fillmax")
@@ -55,25 +57,22 @@ const ImageComponent: PortableTextTypeComponent = ({
   return (
     <RespectfulSpace>
       <ObedientImage
-        src={imageSrc}
-        loading="lazy"
         alt={value.alt}
+        loading="lazy"
+        src={imageSource}
       ></ObedientImage>
     </RespectfulSpace>
   );
 };
 
 const components: Partial<PortableTextReactComponents> = {
-  types: {
-    image: ImageComponent,
-  },
   block: {
-    pre: ({ children }) => <CenterAligned>{children}</CenterAligned>,
     blockquote: ({ children }) => (
       <RespectfulSpace>
         <Blockquote lang="en">{children}</Blockquote>
       </RespectfulSpace>
     ),
+    pre: ({ children }) => <CenterAligned>{children}</CenterAligned>,
     sub: ({ children }) => {
       return (
         <RightAligned>
@@ -82,11 +81,14 @@ const components: Partial<PortableTextReactComponents> = {
       );
     },
   },
+  types: {
+    image: ImageComponent,
+  },
 };
 
 const PortableBlock: React.FC<PortableTextProps> = ({ value }) => {
   if (value !== null) {
-    return <PortableText value={value} components={components} />;
+    return <PortableText components={components} value={value} />;
   }
   return value;
 };

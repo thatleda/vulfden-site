@@ -1,12 +1,14 @@
-import { graphql, type HeadFC, type HeadProps, type PageProps } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
+
+import { type HeadFC, type HeadProps, type PageProps, graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+
 import styled from "styled-components";
 
-import Section from "components/base/Section";
 import Layout from "components/Layout";
 import PortableBlock from "components/PortableBlock";
 import SEO from "components/SEO";
+import Section from "components/base/Section";
 
 import type { PortableTextBlock } from "@portabletext/types";
 
@@ -43,8 +45,8 @@ const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
           <h1>{article.title}</h1>
           {bannerImage !== null && bannerImage !== undefined && (
             <Banner
-              image={bannerImage}
               alt={article.banner?.asset?.altText ?? "Banner image"}
+              image={bannerImage}
             />
           )}
           <PortableBlock
@@ -59,16 +61,16 @@ const ArticlePage: React.FC<PageProps<Queries.ArticleQuery>> = ({ data }) => {
 export default ArticlePage;
 
 interface ArticlePageContext {
-  id: string;
   articlePath: string;
+  id: string;
 }
 
 export const Head: HeadFC<Queries.ArticleQuery, ArticlePageContext> = (
-  props: HeadProps<Queries.ArticleQuery, ArticlePageContext>
+  properties: HeadProps<Queries.ArticleQuery, ArticlePageContext>,
 ) => (
   <SEO
-    title={props.data.sanityArticle?.title ?? "Article"}
-    description={props.data.sanityArticle?.excerpt ?? ""}
-    location={props.pageContext.articlePath}
+    description={properties.data.sanityArticle?.excerpt ?? ""}
+    location={properties.pageContext.articlePath}
+    title={properties.data.sanityArticle?.title ?? "Article"}
   />
 );

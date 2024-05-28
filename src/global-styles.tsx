@@ -1,36 +1,36 @@
 import { createGlobalStyle } from "styled-components";
 
 const theme = {
-  light: {
-    primaryColor: "#000000",
-    secondaryColor: "#a7f8b1",
-    tertiaryColor: "#f2f2f2",
-    textColor: "#000000",
-    subtextColor: "#555555",
-    backgroundColor: "#d2d2d2",
-    cardBackgroundColor: "#dddddd",
-    scrollbarColor: "rgba(0, 0, 0, 0.5)",
-    boxShadowColor: "#dddddd",
-    boxShadowHoverColor: "rgba(0, 0, 0, 0.32)",
-    baseFont: "'Fira Sans', sans-serif",
-  },
-
   dark: {
-    primaryColor: "#fafafa",
-    secondaryColor: "#055b01",
-    tertiaryColor: "#252525",
-    textColor: "rgba(255, 255, 255, 0.607)",
-    subtextColor: "#aaaaaaa4",
     backgroundColor: "#121212",
-    cardBackgroundColor: "#202020",
-    scrollbarColor: "rgba(255, 255, 255, 0.5)",
+    baseFont: "'Fira Sans', sans-serif",
     boxShadowColor: "rgba(0, 0, 0, 0.16)",
     boxShadowHoverColor: "rgba(0, 0, 0, 0.32)",
+    cardBackgroundColor: "#202020",
+    primaryColor: "#fafafa",
+    scrollbarColor: "rgba(255, 255, 255, 0.5)",
+    secondaryColor: "#055b01",
+    subtextColor: "#aaaaaaa4",
+    tertiaryColor: "#252525",
+    textColor: "rgba(255, 255, 255, 0.607)",
+  },
+
+  light: {
+    backgroundColor: "#d2d2d2",
     baseFont: "'Fira Sans', sans-serif",
+    boxShadowColor: "#dddddd",
+    boxShadowHoverColor: "rgba(0, 0, 0, 0.32)",
+    cardBackgroundColor: "#dddddd",
+    primaryColor: "#000000",
+    scrollbarColor: "rgba(0, 0, 0, 0.5)",
+    secondaryColor: "#a7f8b1",
+    subtextColor: "#555555",
+    tertiaryColor: "#f2f2f2",
+    textColor: "#000000",
   },
 };
 
-const GlobalStyle = createGlobalStyle<{ colorMode: "light" | "dark" }>`
+const GlobalStyle = createGlobalStyle<{ colorMode: "dark" | "light" }>`
 html {
     scroll-behavior: smooth;
 }
@@ -47,19 +47,19 @@ body {
     --page-padding: 0 1rem;
     --header-height: 6.25rem;
     --footer-height: 7.5rem;
-    --primary-color: ${(props) => theme[props.colorMode].primaryColor};
-    --secondary-color: ${(props) => theme[props.colorMode].secondaryColor};
-    --tertiary-color: ${(props) => theme[props.colorMode].tertiaryColor};
-    --text-color: ${(props) => theme[props.colorMode].textColor};
-    --subtext-color: ${(props) => theme[props.colorMode].subtextColor};
-    --background-color: ${(props) => theme[props.colorMode].backgroundColor};
-    --card-background-color: ${(props) =>
-      theme[props.colorMode].cardBackgroundColor};
-    --scroll-bar-color: ${(props) => theme[props.colorMode].scrollbarColor};
-    --box-shadow-color: ${(props) => theme[props.colorMode].boxShadowColor};
-    --box-shadow-hover-color: ${(props) =>
-      theme[props.colorMode].boxShadowHoverColor};
-    --base-font: ${(props) => theme[props.colorMode].baseFont};
+    --primary-color: ${(properties) => theme[properties.colorMode].primaryColor};
+    --secondary-color: ${(properties) => theme[properties.colorMode].secondaryColor};
+    --tertiary-color: ${(properties) => theme[properties.colorMode].tertiaryColor};
+    --text-color: ${(properties) => theme[properties.colorMode].textColor};
+    --subtext-color: ${(properties) => theme[properties.colorMode].subtextColor};
+    --background-color: ${(properties) => theme[properties.colorMode].backgroundColor};
+    --card-background-color: ${(properties) =>
+      theme[properties.colorMode].cardBackgroundColor};
+    --scroll-bar-color: ${(properties) => theme[properties.colorMode].scrollbarColor};
+    --box-shadow-color: ${(properties) => theme[properties.colorMode].boxShadowColor};
+    --box-shadow-hover-color: ${(properties) =>
+      theme[properties.colorMode].boxShadowHoverColor};
+    --base-font: ${(properties) => theme[properties.colorMode].baseFont};
 
     height: 100%;
     background-color: var(--background-color);
