@@ -13,6 +13,7 @@ import type { PortableTextBlock } from "@portabletext/types";
 const AboutCard = styled.div`
   display: flex;
   flex-direction: row;
+  gap: 2rem;
 
   @media (max-width: 749px) {
     flex-direction: column;
@@ -25,8 +26,6 @@ const Photo = styled(GatsbyImage)`
 `;
 
 const Text = styled.div`
-  padding: 2rem;
-
   @media (max-width: 749px) {
     padding: 0;
   }
