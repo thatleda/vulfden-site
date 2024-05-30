@@ -8,6 +8,7 @@ import HeroBanner from "components/HeroBanner";
 import Layout from "components/Layout";
 import Playlist from "components/Playlist";
 import PortableBlock from "components/PortableBlock";
+import Reading from "components/Reading";
 import SEO from "components/SEO";
 import Testimonial from "components/Testimonial";
 import Section from "components/base/Section";
@@ -37,12 +38,33 @@ export const query = graphql`
         reviewer
       }
     }
+    allSanityBook(limit: 1, sort: { _createdAt: DESC }) {
+      nodes {
+        cover {
+          asset {
+            gatsbyImage(
+              width: 200
+              fit: COVER
+              placeholder: BLURRED
+              quality: 100
+            )
+            altText
+          }
+        }
+        title
+        author
+        url
+        number
+        _rawNotes
+      }
+    }
   }
 `;
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
   const bioFromSanity = data.sanityPage;
   const testimonialsFromSanity = data.allSanityReview.nodes ?? [];
+  const book = data.allSanityBook.nodes[0];
 
   return (
     <Layout>
@@ -67,6 +89,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         ))}
       </Section>
       <Section anchor="contact" heading="What is she up to?">
+        <Reading book={book} />
         <Contact />
       </Section>
     </Layout>
