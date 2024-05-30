@@ -15,7 +15,7 @@ const AnimatedSection = styled.section`
   background: var(--background-color);
   scroll-margin-top: 60px;
   padding: var(--page-padding);
-  margin: 0 auto 8rem auto;
+  margin: 0 auto 4rem auto;
 
   @media (max-width: 749px) {
     margin: 0 auto 2rem auto;
@@ -26,7 +26,7 @@ const AnimatedSection = styled.section`
 const ContentWrapper = styled.div`
   height: 100%;
   max-width: var(--page-width);
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 0 auto;
   padding: var(--page-padding);
 
   @media (max-width: 749px) {
