@@ -7,7 +7,7 @@ type ButtonVariant = "primary" | "secondary";
 interface ButtonProperties {
   href?: string;
   icon?: React.ReactNode;
-  text: string;
+  text?: string;
   variant?: ButtonVariant;
 }
 
