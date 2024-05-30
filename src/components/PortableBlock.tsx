@@ -13,6 +13,10 @@ import urlBuilder from "@sanity/image-url";
 
 import type { SanityImageSource } from "@sanity/asset-utils";
 
+const Wrapper = styled.div`
+  text-align: justify;
+`;
+
 const Blockquote = styled.q`
   quotes: auto;
   font-style: italic;
@@ -90,7 +94,11 @@ const PortableBlock: React.FC<PortableTextProps> = ({ value }) => {
   if (value === null) {
     return;
   }
-  return <PortableText components={components} value={value} />;
+  return (
+    <Wrapper>
+      <PortableText components={components} value={value} />
+    </Wrapper>
+  );
 };
 
 export default PortableBlock;
