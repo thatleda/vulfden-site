@@ -93,7 +93,8 @@ const Reading: React.FC<ReadingProperties> = ({ book }) => {
           )}
           {book.url && (
             <Links>
-              Find it on <Button href={book.url} icon={<Amazon />} />
+              Find it on{" "}
+              <Button href={book.url} icon={<Amazon />} text="Amazon" />
             </Links>
           )}
         </Description>
