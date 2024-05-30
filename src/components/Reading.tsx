@@ -17,15 +17,20 @@ interface ReadingProperties {
 const ReadingCard = styled.div`
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
   gap: 1rem;
+  max-width: 1000px;
 
-  @media (max-width: 379px) {
+  @media (max-width: 465px) {
     flex-direction: column;
   }
 `;
 
 const Cover = styled(GatsbyImage)`
-  @media (max-width: 379px) {
+  min-width: 180px;
+  @media (max-width: 465px) {
+    width: 260px;
+    margin: 0 auto;
     min-height: 450px;
   }
 `;
@@ -36,17 +41,23 @@ const Description = styled.div`
   width: 100%;
   text-align: right;
   gap: 1rem;
+  @media (max-width: 465px) {
+    text-align: left;
+  }
 `;
 
 const Progress = styled.div`
   display: flex;
   flex-direction: column;
   align-items: end;
+  @media (max-width: 465px) {
+    align-items: start;
+  }
 `;
 
 const ProgressBar = styled.progress`
   width: 80%;
-  @media (max-width: 379px) {
+  @media (max-width: 465px) {
     width: 100%;
   }
 `;
