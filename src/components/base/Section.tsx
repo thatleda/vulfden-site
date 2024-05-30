@@ -40,6 +40,12 @@ const Heading = styled.h2`
   line-height: 2.25rem;
 `;
 
+const Cards = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
 const Section: React.FC<PropsWithChildren<SectionProperties>> = ({
   anchor,
   animationProps,
@@ -57,7 +63,7 @@ const Section: React.FC<PropsWithChildren<SectionProperties>> = ({
       <AnimatedSection id={anchor}>
         <ContentWrapper>
           {hasHeading && <Heading>{heading}</Heading>}
-          <div>{children}</div>
+          <Cards>{children}</Cards>
         </ContentWrapper>
       </AnimatedSection>
     </Animation>
