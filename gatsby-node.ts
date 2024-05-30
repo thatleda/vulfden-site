@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-module */
 import { type GatsbyNode } from "gatsby";
 
 import path from "node:path";
