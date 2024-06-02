@@ -1,7 +1,7 @@
 import React from "react";
 
 const Discord: React.FC<SVGProperties> = ({
-  fillColor = "var(--primary-color)",
+  fillColor = "var(--text-color)",
   height = "1rem",
   width = "1rem",
 }) => {
