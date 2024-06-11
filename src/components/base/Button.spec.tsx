@@ -11,7 +11,7 @@ it("should render external link as a button", () => {
 
   expect(screen.getByRole("button")).toHaveAttribute("href", "google.com");
   expect(screen.getByRole("button")).toHaveAttribute(
-    "ref",
+    "rel",
     "noopener noreferrer",
   );
   expect(screen.getByRole("button")).toHaveAttribute("target", "_blank");

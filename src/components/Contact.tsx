@@ -58,7 +58,7 @@ const Contact: React.FC = () => {
     >
       <p>{callToReachOut}</p>
       <Profile>
-        <Mail fillColor="var(--primary-color)" height="5rem" width="5rem" />
+        <Mail height="5rem" width="5rem" />
         <ContactData>
           <Name>
             <u>Leda Wolf</u>
