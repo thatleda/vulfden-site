@@ -6,19 +6,27 @@ import { expect, it } from "vitest";
 import Button from "components/base/Button";
 import GitHub from "components/svg/GitHub";
 
-it("should render button as a link", () => {
-  render(<Button href="#anchor" text="Click me" />);
+it("should render external link as a button", () => {
+  render(<Button href="google.com" text="Click me" />);
 
-  const button = screen.getByRole("button");
-  expect(button.getAttribute("href")).toStrictEqual("#anchor");
-  expect(button.getAttribute("rel")).toStrictEqual("noopener noreferrer");
-  expect(button.getAttribute("target")).toStrictEqual("_blank");
+  expect(screen.getByRole("button")).toHaveAttribute("href", "google.com");
+  expect(screen.getByRole("button")).toHaveAttribute(
+    "ref",
+    "noopener noreferrer",
+  );
+  expect(screen.getByRole("button")).toHaveAttribute("target", "_blank");
   expect(screen.getByText("Click me")).toBeDefined();
 });
 
 it("should pass an svg", () => {
-  render(<Button href="#anchor" icon={<GitHub />} text="GitHub" />);
+  render(<Button href="https://github.com" icon={<GitHub />} text="GitHub" />);
 
   expect(screen.getByText("GitHub")).toBeDefined();
   expect(screen.getByTitle("GitHub icon")).toBeDefined();
+});
+
+it("should have an accessible name", () => {
+  render(<Button href="/" text="Home" />);
+
+  expect(screen.getByRole("button")).toHaveAccessibleName("Home");
 });
