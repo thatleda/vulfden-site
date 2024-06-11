@@ -46,6 +46,10 @@ const ExternalLink = styled.a<{ $variant: ButtonVariant }>`
   &:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color);
+    svg {
+      fill: var(--primary-color);
+    }
+
     ${(properties) => {
       if (properties.$variant === "primary") {
         return css`

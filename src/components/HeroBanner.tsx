@@ -64,6 +64,10 @@ const Purpose = styled.h2`
   @media (max-width: 749px) {
     display: none;
   }
+
+  &:hover {
+    color: var(--primary-color);
+  }
 `;
 
 const ActionButtons = styled(Animation)`
