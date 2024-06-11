@@ -77,6 +77,10 @@ body {
         font-size: 16px;
     }
 
+    svg {
+        fill: var(--text-color);
+    }
+
     a {
         display: inline-block;
         text-decoration: none;

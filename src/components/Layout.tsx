@@ -49,6 +49,10 @@ const AnimatedLinks = styled(Animation)`
   @media (max-width: 1030px) {
     padding-left: 0;
   }
+
+  svg:hover {
+    fill: var(--primary-color);
+  }
 `;
 
 const Footer = styled.footer`
@@ -229,12 +233,7 @@ const Layout: React.FC<PropsWithChildren<LayoutProperties>> = ({
           <LinkWrapper>
             <a aria-current="page" aria-label="home" href="/#who">
               {smallScreen ? (
-                <Wolf
-                  fillColor="var(--primary-color)"
-                  height="5rem"
-                  mirror
-                  width="5rem"
-                />
+                <Wolf height="5rem" mirror width="5rem" />
               ) : (
                 <Logo>Leda Wolf</Logo>
               )}
