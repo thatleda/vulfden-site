@@ -1,13 +1,11 @@
 import React from "react";
 
 const GitHub: React.FC<SVGProperties> = ({
-  fillColor = "var(--text-color)",
   height = "1rem",
   width = "1rem",
 }) => {
   return (
     <svg
-      fill={fillColor}
       style={{ height, width }}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
